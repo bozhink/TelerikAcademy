@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+	Problem 1. Registration form
+	Create a Web form that looks like this sample
+ -->
+	<head>
+		<title>Registration form</title>
+		<meta charset="UTF-8"/>
+		<style type="text/css">
+			table {
+				border-collapse: collapse;
+			}
+			table tr td:first-child {
+				font-weight: bold;
+				text-align: center;
+			}
+			#phone {
+				width: 50px;
+			}
+			#phone1 {
+				width: 50px;
+			}
+			#phone2 {
+				witdth: 150px;
+			}
+			tfoot tr td{
+				background-color: #a5d8e4;
+				text-align: center;
+			}
+			#state {
+				width: 3em;
+			}
+		</style>
+	</head>
+	<body>
+		<form method="post" >
+			<table border="1px">
+				<colgroup>
+					<col width="200px" />
+					<col width="320px" />
+				</colgroup>
+				<tfoot>
+					<tr>
+						<td colspan="2">
+							<input type="submit" value="Submit"/>
+							<input type="reset" value="Clean This Form"/>
+						</td>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr>
+						<td><label for="last-name">Last Name</label></td>
+						<td><input type="text" id="last-name" name="lastName"/></td>
+					</tr>
+					<tr>
+						<td><label for="first-name">First Name</label></td>
+						<td><input type="text" id="first-name" name="firstName"/></td>
+					</tr>
+					<tr>
+						<td><label for="address">Address</label></td>
+						<td><textarea id="address" name="addressText"></textarea></td>
+					</tr>
+					<tr>
+						<td><label for="city">City</label></td>
+						<td>
+							<input type="text" id="city" name="cityText"/>
+							<label for="state">State</label>
+							<input type="text" id="state" name="stateText" maxlength="3" />
+						</td>
+					</tr>
+					<tr>
+						<td><label for="zip-code">Zip/Postal Code</label></td>
+						<td><input type="text" id="zip-code" name="zipCode"/></td>
+					</tr>
+					<tr>
+						<td><label for="country">Country</label></td>
+						<td>
+							<select id="country" name="countrySelect">
+								<option value="br">Brazil</option>
+								<option value="bg" selected="selected">Bulgaria</option>
+								<option value="us">United States of America</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td><label for="phone">Phone (country code, area code, number)</label></td>
+						<td>(+<input type="tel" id="phone" name="counrtyCode" pattern="\d+"/>)
+							<input type="tel" id="phone1" name="areaCode" pattern="\d+"/>
+							<input type="tel" id="phone2" name="phoneNumber" pattern="\d+"/>
+						</td>
+					</tr>
+					<tr>
+						<td><label for="email">Email</label></td>
+						<td><input type="email" id="email" name="emailText" required="required" pattern="[^\s\\\/,;@]+@[^\s\\\/,;@]+\.[^\s\\\/,;@]+"/></td>
+					</tr>
+					<tr>
+						<td><label for="birth">Birth date</label></td>
+						<!-- <td><input type="text" id="birth" name="birthText" placeholder="dd.mm.yyyy" pattern="\d\d.\d\d.\d\d\d\d" /></td> -->
+						<td><input type="date" id="birth" name="birthText"/></td>
+					</tr>
+					<tr>
+						<td><label for="gender">Gender</label></td>
+						<td>
+							<select id="gender" name="genderSelect">
+								<option value="m" selected="selected">Male</option>
+								<option value="f">Female</option>
+								<option value="o">Other</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td><label>Starting Date</label></td>
+						<td>
+							<input type="radio" name="starting-date" id="radio-1" value="1" />
+							<label for="radio-1">Spring 2015</label>
+							<input type="radio" name="starting-date" id="radio-2" value="2" />
+							<label for="radio-2">Summer 2015</label>
+						</td>
+					</tr>
+					<tr>
+						<td><label for="comments">Comments/Questions</label></td>
+						<td><textarea id="comments" name="commentsText"></textarea></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</body>
+</html>

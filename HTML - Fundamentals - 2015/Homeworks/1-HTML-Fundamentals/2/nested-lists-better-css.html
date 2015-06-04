@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Nested lists</title>
+        <meta charset="UTF-8">
+        <style>
+            .roman-big {
+                list-style-type: upper-roman;
+            }
+            .latin-small {
+                list-style-type: lower-alpha;
+            }
+            .numeric {
+                list-style-type: decimal;
+            }
+            .circle {
+                list-style-type: circle;
+            }
+            .square {
+                list-style-type: square;
+            }
+            .disk {
+                list-style-type: disc;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Preceding Text</p>
+        <ol class="roman-big">
+            <li>
+                List Item 1
+                <ol class="latin-small">
+                    <li>Nested Item 1.1</li>
+                    <li>Nested Item 1.2</li>
+                </ol>
+            </li>
+            <li>
+                List Item 2
+                <ol class="numeric">
+                    <li>Nested Item 2.1</li>
+                    <li>
+                        Nested Item 2.2
+                        <ul class="circle">
+                            <li>Nested Item 2.2.1</li>
+                            <li>
+                                Nested Item 2.2.2
+                                <ul class="square">
+                                    <li>Nested Item 2.2.2.1</li>
+                                    <li>Nested Item 2.2.2.2</li>
+                                </ul>
+                            </li>
+                            <li>Nested Item 2.2.3</li>
+                        </ul>
+                    </li>
+                    <li>Nested Item 2.3</li>
+                </ol>
+            </li>
+            <li>
+                List Item 3
+                <ul class="disk">
+                    <li>Nested Item 3.1</li>
+                    <li>Nested Item 3.1</li><!-- Probably 3.2? -->
+                    <li>Nested Item 3.1</li><!-- Probably 3.3? -->
+                </ul>
+            </li>
+        </ol>
+    </body>
+</html>
