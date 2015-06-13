@@ -8,7 +8,7 @@ Example: HTML:
 
 <div data-type="template" id="list-item">
  <strong>-{name}-</strong> <span>-{age}-</span>
-/div>
+</div>
 JavaScript:
 
 var people = [{name: 'Peter', age: 14},…];
@@ -17,5 +17,39 @@ var peopleList = generateList(people, template);
 //peopleList = '<ul><li><strong>Peter</strong> <span>14</span></li><li>…</li>…</ul>'
  */
 
+// https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions
+function escapeRegExp(string){
+	return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
 
+function generateList(people, template) {
+	var i, len, prop, re, result, li;
+	template = String(template);
 
+	if (people != null) {
+		result = '<ul>';
+		for (i = 0, len = people.length; i < len; i += 1) {
+			result += '<li>';
+
+			li = template;
+			for (prop in people[i]) {
+				re = new RegExp(escapeRegExp('-{' + prop + '}-'), 'g');
+				li = li.replace(re, people[i][prop]);
+			}
+
+			result += li + '</li>';
+		}
+		result += '</ul>';
+	}
+
+	return result;
+}
+
+var people = [{name: 'Peter', age: 14}, {name: 'Peter', age: 15}, {name: 'Peter', age: 16}];
+var template = document.getElementById('list-item').innerHTML;
+var peopleList = generateList(people, template);
+
+console.log(template);
+console.log(peopleList);
+
+document.getElementById('list-item').innerHTML = peopleList;

@@ -12,6 +12,7 @@ var str = stringFormat(frmt, 1, 'Pesho', 'Gosho');
 //str = '1, Pesho, 1 text Gosho'
  */
 
+// https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions
 function escapeRegExp(string){
 	return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
@@ -47,4 +48,3 @@ console.log(stringFormat('Hello {0}!'));
 console.log(stringFormat('Hello {0}!', 'Peter'));
 console.log(stringFormat('{0}, {1}, {0} text {2}', 1, 'Pesho', 'Gosho'));
 console.log(stringFormat('{0}, {1}, {0} text {2} {3}', 1, 'Pesho', 'Gosho'));
-

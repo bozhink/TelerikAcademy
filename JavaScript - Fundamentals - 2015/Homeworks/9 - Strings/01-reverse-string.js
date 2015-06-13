@@ -14,7 +14,6 @@ function reverseString(string) {
 	}).reverse().join('');
 }
 
-
 console.log('input\toutput');
 text = 'sample';
 console.log(text + '\t' + reverseString(text));

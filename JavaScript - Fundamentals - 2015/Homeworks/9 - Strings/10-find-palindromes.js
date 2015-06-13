@@ -40,9 +40,4 @@ function findPalindromes(text) {
 	return result;
 }
 
-
-
 console.log(findPalindromes(text));
-
-
-
