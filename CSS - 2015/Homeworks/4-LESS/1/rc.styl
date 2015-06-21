@@ -1,0 +1,73 @@
+bodyFont = 14px normal Arial
+timeFont = Consolas, 'Lucida Console', 'DejaVu Sans Mono', monospace
+aNavFont = 1.4em normal Arial
+font11em = 1.1em
+font12em = 1.2em
+font14em = 1.4em
+pSecFooterFontSize = 16px
+
+foreColor = #ffffff
+secColor = black
+buttonColor = transparent
+buttonHoverColor = #8949b9
+aNavColor = white
+aHoverColor = #a8a8a8
+aFooterColor = #d392fe
+aAsideColor = #aaaaaa
+strongAsideColor = #cccccc
+emAsideColor = strongAsideColor
+navListColor = rgba(179, 94, 243, 0.9)
+
+inputBorder = 1px solid #603382
+buttonBorder = 1px outset #8c8c8c
+blackBorder = 1px solid black
+navBorder = blackBorder
+borderRadius = 10px
+borderRadiusSmall = 5px
+
+buttonShadow = inset 0 -1px 1px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,1)
+
+clearfix()
+    zoom 1
+    &:after
+    &:before
+        content "\0020"
+        display block
+        height 0
+        overflow hidden
+    &:after
+        clear both
+.clearfix
+    clearfix()
+
+
+// grad()
+//     background #c3a0ec
+//     background -moz-linear-gradient(top, #c3a0ec 0%, #d791ff 0%, #d292fd 1%, #c58af2 5%, #a439f4 15%, #911df0 20%, #8f19ef 21%, #9215f2 25%, #9215f2 100%)
+//     background -webkit-linear-gradient(top, #c3a0ec 0%,#d791ff 0%,#d292fd 1%,#c58af2 5%,#a439f4 15%,#911df0 20%,#8f19ef 21%,#9215f2 25%,#9215f2 100%)
+//     background -o-linear-gradient(top, #c3a0ec 0%,#d791ff 0%,#d292fd 1%,#c58af2 5%,#a439f4 15%,#911df0 20%,#8f19ef 21%,#9215f2 25%,#9215f2 100%)
+//     background -ms-linear-gradient(top, #c3a0ec 0%,#d791ff 0%,#d292fd 1%,#c58af2 5%,#a439f4 15%,#911df0 20%,#8f19ef 21%,#9215f2 25%,#9215f2 100%)
+//     background linear-gradient(to bottom, #c3a0ec 0%,#d791ff 0%,#d292fd 1%,#c58af2 5%,#a439f4 15%,#911df0 20%,#8f19ef 21%,#9215f2 25%,#9215f2 100%)
+
+linearGradient(stops)
+    w3cGradient = 'linear-gradient(to bottom, '
+    prefixedGradient = 'linear-gradient(top, '
+    i = 1
+    for stop in stops
+        w3cGradient += stop
+        prefixedGradient += stop
+        if i is not length(stops)
+            w3cGradient += ', '
+            prefixedGradient += ', '
+        i += 1
+    w3cGradient += ')'
+    prefixedGradient += ')'
+
+    background stops[0][0]
+    background unquote('-moz-' + prefixedGradient)
+    background unquote('-webkit-' + prefixedGradient)
+    background unquote('-o-' + prefixedGradient)
+    background unquote('-ms-' + prefixedGradient)
+    background unquote(w3cGradient)
+
+

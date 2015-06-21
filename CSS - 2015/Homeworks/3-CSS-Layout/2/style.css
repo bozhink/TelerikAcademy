@@ -1,0 +1,72 @@
+body > header {
+	display: none;
+}
+
+section {
+	background-color: #EDEDED;
+	max-width: 420px;
+	font-family: Calibry, sans-serif;
+	font-size: 10pt;
+	font-style: normal;
+	font-weight: normal;
+	padding: 10px 10px 20px 10px;
+	border: 1px solid #663333;
+	border-radius: 5px;
+}
+
+section > header > h2 {
+	font-weight: normal;
+	font-size: 12pt;
+}
+
+article {
+	background-color: #FFFFFF;
+	border: 1px solid #9C9C9C;
+	padding: 15px;
+	margin-top: 40px;
+	margin-bottom: 20px;
+	min-height: 85px;
+}
+
+img {
+	border: 1px solid #9C9C9C;
+	width: 130px;
+	height: 85px;
+}
+
+.picture {
+	float: left;
+	margin-right: 15px;
+}
+
+.content p:first-of-type {
+	margin-top: 0;
+}
+
+.control {
+	text-align: right;
+	margin-top: 20px;
+}
+
+
+strong {
+	font-weight: bold;
+}
+
+button {
+	color: #FFFFFF;
+	text-align: right;
+	padding-right: 2%;
+	border: 2px ridge #910000;
+	background: url("images/btn.png");
+	background-size: 100%
+}
+
+
+.btn-add {
+ 	min-width: 60px;
+ }
+
+.btn-listen {
+ 	min-width: 73px;
+ }

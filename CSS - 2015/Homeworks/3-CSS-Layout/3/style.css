@@ -1,0 +1,110 @@
+body > header {
+	display: none;
+}
+
+section {
+	background-color: #3D3D3D;
+	max-width: 600px;
+	font-family: Calibry, sans-serif;
+	font-size: 10pt;
+	font-style: normal;
+	font-weight: normal;
+	border: 1px solid #826753;
+	border-radius: 10px;
+}
+
+section > header  {
+	/*background-color: #3D3D3D;*/
+	background: #3b3b3b; /* Old browsers */
+	background: -moz-linear-gradient(top, #3b3b3b 0%, #3b3b3b 44%, #373737 68%, #333333 77%, #353535 80%, #2d2d2d 94%, #2a2a2a 97%, #262626 98%, #262626 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3b3b3b), color-stop(44%,#3b3b3b), color-stop(68%,#373737), color-stop(77%,#333333), color-stop(80%,#353535), color-stop(94%,#2d2d2d), color-stop(97%,#2a2a2a), color-stop(98%,#262626), color-stop(100%,#262626)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #3b3b3b 0%,#3b3b3b 44%,#373737 68%,#333333 77%,#353535 80%,#2d2d2d 94%,#2a2a2a 97%,#262626 98%,#262626 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #3b3b3b 0%,#3b3b3b 44%,#373737 68%,#333333 77%,#353535 80%,#2d2d2d 94%,#2a2a2a 97%,#262626 98%,#262626 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #3b3b3b 0%,#3b3b3b 44%,#373737 68%,#333333 77%,#353535 80%,#2d2d2d 94%,#2a2a2a 97%,#262626 98%,#262626 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #3b3b3b 0%,#3b3b3b 44%,#373737 68%,#333333 77%,#353535 80%,#2d2d2d 94%,#2a2a2a 97%,#262626 98%,#262626 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b3b3b', endColorstr='#262626',GradientType=0 ); /* IE6-9 */
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+
+	display: block;
+	padding: 15px 15px;
+	height: 30px;
+}
+
+section > header form {
+	font-family: serif;
+}
+
+section > header label {
+	font-weight: bold;
+	font-size: 12pt;
+	color: #FFFFFF;
+	margin: 0 0 0 15px;
+}
+
+section > header input {
+	display: inline-block;
+	margin: 0 0 0 15px;
+	width: 28%;
+}
+
+section > header input[type=submit] {
+	width: 35px;
+	background: url('go.png') no-repeat;
+	background-size: 100%;
+	border: none;
+}
+
+input::-webkit-input-placeholder { 
+	color: black;
+}
+input:-moz-placeholder { 
+	color: black;
+}
+input::-moz-placeholder { 
+	color: black;
+}
+input:-ms-input-placeholder { 
+	color: black;
+}
+
+section > header > img {
+	display: block;
+	float: left;
+	width: 25px;
+	margin: 0;
+}
+
+
+article {
+	background-color: #3D3D3D;
+	padding: 0 15px 15px;
+	margin: 0;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+strong {
+	font-weight: bold;
+}
+
+button {
+	color: #FFFFFF;
+	border: 1px ridge #910000;
+}
+
+article > h2 {
+	color: #FFD447;
+	font-family: serif;
+	font-weight: normal;
+}
+
+article p {
+	color: #A2A2A2;
+	margin: 0;
+}
+
+mark {
+	color: #DBDBDB;
+	background-color: inherit;
+}

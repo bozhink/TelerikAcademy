@@ -1,0 +1,186 @@
+@import 'rc.styl'
+
+body, header, section, footer, article, h1, h2, h3, h4, h5, h6
+input, button, label, p, fieldset, nav, ul, li, a, span, strong, em 
+    margin 0
+    padding 0
+    border 0
+
+div, h1, h3, h4, h5, h6, header, footer, body, section, nav, article, aside
+    display block
+
+
+body
+    font: bodyFont
+    color foreColor
+    //background linear-gradient(#d392fe,#8f19ef 25%,#9215f2 70%)
+    linearGradient((#c3a0ec 0%) (#d791ff 0%) (#d292fd 1%) (#c58af2 5%) (#a439f4 15%) (#911df0 20%) (#8f19ef 21%) (#9215f2 25%) (#9215f2 100%))
+    header
+        padding-top 25px
+        padding-bottom 5px
+        padding-right 15px
+        padding-left 15px
+        div#header-container
+            @extend .clearfix
+            div#logo-container
+                float left
+                position relative
+            div#reg-form-container
+                float right
+                position relative
+                right 5%
+                top 50%
+                div
+                    text-align right
+                    label
+                        width 50px
+                        margin 5px
+                    input
+                        width 130px
+                        border inputBorder
+                        border-radius borderRadius
+                        padding 2px 5px
+                        margin 5px
+                button
+                    margin-left auto
+                    margin-right auto
+                    font-weight bold
+                    border buttonBorder
+                    border-radius borderRadius
+                    padding 6px 11px
+                    background-color buttonColor
+                    color foreColor
+                    box-shadow buttonShadow
+                    &:hover
+                        background-color buttonHoverColor
+                        border-style inset
+        nav
+            @extend .clearfix
+            display inline-block
+            width 75%
+            margin 20px 20px 20px 20px
+            padding 12px
+            border navBorder
+            border-radius borderRadius + 5px
+            ul
+                @extend .clearfix
+                &.nav-list
+                    list-style-type none
+                li
+                    float left
+                    margin 0
+                    a
+                        text-decoration none
+                        padding 0 10px 0 10px
+                        color aNavColor
+                        font aNavFont
+                        &.selected
+                            font-weight bold
+                    &:hover > a
+                        text-decoration underline
+                        color aHoverColor
+                        & + ul
+                            display block
+                    ul
+                        &.sub-nav-list
+                            @extend .clearfix
+                            position absolute
+                            display none
+                            background-color navListColor
+                            border-radius borderRadiusSmall
+                        li
+                            float none
+                            margin 0 15px
+                            padding 10px 0
+                            border-bottom blackBorder
+                            &:last-of-type
+                                border-bottom none
+                            & > a
+                                font-size font12em
+                                color foreColor
+    section
+        @extend .clearfix
+        width 75%
+        float left
+        color secColor
+        article
+            margin 20px
+            padding 20px
+            border blackBorder
+            color foreColor
+            border-radius borderRadius
+            header
+                background none
+                padding 5px
+                h1
+                    font-size font14em
+                    padding 0
+            footer
+                padding 5px
+                p
+                    font-size pSecFooterFontSize
+                    text-align right
+                    font-weight normal
+                    time
+                        font-family timeFont
+                    a
+                        text-decoration none
+                        color aFooterColor
+                        &:hover
+                            text-decoration underline
+    aside
+        @extend .clearfix
+        float left
+        width 20%
+        margin 20px
+        & > ul
+            list-style-type none
+            & > li
+                margin 15px 0
+                padding 15px
+                border blackBorder
+                border-radius borderRadiusSmall
+                h2
+                    font-size font11em
+                    font-weight bold
+                p
+                    margin-top 10px
+                    margin-right 5px
+                    margin-bottom 10px
+                    margin-left 5px
+                    font-size 14px
+                    a
+                        color aAsideColor
+                        text-decoration none
+                    strong
+                        color strongAsideColor
+                        font-weight bold
+                        font-style normal
+                    em
+                        color emAsideColor
+                        font-weight normal
+                        font-style italic
+                ul
+                    list-style-type none
+                    margin-top 10px
+                    margin-right 0
+                    margin-bottom 10px
+                    margin-left 0px
+                    li
+                        margin-top 5px
+                        margin-left 10px
+                        margin-bottom 0px
+                        margin-right 0px
+                        background url(images/li-dot.png) no-repeat
+                        background-position 0 50%
+                        padding-left 25px
+    footer
+        clear both
+        padding-top 15px
+        padding-bottom 25px
+        padding-right 0px
+        padding-left 0px
+        p
+            font-size font12em
+            font-weight bold
+            text-align center

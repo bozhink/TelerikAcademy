@@ -1,0 +1,41 @@
+styled-border = 2px solid #ccc
+
+.reset-blank
+	margin 0
+	padding 0
+
+input[type='radio']
+	display none
+	&:checked ~ div.image
+		display block
+
+header
+	h1
+		border-bottom styled-border
+	& > ul
+		list-style-type none
+		@extend .reset-blank
+		li
+			display inline-block
+			@extend .reset-blank
+			img
+				width 100px
+				// max-width 100px
+				height 100px
+				max-height 100px
+				@extend .reset-blank
+section
+	@extend .reset-blank
+	.image-holder
+		max-width 300px
+		.image
+			display none
+			margin-top 20px
+			img
+				//width 300px
+				height 300px
+				@extend .reset-blank
+
+footer
+	border-top styled-border
+	margin-top 20px

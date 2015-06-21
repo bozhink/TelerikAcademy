@@ -1,0 +1,169 @@
+body {
+	font-family: sans-serif;
+	font-size: 12pt;
+	/*border: 1px solid #7F7F7F;*/
+	/*padding: 1px;*/
+}
+
+body > header {
+	display: none;
+}
+
+body > nav {
+	float: left;
+	padding-top: 20px;
+}
+
+body > section {
+	float: left;
+	/*width: 70%;*/
+	width: auto;
+	border: 1px solid #7F7F7F;
+	padding: 20px 10px;
+	margin: 0 5px 0 5px;
+}
+
+body > section > header {
+	border-bottom: 2px solid #B5B5B5;
+}
+
+body > section > footer {
+	border-top: 2px solid #B5B5B5;
+	border-bottom: 2px solid #B5B5B5;
+}
+
+body > section > header h2 {
+	margin: 0;
+}
+
+body > section > header nav {
+	margin: 15px 0 10px;
+}
+
+body > section > footer nav {
+	margin: 10px 0;
+}
+
+body aside {
+	float: left;
+	width: 12%;
+}
+
+nav {
+	white-space: nowrap;
+	width: auto;
+}
+
+nav ul {
+	list-style: none;
+}
+
+nav ul li {
+	margin-left: -40px;
+}
+
+nav a {
+	text-decoration: none;
+}
+
+nav > ul > li {
+	margin-top: 20px;
+}
+
+nav > ul > li > a {
+	color: #A6303D;
+	font-weight: bold;
+}
+
+article {
+	margin: 10px 0 20px;
+}
+
+article h3 {
+	background-color: #7F7F7F;
+	color: #FFFFFF;
+	margin: 10px 0 20px;
+	padding: 0 5px;
+}
+
+article > img {
+	display: block;
+	float: left;
+	margin-right: 15px;
+}
+
+article > p:first-of-type {
+	margin-top: 0;
+}
+
+.link a {
+color: #A6303D;
+}
+
+.btn {
+	background-color: #FFFFFF;
+	border: 1px solid black;
+	display: inline-block;
+	width: 120px;
+	padding: 4px 2px;
+}
+
+.btn-prev::before {
+	content: "\25C2";
+	margin-right: 5px;
+	float: left;
+}
+.btn-prev:after {
+	content: "Previous";
+}
+
+.btn-next::before {
+	content: "Next";
+}
+.btn-next:after {
+	content: "\25B8";
+	margin-left: 5px;
+	float: right;
+}
+
+.box {
+	border: 1px solid #7F7F7F;
+	margin-bottom: 2px;
+	text-align: center;
+	font-size: 11pt;
+}
+
+.box div {
+	padding: 5px 0;
+}
+
+.box a {
+	display: block;
+}
+
+.box a {
+	color: #A6303D;
+}
+
+.box h3 {
+	background-color: #7F7F7F;
+	color: #FFFFFF;
+	padding: 0 5px;
+	margin: 0;
+}
+
+.box form {
+	display: block;
+	width: 90%;
+	margin: 5px 0 0;
+	padding: 0;
+
+}
+
+.box form input {
+	max-width: 60%;
+}
+
+div#home::before {
+	content: url('rc/home.png');
+}
