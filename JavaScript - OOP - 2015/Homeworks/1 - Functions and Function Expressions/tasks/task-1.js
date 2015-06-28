@@ -29,5 +29,4 @@ function solve() {
 	}
 }
 
-
-console.log(solve()(["1", "2"]));
+module.exports = solve;

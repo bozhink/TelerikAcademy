@@ -48,5 +48,4 @@ function solve() {
 	}
 }
 
-
-console.log(solve()( 512, ''));
+module.exports = solve;
