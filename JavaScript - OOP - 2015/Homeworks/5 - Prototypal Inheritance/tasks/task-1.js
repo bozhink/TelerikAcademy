@@ -75,12 +75,6 @@ function solve() {
     var domElement = (function () {
 
         var domElement = {
-            _type: '',
-            _parent: '',
-            _content: '',
-            _contentSetByChild: false,
-            _attributes: [],
-            _children: [],
 
             init: function (type) {
                 var that = this;
