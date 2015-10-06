@@ -70,6 +70,7 @@
       <DependentUpon>custom-style.css</DependentUpon>
     </Content>
     <Content Include="7. XSL\students-1.0.xsl" />
+    <Content Include="7. XSL\students.html" />
     <Content Include="7. XSL\students.xml" />
     <Content Include="5. Namespace to students.xml\students.xml" />
     <Content Include="Content\bootstrap-theme.css" />
