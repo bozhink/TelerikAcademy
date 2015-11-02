@@ -10,7 +10,6 @@
     using Data;
     using Data.Models;
 
-
     public class AlbumsController : ApiController
     {
         private MediaLibraryDbContext db = new MediaLibraryDbContext();
@@ -18,47 +17,47 @@
         // GET: api/Albums
         public IQueryable<Album> GetAlbums()
         {
-            return db.Albums;
+            return this.db.Albums;
         }
 
         // GET: api/Albums/5
         [ResponseType(typeof(Album))]
         public async Task<IHttpActionResult> GetAlbum(int id)
         {
-            Album album = await Task.Run(() => db.Albums.Find(id));
+            Album album = await Task.Run(() => this.db.Albums.Find(id));
             if (album == null)
             {
-                return NotFound();
+                return this.NotFound();
             }
 
-            return Ok(album);
+            return this.Ok(album);
         }
 
         // PUT: api/Albums/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutAlbum(int id, Album album)
         {
-            if (!ModelState.IsValid)
+            if (!this.ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return this.BadRequest(this.ModelState);
             }
 
             if (id != album.Id)
             {
-                return BadRequest();
+                return this.BadRequest();
             }
 
-            db.Entry(album).State = EntityState.Modified;
+            this.db.Entry(album).State = EntityState.Modified;
 
             try
             {
-                await db.SaveChangesAsync();
+                await this.db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!AlbumExists(id))
+                if (!this.AlbumExists(id))
                 {
-                    return NotFound();
+                    return this.NotFound();
                 }
                 else
                 {
@@ -66,52 +65,53 @@
                 }
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            return this.StatusCode(HttpStatusCode.NoContent);
         }
 
         // POST: api/Albums
         [ResponseType(typeof(Album))]
         public async Task<IHttpActionResult> PostAlbum(Album album)
         {
-            if (!ModelState.IsValid)
+            if (!this.ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return this.BadRequest(this.ModelState);
             }
 
-            db.Albums.Add(album);
-            await db.SaveChangesAsync();
+            this.db.Albums.Add(album);
+            await this.db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = album.Id }, album);
+            return this.CreatedAtRoute("DefaultApi", new { id = album.Id }, album);
         }
 
         // DELETE: api/Albums/5
         [ResponseType(typeof(Album))]
         public async Task<IHttpActionResult> DeleteAlbum(int id)
         {
-            Album album = await Task.Run(() => db.Albums.Find(id));
+            Album album = await Task.Run(() => this.db.Albums.Find(id));
             if (album == null)
             {
-                return NotFound();
+                return this.NotFound();
             }
 
-            db.Albums.Remove(album);
-            await db.SaveChangesAsync();
+            this.db.Albums.Remove(album);
+            await this.db.SaveChangesAsync();
 
-            return Ok(album);
+            return this.Ok(album);
         }
 
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
-                db.Dispose();
+                this.db.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
         private bool AlbumExists(int id)
         {
-            return db.Albums.Count(e => e.Id == id) > 0;
+            return this.db.Albums.Count(e => e.Id == id) > 0;
         }
     }
 }
