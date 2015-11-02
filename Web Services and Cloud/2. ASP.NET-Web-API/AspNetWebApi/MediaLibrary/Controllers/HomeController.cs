@@ -8,7 +8,7 @@
         {
             ViewBag.Title = "Home Page";
 
-            return View();
+            return this.View();
         }
     }
 }
