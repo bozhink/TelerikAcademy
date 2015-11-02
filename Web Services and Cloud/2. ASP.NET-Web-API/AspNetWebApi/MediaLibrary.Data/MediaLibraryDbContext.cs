@@ -1,7 +1,6 @@
 ﻿namespace MediaLibrary.Data
 {
     using System.Data.Entity;
-    using System.Threading.Tasks;
     using Migrations;
     using Models;
 
@@ -24,15 +23,5 @@
         public IDbSet<Producer> Producers { get; set; }
 
         public IDbSet<Song> Songs { get; set; }
-
-        public override int SaveChanges()
-        {
-            return base.SaveChanges();
-        }
-
-        public override Task<int> SaveChangesAsync()
-        {
-            return base.SaveChangesAsync();
-        }
     }
 }

@@ -1,12 +1,10 @@
 ﻿namespace MediaLibrary.Data
 {
-    using System;
     using System.Data.Entity;
-    using System.Data.Entity.Infrastructure;
-    using System.Threading.Tasks;
+    using Commons.Data;
     using Models;
 
-    public interface IMediaLibraryDbContext : IDisposable
+    public interface IMediaLibraryDbContext : IDbContext
     {
         IDbSet<Album> Albums { get; set; }
 
@@ -19,14 +17,5 @@
         IDbSet<Producer> Producers { get; set; }
 
         IDbSet<Song> Songs { get; set; }
-
-        int SaveChanges();
-
-        Task<int> SaveChangesAsync();
-
-        // TODO
-        DbEntityEntry Entry(object entity);
-
-        DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
     }
 }

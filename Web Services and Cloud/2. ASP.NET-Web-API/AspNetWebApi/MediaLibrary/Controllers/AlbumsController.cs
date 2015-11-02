@@ -12,7 +12,12 @@
 
     public class AlbumsController : ApiController
     {
-        private MediaLibraryDbContext db = new MediaLibraryDbContext();
+        private IMediaLibraryDbContext db;
+
+        public AlbumsController(IMediaLibraryDbContext db)
+        {
+            this.db = db;
+        }
 
         // GET: api/Albums
         public IQueryable<Album> GetAlbums()
