@@ -1,6 +1,7 @@
 ﻿namespace MediaLibrary.Data
 {
     using System.Data.Entity;
+    using System.Threading.Tasks;
     using Migrations;
     using Models;
 
@@ -27,6 +28,11 @@
         public override int SaveChanges()
         {
             return base.SaveChanges();
+        }
+
+        public override Task<int> SaveChangesAsync()
+        {
+            return base.SaveChangesAsync();
         }
     }
 }
