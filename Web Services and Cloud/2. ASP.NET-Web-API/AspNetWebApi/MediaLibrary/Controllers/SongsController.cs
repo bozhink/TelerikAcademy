@@ -1,39 +1,35 @@
 ﻿namespace MediaLibrary.Controllers
 {
-    using System.Data.Entity;
-    using System.Data.Entity.Infrastructure;
     using System.Linq;
     using System.Net;
     using System.Web.Http;
-    using System.Web.Http.Description;
+    using Commons.Data;
     using Data;
     using Data.Models;
 
     public class SongsController : ApiController
     {
-        private IMediaLibraryDbContext db;
-
-        public SongsController()
-            : this(new MediaLibraryDbContext())
-        {
-        }
+        private IRepository<Song, IMediaLibraryDbContext> songsData;
 
         public SongsController(IMediaLibraryDbContext db)
         {
-            this.db = db;
+            this.songsData = new EfGenericRepository<Song, IMediaLibraryDbContext>(db);
         }
 
         // GET: api/Songs
-        public IQueryable<Song> GetSongs()
+        public IHttpActionResult GetSongs()
         {
-            return this.db.Songs;
+            var result = this.songsData
+                .All()
+                .ToList();
+
+            return this.Ok(result);
         }
 
         // GET: api/Songs/5
-        [ResponseType(typeof(Song))]
         public IHttpActionResult GetSong(int id)
         {
-            var song = this.db.Songs.Find(id);
+            var song = this.songsData.GetById(id);
             if (song == null)
             {
                 return this.NotFound();
@@ -43,7 +39,6 @@
         }
 
         // PUT: api/Songs/5
-        [ResponseType(typeof(void))]
         public IHttpActionResult PutSong(int id, Song song)
         {
             if (!this.ModelState.IsValid)
@@ -56,29 +51,13 @@
                 return this.BadRequest();
             }
 
-            this.db.Entry(song).State = EntityState.Modified;
-
-            try
-            {
-                this.db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!this.SongExists(id))
-                {
-                    return this.NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            this.songsData.Update(song);
+            this.songsData.SaveChanges();
 
             return this.StatusCode(HttpStatusCode.NoContent);
         }
 
         // POST: api/Songs
-        [ResponseType(typeof(Song))]
         public IHttpActionResult PostSong(Song song)
         {
             if (!this.ModelState.IsValid)
@@ -86,41 +65,25 @@
                 return this.BadRequest(this.ModelState);
             }
 
-            this.db.Songs.Add(song);
-            this.db.SaveChanges();
+            this.songsData.Add(song);
+            this.songsData.SaveChanges();
 
             return this.CreatedAtRoute("DefaultApi", new { id = song.Id }, song);
         }
 
         // DELETE: api/Songs/5
-        [ResponseType(typeof(Song))]
         public IHttpActionResult DeleteSong(int id)
         {
-            var song = this.db.Songs.Find(id);
+            var song = this.songsData.GetById(id);
             if (song == null)
             {
                 return this.NotFound();
             }
 
-            this.db.Songs.Remove(song);
-            this.db.SaveChanges();
+            this.songsData.Delete(song);
+            this.songsData.SaveChanges();
 
             return this.Ok(song);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                this.db.Dispose();
-            }
-
-            base.Dispose(disposing);
-        }
-
-        private bool SongExists(int id)
-        {
-            return this.db.Songs.Count(e => e.Id == id) > 0;
         }
     }
 }

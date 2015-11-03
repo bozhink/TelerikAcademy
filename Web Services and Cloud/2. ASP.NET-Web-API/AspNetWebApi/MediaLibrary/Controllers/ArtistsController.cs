@@ -1,39 +1,36 @@
 ﻿namespace MediaLibrary.Controllers
 {
-    using System.Data.Entity;
-    using System.Data.Entity.Infrastructure;
     using System.Linq;
     using System.Net;
     using System.Web.Http;
     using System.Web.Http.Description;
+    using Commons.Data;
     using Data;
     using Data.Models;
 
     public class ArtistsController : ApiController
     {
-        private IMediaLibraryDbContext db;
-
-        public ArtistsController()
-            : this(new MediaLibraryDbContext())
-        {
-        }
+        private IRepository<Artist, IMediaLibraryDbContext> artistsData;
 
         public ArtistsController(IMediaLibraryDbContext db)
         {
-            this.db = db;
+            this.artistsData = new EfGenericRepository<Artist, IMediaLibraryDbContext>(db);
         }
 
         // GET: api/Artists
-        public IQueryable<Artist> GetArtists()
+        public IHttpActionResult GetArtists()
         {
-            return this.db.Artists;
+            var result = this.artistsData
+                .All()
+                .ToList();
+
+            return this.Ok(result);
         }
 
         // GET: api/Artists/5
-        [ResponseType(typeof(Artist))]
         public IHttpActionResult GetArtist(int id)
         {
-            var artist = this.db.Artists.Find(id);
+            var artist = this.artistsData.GetById(id);
             if (artist == null)
             {
                 return this.NotFound();
@@ -43,7 +40,6 @@
         }
 
         // PUT: api/Artists/5
-        [ResponseType(typeof(void))]
         public IHttpActionResult PutArtist(int id, Artist artist)
         {
             if (!this.ModelState.IsValid)
@@ -56,29 +52,13 @@
                 return this.BadRequest();
             }
 
-            this.db.Entry(artist).State = EntityState.Modified;
-
-            try
-            {
-                this.db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!this.ArtistExists(id))
-                {
-                    return this.NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            this.artistsData.Update(artist);
+            this.artistsData.SaveChanges();
 
             return this.StatusCode(HttpStatusCode.NoContent);
         }
 
         // POST: api/Artists
-        [ResponseType(typeof(Artist))]
         public IHttpActionResult PostArtist(Artist artist)
         {
             if (!this.ModelState.IsValid)
@@ -86,8 +66,8 @@
                 return this.BadRequest(this.ModelState);
             }
 
-            this.db.Artists.Add(artist);
-            this.db.SaveChanges();
+            this.artistsData.Add(artist);
+            this.artistsData.SaveChanges();
 
             return this.CreatedAtRoute("DefaultApi", new { id = artist.Id }, artist);
         }
@@ -96,31 +76,16 @@
         [ResponseType(typeof(Artist))]
         public IHttpActionResult DeleteArtist(int id)
         {
-            var artist = this.db.Artists.Find(id);
+            var artist = this.artistsData.GetById(id);
             if (artist == null)
             {
                 return this.NotFound();
             }
 
-            this.db.Artists.Remove(artist);
-            this.db.SaveChanges();
+            this.artistsData.Delete(artist);
+            this.artistsData.SaveChanges();
 
             return this.Ok(artist);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                this.db.Dispose();
-            }
-
-            base.Dispose(disposing);
-        }
-
-        private bool ArtistExists(int id)
-        {
-            return this.db.Artists.Count(e => e.Id == id) > 0;
         }
     }
 }

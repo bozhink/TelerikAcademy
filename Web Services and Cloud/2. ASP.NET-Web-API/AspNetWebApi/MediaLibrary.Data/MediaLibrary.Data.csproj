@@ -52,9 +52,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Commons.Data\Commons.Data.csproj">
+    <ProjectReference Include="..\Commons.Data\Infrastructure.csproj">
       <Project>{d35fc8fe-1ef2-4a30-997e-e4f242a57b5c}</Project>
-      <Name>Commons.Data</Name>
+      <Name>Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\MediaLibrary.Data.Models\MediaLibrary.Data.Models.csproj">
       <Project>{4f68a4d4-fe75-451b-aae8-47ed22bbb946}</Project>

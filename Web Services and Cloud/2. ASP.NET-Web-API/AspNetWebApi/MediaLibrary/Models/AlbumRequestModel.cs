@@ -2,8 +2,10 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using Commons.Data.Mappings;
+    using Data.Models;
 
-    public class AlbumRequestModel
+    public class AlbumRequestModel : IMapFrom<Album>
     {
         [Required]
         [MinLength(1)]

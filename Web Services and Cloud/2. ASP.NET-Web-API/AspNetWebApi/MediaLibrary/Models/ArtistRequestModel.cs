@@ -3,8 +3,10 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using Commons.Data.Mappings;
+    using Data.Models;
 
-    public class ArtistRequestModel
+    public class ArtistRequestModel : IMapFrom<Artist>
     {
         [Required]
         [MinLength(1)]

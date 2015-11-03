@@ -2,8 +2,10 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using Commons.Data.Mappings;
+    using Data.Models;
 
-    public class SongRequestModel
+    public class SongRequestModel : IMapFrom<Song>
     {
         [Required]
         [MinLength(1)]

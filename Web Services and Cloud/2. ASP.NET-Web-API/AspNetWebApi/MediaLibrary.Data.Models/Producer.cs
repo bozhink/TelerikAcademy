@@ -7,12 +7,10 @@
     public class Producer
     {
         private ICollection<Album> albums;
-        private ICollection<Country> countries;
 
         public Producer()
         {
             this.albums = new HashSet<Album>();
-            this.countries = new HashSet<Country>();
         }
 
         public int Id { get; set; }
@@ -33,19 +31,6 @@
             set
             {
                 this.albums = value;
-            }
-        }
-
-        public virtual ICollection<Country> Countries
-        {
-            get
-            {
-                return this.countries;
-            }
-
-            set
-            {
-                this.countries = value;
             }
         }
     }

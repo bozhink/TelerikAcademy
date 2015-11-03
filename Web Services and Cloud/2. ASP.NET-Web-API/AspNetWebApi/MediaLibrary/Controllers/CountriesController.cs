@@ -1,39 +1,38 @@
 ﻿namespace MediaLibrary.Controllers
 {
-    using System.Data.Entity;
-    using System.Data.Entity.Infrastructure;
     using System.Linq;
     using System.Net;
     using System.Web.Http;
-    using System.Web.Http.Description;
+    using System.Web.Http.Cors;
+    using Commons.Data;
     using Data;
     using Data.Models;
 
+    [EnableCors("*", "*", "*")]
     public class CountriesController : ApiController
     {
-        private IMediaLibraryDbContext db;
-
-        public CountriesController()
-            : this(new MediaLibraryDbContext())
-        {
-        }
+        private IRepository<Country, IMediaLibraryDbContext> countriesData;
 
         public CountriesController(IMediaLibraryDbContext db)
         {
-            this.db = db;
+            this.countriesData = new EfGenericRepository<Country, IMediaLibraryDbContext>(db);
         }
 
         // GET: api/Countries
-        public IQueryable<Country> GetCountries()
+        public IHttpActionResult GetCountries()
         {
-            return this.db.Countries;
+            var result = this.countriesData
+                .All()
+                ////.ProjectTo<CountryRequestModel>()
+                .ToList();
+
+            return this.Ok(result);
         }
 
         // GET: api/Countries/5
-        [ResponseType(typeof(Country))]
         public IHttpActionResult GetCountry(int id)
         {
-            var country = this.db.Countries.Find(id);
+            var country = this.countriesData.GetById(id);
             if (country == null)
             {
                 return this.NotFound();
@@ -43,7 +42,6 @@
         }
 
         // PUT: api/Countries/5
-        [ResponseType(typeof(void))]
         public IHttpActionResult PutCountry(int id, Country country)
         {
             if (!this.ModelState.IsValid)
@@ -56,29 +54,13 @@
                 return this.BadRequest();
             }
 
-            this.db.Entry(country).State = EntityState.Modified;
-
-            try
-            {
-                this.db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!this.CountryExists(id))
-                {
-                    return this.NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            this.countriesData.Update(country);
+            this.countriesData.SaveChanges();
 
             return this.StatusCode(HttpStatusCode.NoContent);
         }
 
         // POST: api/Countries
-        [ResponseType(typeof(Country))]
         public IHttpActionResult PostCountry(Country country)
         {
             if (!this.ModelState.IsValid)
@@ -86,41 +68,25 @@
                 return this.BadRequest(this.ModelState);
             }
 
-            this.db.Countries.Add(country);
-            this.db.SaveChanges();
+            this.countriesData.Add(country);
+            this.countriesData.SaveChanges();
 
             return this.CreatedAtRoute("DefaultApi", new { id = country.Id }, country);
         }
 
         // DELETE: api/Countries/5
-        [ResponseType(typeof(Country))]
         public IHttpActionResult DeleteCountry(int id)
         {
-            var country = this.db.Countries.Find(id);
+            var country = this.countriesData.GetById(id);
             if (country == null)
             {
                 return this.NotFound();
             }
 
-            this.db.Countries.Remove(country);
-            this.db.SaveChanges();
+            this.countriesData.Delete(country);
+            this.countriesData.SaveChanges();
 
             return this.Ok(country);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                this.db.Dispose();
-            }
-
-            base.Dispose(disposing);
-        }
-
-        private bool CountryExists(int id)
-        {
-            return this.db.Countries.Count(e => e.Id == id) > 0;
         }
     }
 }

@@ -2,16 +2,16 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using Commons.Data.Mappings;
+    using Data.Models;
 
-    public class ProducerRequestModel
+    public class ProducerRequestModel : IMapFrom<Producer>
     {
         [Required]
         [MinLength(1)]
         [MaxLength(30)]
         public string Name { get; set; }
 
-        public virtual ICollection<AlbumRequestModel> Albums { get; set; }
-
-        public virtual ICollection<CountryRequestModel> Countries { get; set; }
+        public ICollection<AlbumRequestModel> Albums { get; set; }
     }
 }

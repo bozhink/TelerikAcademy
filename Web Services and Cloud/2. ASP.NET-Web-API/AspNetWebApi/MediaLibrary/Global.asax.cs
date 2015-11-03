@@ -11,6 +11,7 @@
         protected void Application_Start()
         {
             DatabaseConfig.Initialize();
+            AutoMapperConfig.Initialize();
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

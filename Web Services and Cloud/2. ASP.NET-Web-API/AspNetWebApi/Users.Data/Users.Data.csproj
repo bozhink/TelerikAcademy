@@ -95,9 +95,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Commons.Data\Commons.Data.csproj">
+    <ProjectReference Include="..\Commons.Data\Infrastructure.csproj">
       <Project>{d35fc8fe-1ef2-4a30-997e-e4f242a57b5c}</Project>
-      <Name>Commons.Data</Name>
+      <Name>Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
