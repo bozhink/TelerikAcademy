@@ -23,5 +23,10 @@
         public IDbSet<Producer> Producers { get; set; }
 
         public IDbSet<Song> Songs { get; set; }
+
+        public static MediaLibraryDbContext Create()
+        {
+            return new MediaLibraryDbContext();
+        }
     }
 }

@@ -6,7 +6,7 @@
 
     public class EfGenericRepository<T, IContext> : IRepository<T, IContext>
         where T : class
-        where IContext: IDbContext
+        where IContext : IDbContext
     {
         public EfGenericRepository(IContext context)
         {

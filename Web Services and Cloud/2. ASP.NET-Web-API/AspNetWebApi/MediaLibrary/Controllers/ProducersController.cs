@@ -6,63 +6,57 @@
     using System.Net;
     using System.Web.Http;
     using System.Web.Http.Description;
-    using Commons.Data;
     using Data;
     using Data.Models;
 
-    public class AlbumsController : ApiController
+    public class ProducersController : ApiController
     {
         private IMediaLibraryDbContext db;
 
-        private IRepository<Album, IMediaLibraryDbContext> albumsData;
-
-        public AlbumsController()
+        public ProducersController()
             : this(new MediaLibraryDbContext())
         {
         }
 
-        public AlbumsController(IMediaLibraryDbContext db)
+        public ProducersController(IMediaLibraryDbContext db)
         {
             this.db = db;
-
-            var context = new MediaLibraryDbContext();
-            this.albumsData = new EfGenericRepository<Album, IMediaLibraryDbContext>(context);
         }
 
-        // GET: api/Albums
-        public IQueryable<Album> GetAlbums()
+        // GET: api/Producers
+        public IQueryable<Producer> GetProducers()
         {
-            return this.db.Albums;
+            return this.db.Producers;
         }
 
-        // GET: api/Albums/5
-        [ResponseType(typeof(Album))]
-        public IHttpActionResult GetAlbum(int id)
+        // GET: api/Producers/5
+        [ResponseType(typeof(Producer))]
+        public IHttpActionResult GetProducer(int id)
         {
-            var album = this.db.Albums.Find(id);
-            if (album == null)
+            var producer = this.db.Producers.Find(id);
+            if (producer == null)
             {
                 return this.NotFound();
             }
 
-            return this.Ok(album);
+            return this.Ok(producer);
         }
 
-        // PUT: api/Albums/5
+        // PUT: api/Producers/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutAlbum(int id, Album album)
+        public IHttpActionResult PutProducer(int id, Producer producer)
         {
             if (!this.ModelState.IsValid)
             {
                 return this.BadRequest(this.ModelState);
             }
 
-            if (id != album.Id)
+            if (id != producer.Id)
             {
                 return this.BadRequest();
             }
 
-            this.db.Entry(album).State = EntityState.Modified;
+            this.db.Entry(producer).State = EntityState.Modified;
 
             try
             {
@@ -70,7 +64,7 @@
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!this.AlbumExists(id))
+                if (!this.ProducerExists(id))
                 {
                     return this.NotFound();
                 }
@@ -83,35 +77,35 @@
             return this.StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Albums
-        [ResponseType(typeof(Album))]
-        public IHttpActionResult PostAlbum(Album album)
+        // POST: api/Producers
+        [ResponseType(typeof(Producer))]
+        public IHttpActionResult PostProducer(Producer producer)
         {
             if (!this.ModelState.IsValid)
             {
                 return this.BadRequest(this.ModelState);
             }
 
-            this.db.Albums.Add(album);
+            this.db.Producers.Add(producer);
             this.db.SaveChanges();
 
-            return this.CreatedAtRoute("DefaultApi", new { id = album.Id }, album);
+            return this.CreatedAtRoute("DefaultApi", new { id = producer.Id }, producer);
         }
 
-        // DELETE: api/Albums/5
-        [ResponseType(typeof(Album))]
-        public IHttpActionResult DeleteAlbum(int id)
+        // DELETE: api/Producers/5
+        [ResponseType(typeof(Producer))]
+        public IHttpActionResult DeleteProducer(int id)
         {
-            var album = this.db.Albums.Find(id);
-            if (album == null)
+            var producer = this.db.Producers.Find(id);
+            if (producer == null)
             {
                 return this.NotFound();
             }
 
-            this.db.Albums.Remove(album);
+            this.db.Producers.Remove(producer);
             this.db.SaveChanges();
 
-            return this.Ok(album);
+            return this.Ok(producer);
         }
 
         protected override void Dispose(bool disposing)
@@ -124,9 +118,9 @@
             base.Dispose(disposing);
         }
 
-        private bool AlbumExists(int id)
+        private bool ProducerExists(int id)
         {
-            return this.db.Albums.Count(e => e.Id == id) > 0;
+            return this.db.Producers.Count(e => e.Id == id) > 0;
         }
     }
 }

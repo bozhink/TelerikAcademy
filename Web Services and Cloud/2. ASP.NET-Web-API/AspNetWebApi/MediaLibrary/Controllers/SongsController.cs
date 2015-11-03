@@ -6,63 +6,57 @@
     using System.Net;
     using System.Web.Http;
     using System.Web.Http.Description;
-    using Commons.Data;
     using Data;
     using Data.Models;
 
-    public class AlbumsController : ApiController
+    public class SongsController : ApiController
     {
         private IMediaLibraryDbContext db;
 
-        private IRepository<Album, IMediaLibraryDbContext> albumsData;
-
-        public AlbumsController()
+        public SongsController()
             : this(new MediaLibraryDbContext())
         {
         }
 
-        public AlbumsController(IMediaLibraryDbContext db)
+        public SongsController(IMediaLibraryDbContext db)
         {
             this.db = db;
-
-            var context = new MediaLibraryDbContext();
-            this.albumsData = new EfGenericRepository<Album, IMediaLibraryDbContext>(context);
         }
 
-        // GET: api/Albums
-        public IQueryable<Album> GetAlbums()
+        // GET: api/Songs
+        public IQueryable<Song> GetSongs()
         {
-            return this.db.Albums;
+            return this.db.Songs;
         }
 
-        // GET: api/Albums/5
-        [ResponseType(typeof(Album))]
-        public IHttpActionResult GetAlbum(int id)
+        // GET: api/Songs/5
+        [ResponseType(typeof(Song))]
+        public IHttpActionResult GetSong(int id)
         {
-            var album = this.db.Albums.Find(id);
-            if (album == null)
+            var song = this.db.Songs.Find(id);
+            if (song == null)
             {
                 return this.NotFound();
             }
 
-            return this.Ok(album);
+            return this.Ok(song);
         }
 
-        // PUT: api/Albums/5
+        // PUT: api/Songs/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutAlbum(int id, Album album)
+        public IHttpActionResult PutSong(int id, Song song)
         {
             if (!this.ModelState.IsValid)
             {
                 return this.BadRequest(this.ModelState);
             }
 
-            if (id != album.Id)
+            if (id != song.Id)
             {
                 return this.BadRequest();
             }
 
-            this.db.Entry(album).State = EntityState.Modified;
+            this.db.Entry(song).State = EntityState.Modified;
 
             try
             {
@@ -70,7 +64,7 @@
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!this.AlbumExists(id))
+                if (!this.SongExists(id))
                 {
                     return this.NotFound();
                 }
@@ -83,35 +77,35 @@
             return this.StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Albums
-        [ResponseType(typeof(Album))]
-        public IHttpActionResult PostAlbum(Album album)
+        // POST: api/Songs
+        [ResponseType(typeof(Song))]
+        public IHttpActionResult PostSong(Song song)
         {
             if (!this.ModelState.IsValid)
             {
                 return this.BadRequest(this.ModelState);
             }
 
-            this.db.Albums.Add(album);
+            this.db.Songs.Add(song);
             this.db.SaveChanges();
 
-            return this.CreatedAtRoute("DefaultApi", new { id = album.Id }, album);
+            return this.CreatedAtRoute("DefaultApi", new { id = song.Id }, song);
         }
 
-        // DELETE: api/Albums/5
-        [ResponseType(typeof(Album))]
-        public IHttpActionResult DeleteAlbum(int id)
+        // DELETE: api/Songs/5
+        [ResponseType(typeof(Song))]
+        public IHttpActionResult DeleteSong(int id)
         {
-            var album = this.db.Albums.Find(id);
-            if (album == null)
+            var song = this.db.Songs.Find(id);
+            if (song == null)
             {
                 return this.NotFound();
             }
 
-            this.db.Albums.Remove(album);
+            this.db.Songs.Remove(song);
             this.db.SaveChanges();
 
-            return this.Ok(album);
+            return this.Ok(song);
         }
 
         protected override void Dispose(bool disposing)
@@ -124,9 +118,9 @@
             base.Dispose(disposing);
         }
 
-        private bool AlbumExists(int id)
+        private bool SongExists(int id)
         {
-            return this.db.Albums.Count(e => e.Id == id) > 0;
+            return this.db.Songs.Count(e => e.Id == id) > 0;
         }
     }
 }
