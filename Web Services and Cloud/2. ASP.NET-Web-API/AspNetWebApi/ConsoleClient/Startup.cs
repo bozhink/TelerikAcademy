@@ -4,7 +4,7 @@
 
     public class Startup
     {
-        const string UrlPrefix = "http://localhost:47310/api";
+        public const string UrlPrefix = "http://localhost:47310/api";
 
         public static void Main(string[] args)
         {

@@ -6,11 +6,12 @@ namespace StudentSystem.App_Start
     using System;
     using System.Web;
 
+    using Data;
+
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
     using Ninject;
     using Ninject.Web.Common;
-    using Data;
 
     public static class NinjectWebCommon 
     {
