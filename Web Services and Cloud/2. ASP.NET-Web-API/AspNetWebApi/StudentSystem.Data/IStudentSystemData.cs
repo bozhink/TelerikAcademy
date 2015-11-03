@@ -1,5 +1,6 @@
 ﻿namespace StudentSystem.Data
 {
+    using Infrastructure;
     using Models;
     using Repositories;
 

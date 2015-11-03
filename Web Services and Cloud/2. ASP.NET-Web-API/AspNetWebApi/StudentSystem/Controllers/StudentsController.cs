@@ -1,22 +1,19 @@
-﻿namespace MediaLibrary.Controllers
+﻿namespace StudentSystem.Controllers
 {
     using System.Linq;
     using System.Net;
     using System.Web.Http;
-    using System.Web.Http.Cors;
+    using Data;
+    using Data.Models;
     using Infrastructure;
 
-    [EnableCors("*", "*", "*")]
-    public abstract class AbstractRestController<TDatabaseModel, TRequestModel, TContext> : ApiController
-        where TDatabaseModel : class, IDataModel
-        where TRequestModel : class
-        where TContext : IDbContext
+    public class StudentsController : ApiController
     {
-        private IRepository<TDatabaseModel, TContext> data;
+        private IRepository<Student, IStudentSystemDbContext> data;
 
-        public AbstractRestController(TContext db)
+        public StudentsController(IStudentSystemDbContext db)
         {
-            this.data = new EfGenericRepository<TDatabaseModel, TContext>(db);
+            this.data = new EfGenericRepository<Student, IStudentSystemDbContext>(db);
         }
 
         public IHttpActionResult Get()
@@ -39,7 +36,7 @@
             return this.Ok(entry);
         }
 
-        public IHttpActionResult Put(int id, TDatabaseModel entry)
+        public IHttpActionResult Put(int id, Student entry)
         {
             if (!this.ModelState.IsValid)
             {
@@ -48,7 +45,7 @@
 
             try
             {
-                if (id != (entry as IDataModel).Id)
+                if (id != entry.StudentIdentification)
                 {
                     return this.BadRequest();
                 }
@@ -64,7 +61,7 @@
             return this.StatusCode(HttpStatusCode.NoContent);
         }
 
-        public IHttpActionResult Post(TDatabaseModel entry)
+        public IHttpActionResult Post(Student entry)
         {
             if (!this.ModelState.IsValid)
             {
@@ -74,7 +71,7 @@
             this.data.Add(entry);
             this.data.SaveChanges();
 
-            return this.CreatedAtRoute("DefaultApi", new { id = (entry as IDataModel).Id }, entry);
+            return this.CreatedAtRoute("DefaultApi", new { id = entry.StudentIdentification }, entry);
         }
 
         public IHttpActionResult Delete(int id)
