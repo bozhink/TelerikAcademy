@@ -1,4 +1,4 @@
-﻿namespace Commons.Data.Mappings
+﻿namespace Infrastructure.Mappings
 {
     using AutoMapper;
 

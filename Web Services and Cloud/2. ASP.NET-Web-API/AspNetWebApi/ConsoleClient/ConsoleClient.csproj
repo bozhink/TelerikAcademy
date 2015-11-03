@@ -56,7 +56,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CountryManager.cs" />
+    <Compile Include="IRandomGenerator.cs" />
+    <Compile Include="Models\CountryRegistration.cs" />
     <Compile Include="Models\UserRegistration.cs" />
+    <Compile Include="RandomGenerator.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserManager.cs" />

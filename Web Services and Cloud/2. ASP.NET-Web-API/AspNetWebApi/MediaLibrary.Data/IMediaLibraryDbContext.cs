@@ -1,7 +1,7 @@
 ﻿namespace MediaLibrary.Data
 {
     using System.Data.Entity;
-    using Commons.Data;
+    using Infrastructure;
     using Models;
 
     public interface IMediaLibraryDbContext : IDbContext

@@ -4,7 +4,7 @@ namespace StudentSystem.Data.Migrations
     using System.Linq;
     using Models;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<StudentSystemDbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<StudentSystemDbContext>
     {
         public Configuration()
         {

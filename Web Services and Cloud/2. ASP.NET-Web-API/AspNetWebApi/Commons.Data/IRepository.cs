@@ -1,4 +1,4 @@
-﻿namespace Commons.Data
+﻿namespace Infrastructure
 {
     using System;
     using System.Linq;

@@ -5,8 +5,8 @@
     using System.Linq;
     using System.Reflection;
     using AutoMapper;
-    using Commons.Data.Mappings;
     using Data.Models;
+    using Infrastructure.Mappings;
     using Models;
 
     public static class AutoMapperConfig

@@ -3,8 +3,9 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using Infrastructure;
 
-    public class Genre
+    public class Genre : IDataModel
     {
         private ICollection<Song> songs;
 

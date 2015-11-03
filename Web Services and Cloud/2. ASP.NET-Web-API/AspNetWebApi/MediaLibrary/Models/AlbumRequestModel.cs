@@ -2,8 +2,8 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using Commons.Data.Mappings;
     using Data.Models;
+    using Infrastructure.Mappings;
 
     public class AlbumRequestModel : IMapFrom<Album>
     {

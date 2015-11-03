@@ -3,8 +3,9 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using Infrastructure;
 
-    public class Artist
+    public class Artist : IDataModel
     {
         private ICollection<Song> songs;
         private ICollection<Album> albums;

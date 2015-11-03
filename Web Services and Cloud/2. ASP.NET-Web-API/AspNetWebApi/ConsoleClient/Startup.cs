@@ -4,13 +4,38 @@
 
     public class Startup
     {
+        const string UrlPrefix = "http://localhost:47310/api";
+
         public static void Main(string[] args)
         {
-            var userManager = new UserManager();
+            var random = RandomGenerator.RandomGenerator.Instance;
 
-            var registration = userManager.RegisterNewUser("http://localhost:47310/api/Account/Register", "abc@xyz.com", "Password123##").Result;
+            {
+                var userManager = new UserManager();
 
-            Console.WriteLine(registration.IsSuccessStatusCode);
+                var userRegistration = userManager.RegisterNewUser(
+                    $"{UrlPrefix}/Account/Register",
+                    $"{random.GetRandomString(10)}@xyz.com",
+                    "Password123##").Result;
+
+                Console.WriteLine(userRegistration.IsSuccessStatusCode);
+            }
+
+            {
+                var countryManager = new CountryManager();
+
+                var countryRegistration = countryManager.RegisterNewCountry(
+                    $"{UrlPrefix}/Countries",
+                    random.GetRandomString(6)).Result;
+
+                Console.WriteLine(countryRegistration.IsSuccessStatusCode);
+
+                var countries = countryManager.GetCountries($"{UrlPrefix}/Countries").Result;
+                foreach (var country in countries)
+                {
+                    Console.WriteLine(country.Name);
+                }
+            }
         }
     }
 }
