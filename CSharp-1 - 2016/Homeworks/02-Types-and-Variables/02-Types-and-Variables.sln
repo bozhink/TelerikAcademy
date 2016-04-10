@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeclareVariables", "Declare
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FloatOrDouble", "FloatOrDouble\FloatOrDouble.csproj", "{7E8417F1-397A-4D7F-8FF9-3FB59308734A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VariableInHexadecimalFormat", "VariableInHexadecimalFormat\VariableInHexadecimalFormat.csproj", "{9466A44C-04BF-475B-BA8C-54FF3B461ABB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -15,6 +17,10 @@ Global
 		{7E8417F1-397A-4D7F-8FF9-3FB59308734A}.Debug|x86.Build.0 = Debug|x86
 		{7E8417F1-397A-4D7F-8FF9-3FB59308734A}.Release|x86.ActiveCfg = Release|x86
 		{7E8417F1-397A-4D7F-8FF9-3FB59308734A}.Release|x86.Build.0 = Release|x86
+		{9466A44C-04BF-475B-BA8C-54FF3B461ABB}.Debug|x86.ActiveCfg = Debug|x86
+		{9466A44C-04BF-475B-BA8C-54FF3B461ABB}.Debug|x86.Build.0 = Debug|x86
+		{9466A44C-04BF-475B-BA8C-54FF3B461ABB}.Release|x86.ActiveCfg = Release|x86
+		{9466A44C-04BF-475B-BA8C-54FF3B461ABB}.Release|x86.Build.0 = Release|x86
 		{B75ED260-CA1A-4C98-8777-BD3621F7A0C0}.Debug|x86.ActiveCfg = Debug|x86
 		{B75ED260-CA1A-4C98-8777-BD3621F7A0C0}.Debug|x86.Build.0 = Debug|x86
 		{B75ED260-CA1A-4C98-8777-BD3621F7A0C0}.Release|x86.ActiveCfg = Release|x86
