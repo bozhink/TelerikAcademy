@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnicodeCharacter", "Unicode
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BooleanVariable", "BooleanVariable\BooleanVariable.csproj", "{1A29DE0F-DB70-4E9C-997E-38B880AEBB42}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringsAndObjects", "StringsAndObjects\StringsAndObjects.csproj", "{A101C60A-C8B3-42EB-B143-8680AEF9CA41}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -29,6 +31,10 @@ Global
 		{9466A44C-04BF-475B-BA8C-54FF3B461ABB}.Debug|x86.Build.0 = Debug|x86
 		{9466A44C-04BF-475B-BA8C-54FF3B461ABB}.Release|x86.ActiveCfg = Release|x86
 		{9466A44C-04BF-475B-BA8C-54FF3B461ABB}.Release|x86.Build.0 = Release|x86
+		{A101C60A-C8B3-42EB-B143-8680AEF9CA41}.Debug|x86.ActiveCfg = Debug|x86
+		{A101C60A-C8B3-42EB-B143-8680AEF9CA41}.Debug|x86.Build.0 = Debug|x86
+		{A101C60A-C8B3-42EB-B143-8680AEF9CA41}.Release|x86.ActiveCfg = Release|x86
+		{A101C60A-C8B3-42EB-B143-8680AEF9CA41}.Release|x86.Build.0 = Release|x86
 		{A2D87B53-D1CF-498E-8A26-A12C61D0B4C2}.Debug|x86.ActiveCfg = Debug|x86
 		{A2D87B53-D1CF-498E-8A26-A12C61D0B4C2}.Debug|x86.Build.0 = Debug|x86
 		{A2D87B53-D1CF-498E-8A26-A12C61D0B4C2}.Release|x86.ActiveCfg = Release|x86
