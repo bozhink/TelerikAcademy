@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeVaraibleValues", "E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComparingFloats", "ComparingFloats\ComparingFloats.csproj", "{0C6925A9-A7D5-44AB-A56E-3C26F47B5F99}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintTheAsciiTable", "PrintTheAsciiTable\PrintTheAsciiTable.csproj", "{1FD24712-F7E8-4BF9-987A-D82B0AB2ED3C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -35,6 +37,10 @@ Global
 		{1A29DE0F-DB70-4E9C-997E-38B880AEBB42}.Debug|x86.Build.0 = Debug|x86
 		{1A29DE0F-DB70-4E9C-997E-38B880AEBB42}.Release|x86.ActiveCfg = Release|x86
 		{1A29DE0F-DB70-4E9C-997E-38B880AEBB42}.Release|x86.Build.0 = Release|x86
+		{1FD24712-F7E8-4BF9-987A-D82B0AB2ED3C}.Debug|x86.ActiveCfg = Debug|x86
+		{1FD24712-F7E8-4BF9-987A-D82B0AB2ED3C}.Debug|x86.Build.0 = Debug|x86
+		{1FD24712-F7E8-4BF9-987A-D82B0AB2ED3C}.Release|x86.ActiveCfg = Release|x86
+		{1FD24712-F7E8-4BF9-987A-D82B0AB2ED3C}.Release|x86.Build.0 = Release|x86
 		{22F9D7E1-AADD-406B-8D26-1CD26F1B092B}.Debug|x86.ActiveCfg = Debug|x86
 		{22F9D7E1-AADD-406B-8D26-1CD26F1B092B}.Debug|x86.Build.0 = Debug|x86
 		{22F9D7E1-AADD-406B-8D26-1CD26F1B092B}.Release|x86.ActiveCfg = Release|x86
