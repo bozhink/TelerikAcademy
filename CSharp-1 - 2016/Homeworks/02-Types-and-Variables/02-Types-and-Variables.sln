@@ -19,12 +19,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsoscelesTriangle", "Isosce
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeVaraibleValues", "ExchangeVaraibleValues\ExchangeVaraibleValues.csproj", "{4BF8FCA1-EA04-4CD8-9BB3-AA6B61034ACB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComparingFloats", "ComparingFloats\ComparingFloats.csproj", "{0C6925A9-A7D5-44AB-A56E-3C26F47B5F99}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0C6925A9-A7D5-44AB-A56E-3C26F47B5F99}.Debug|x86.ActiveCfg = Debug|x86
+		{0C6925A9-A7D5-44AB-A56E-3C26F47B5F99}.Debug|x86.Build.0 = Debug|x86
+		{0C6925A9-A7D5-44AB-A56E-3C26F47B5F99}.Release|x86.ActiveCfg = Release|x86
+		{0C6925A9-A7D5-44AB-A56E-3C26F47B5F99}.Release|x86.Build.0 = Release|x86
 		{1A29DE0F-DB70-4E9C-997E-38B880AEBB42}.Debug|x86.ActiveCfg = Debug|x86
 		{1A29DE0F-DB70-4E9C-997E-38B880AEBB42}.Debug|x86.Build.0 = Debug|x86
 		{1A29DE0F-DB70-4E9C-997E-38B880AEBB42}.Release|x86.ActiveCfg = Release|x86
