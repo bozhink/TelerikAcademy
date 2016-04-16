@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OddOrEven", "OddOrEven\OddOrEven.csproj", "{051DAAB2-7DCC-4CCE-A6AC-1190D116FEF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoonGravity", "MoonGravity\MoonGravity.csproj", "{0EC1ED5B-B0BF-4C12-8D64-5E53559E4814}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{051DAAB2-7DCC-4CCE-A6AC-1190D116FEF5}.Debug|x86.ActiveCfg = Debug|x86
+		{051DAAB2-7DCC-4CCE-A6AC-1190D116FEF5}.Debug|x86.Build.0 = Debug|x86
+		{051DAAB2-7DCC-4CCE-A6AC-1190D116FEF5}.Release|x86.ActiveCfg = Release|x86
+		{051DAAB2-7DCC-4CCE-A6AC-1190D116FEF5}.Release|x86.Build.0 = Release|x86
+		{0EC1ED5B-B0BF-4C12-8D64-5E53559E4814}.Debug|x86.ActiveCfg = Debug|x86
+		{0EC1ED5B-B0BF-4C12-8D64-5E53559E4814}.Debug|x86.Build.0 = Debug|x86
+		{0EC1ED5B-B0BF-4C12-8D64-5E53559E4814}.Release|x86.ActiveCfg = Release|x86
+		{0EC1ED5B-B0BF-4C12-8D64-5E53559E4814}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+EndGlobal
