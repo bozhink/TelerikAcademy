@@ -5,12 +5,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeIfGreater", "Exchan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BonusScore", "BonusScore\BonusScore.csproj", "{5859626E-2697-4FAA-9C3A-D4378D26EB53}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayCard", "PlayCard\PlayCard.csproj", "{0D998694-B684-4868-BC40-1CFFF840D22E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D998694-B684-4868-BC40-1CFFF840D22E}.Debug|x86.ActiveCfg = Debug|x86
+		{0D998694-B684-4868-BC40-1CFFF840D22E}.Debug|x86.Build.0 = Debug|x86
+		{0D998694-B684-4868-BC40-1CFFF840D22E}.Release|x86.ActiveCfg = Release|x86
+		{0D998694-B684-4868-BC40-1CFFF840D22E}.Release|x86.Build.0 = Release|x86
 		{5859626E-2697-4FAA-9C3A-D4378D26EB53}.Debug|x86.ActiveCfg = Debug|x86
 		{5859626E-2697-4FAA-9C3A-D4378D26EB53}.Debug|x86.Build.0 = Debug|x86
 		{5859626E-2697-4FAA-9C3A-D4378D26EB53}.Release|x86.ActiveCfg = Release|x86
