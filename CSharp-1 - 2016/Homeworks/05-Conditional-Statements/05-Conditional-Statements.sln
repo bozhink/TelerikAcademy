@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiggestOf3", "BiggestOf3\Bi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiggestOf5", "BiggestOf5\BiggestOf5.csproj", "{A12CA25C-594E-4071-99F9-3E370780891C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sort3Numbers", "Sort3Numbers\Sort3Numbers.csproj", "{637A7082-30ED-4227-B609-07FCEBA57FFE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -31,6 +33,10 @@ Global
 		{5859626E-2697-4FAA-9C3A-D4378D26EB53}.Debug|x86.Build.0 = Debug|x86
 		{5859626E-2697-4FAA-9C3A-D4378D26EB53}.Release|x86.ActiveCfg = Release|x86
 		{5859626E-2697-4FAA-9C3A-D4378D26EB53}.Release|x86.Build.0 = Release|x86
+		{637A7082-30ED-4227-B609-07FCEBA57FFE}.Debug|x86.ActiveCfg = Debug|x86
+		{637A7082-30ED-4227-B609-07FCEBA57FFE}.Debug|x86.Build.0 = Debug|x86
+		{637A7082-30ED-4227-B609-07FCEBA57FFE}.Release|x86.ActiveCfg = Release|x86
+		{637A7082-30ED-4227-B609-07FCEBA57FFE}.Release|x86.Build.0 = Release|x86
 		{9CB5C031-876F-498C-96E2-9D2822F47709}.Debug|x86.ActiveCfg = Debug|x86
 		{9CB5C031-876F-498C-96E2-9D2822F47709}.Debug|x86.Build.0 = Debug|x86
 		{9CB5C031-876F-498C-96E2-9D2822F47709}.Release|x86.ActiveCfg = Release|x86
