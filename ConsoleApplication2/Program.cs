@@ -10,6 +10,12 @@
     {
         public static void Main(string[] args)
         {
+            int numberOfCars = int.Parse(Console.ReadLine()); // Number of cars
+            double[] speeds = new double[numberOfCars];
+            for (int i = 0; i < numberOfCars; ++i)
+            {
+                speeds[i] = double.Parse(Console.ReadLine());
+            }
         }
     }
 }
