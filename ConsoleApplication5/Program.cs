@@ -7,26 +7,25 @@
     {
         public static void Main(string[] args)
         {
-            uint key = uint.Parse(Console.ReadLine());
+            int key = int.Parse(Console.ReadLine());
             int numberOfItems = int.Parse(Console.ReadLine());
-            uint[] items = new uint[numberOfItems];
+            int[] items = new int[numberOfItems];
             for (int i = 0; i < numberOfItems; ++i)
             {
-                items[i] = uint.Parse(Console.ReadLine());
+                items[i] = int.Parse(Console.ReadLine());
             }
 
             string keyCode = Convert.ToString(key, 2).TrimStart('0');
+            Regex re = new Regex(keyCode, RegexOptions.RightToLeft);
+            string replacement = new string('0', keyCode.Length);
+
             int lengthOfKeyCode = keyCode.Length;
             foreach (var item in items)
             {
                 string code = Convert.ToString(item, 2);
-                int codeLength = code.Length;
-
                 //Console.WriteLine(code);
 
-                Regex re = new Regex(keyCode, RegexOptions.RightToLeft);
-
-                string resultCode = re.Replace(code, new string('0', lengthOfKeyCode));
+                string resultCode = re.Replace(code, replacement);
                 //Console.WriteLine(resultCode);
                 Console.WriteLine(BinaryToDecimal(resultCode));
             }
