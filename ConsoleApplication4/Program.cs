@@ -10,6 +10,16 @@
     {
         public static void Main(string[] args)
         {
+            int sizeOfCat = int.Parse(Console.ReadLine());
+            char symbolToDraw = Console.ReadLine().ToCharArray()[0];
+
+            char[][] canvas = new char[sizeOfCat][];
+            for (int i = 0; i < sizeOfCat; ++i)
+            {
+                canvas[i] = new char[sizeOfCat];
+            }
+
+
         }
     }
 }
