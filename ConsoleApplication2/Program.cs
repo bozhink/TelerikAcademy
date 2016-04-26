@@ -1,77 +1,48 @@
 ﻿namespace ConsoleApplication2
 {
     using System;
-    using System.Collections.Generic;
 
     public class Program
     {
         public static void Main(string[] args)
         {
             int numberOfCars = int.Parse(Console.ReadLine()); // Number of cars
-            int[] speeds = new int[numberOfCars];
+
+            int[] speeds = new int[numberOfCars + 1];
             for (int i = 0; i < numberOfCars; ++i)
             {
                 speeds[i] = int.Parse(Console.ReadLine());
             }
 
-            int[] lane = new int[2 * speeds.Length];
-            for (int i = 0; i < lane.Length; i += 2)
-            {
-                lane[i] = speeds[i / 2];
-            }
-
-            string laneString = string.Join(" ", lane);
-            //Console.WriteLine(laneString);
-
-            string oldLaneString = laneString;
-
-            while (true)
-            {
-                Iterate(lane);
-                laneString = string.Join(" ", lane);
-                //Console.WriteLine(laneString);
-
-                if (laneString == oldLaneString)
-                {
-                    break;
-                }
-
-                oldLaneString = laneString;
-            }
+            //Console.WriteLine(string.Join(" ", speeds));
 
             int[] clusterLenghts = new int[speeds.Length];
             int[] clusterSums = new int[speeds.Length];
 
-            ICollection<KeyValuePair<int, int>> sums = new HashSet<KeyValuePair<int, int>>();
-
-            int clusterLeft = 0;
-            int clusterRight = 0;
-            int clusterLenght = 0;
-
-            int currentCluster = 0;
-            for (int i = 1; i < lane.Length - 1; ++i)
+            int left = 0, right = 0, length = 0, currentCluster = 0;
+            for (int i = 0; i < numberOfCars; ++i)
             {
-                if (lane[i] == 0)
+                if (speeds[i] >= speeds[i + 1])
                 {
-                    clusterRight = i - 1;
-                    clusterLenght = clusterRight - clusterLeft + 1;
+                    // Generate cluster
+                    right = i;
+                    length = right - left + 1;
 
-                    if (clusterLenght > 0)
-                    {
-                        clusterLenghts[currentCluster] = clusterLenght;
+                    //Console.WriteLine("{0} {1} {2}", left, right, length);
 
-                        int clusterSum = ClusterSum(lane, clusterLeft, clusterRight);
+                    clusterLenghts[currentCluster] = length;
+                    clusterSums[currentCluster] = ClusterSum(speeds, left, right);
 
-                        clusterSums[currentCluster] = clusterSum;
+                    currentCluster++;
 
-                        currentCluster++;
-                    }
-
-                    //Console.WriteLine("{0} {1} {2}", clusterLeft, clusterRight, clusterLenght);
-
-                    clusterLeft = i + 1;
+                    left = i + 1;
                 }
             }
+
+            //for (int i = 0; i < speeds.Length; ++i)
+            //{
+            //    Console.WriteLine("{0} {1}", clusterLenghts[i], clusterSums[i]);
+            //}
 
             int maximalLength = clusterLenghts[0];
             int position = 0;
@@ -107,23 +78,6 @@
             }
 
             return result;
-        }
-
-        public static void Iterate(int[] lane)
-        {
-            for (int i = 1; i < lane.Length - 1; ++i)
-            {
-                if (lane[i] == 0)
-                {
-                    int left = lane[i - 1];
-                    int right = lane[i + 1];
-                    if (left < right)
-                    {
-                        lane[i] = lane[i + 1];
-                        lane[i + 1] = 0;
-                    }
-                }
-            }
         }
     }
 }
