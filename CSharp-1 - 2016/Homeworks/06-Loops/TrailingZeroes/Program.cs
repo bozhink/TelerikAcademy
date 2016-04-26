@@ -1,24 +1,21 @@
 ﻿namespace TrailingZeroes
 {
     using System;
-    using System.Numerics;
-    using System.Text.RegularExpressions;
 
     public class Program
     {
-        public static void Main(string[] args)
+        static void Main()
         {
-            long n = long.Parse(Console.ReadLine());
-            BigInteger factorial = 1;
-            for (int i = 0; i < n;)
+            int input = int.Parse(Console.ReadLine());
+            int count = 1;
+            int zeroes = 0;
+
+            while (input / Math.Pow(5, count) >= 1)
             {
-                factorial *= ++i;
+                zeroes += input / (int)(Math.Pow(5, count));
+                count++;
             }
-
-            string stringValue = factorial.ToString();
-            string trailingZeroes = Regex.Match(stringValue, @"0+\Z").Value;
-
-            Console.WriteLine(trailingZeroes.Length);
+            Console.WriteLine(zeroes);
         }
     }
 }
