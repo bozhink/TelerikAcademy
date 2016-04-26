@@ -16,10 +16,8 @@
             }
 
             string keyCode = Convert.ToString(key, 2).TrimStart('0');
-            Regex re = new Regex(keyCode, RegexOptions.RightToLeft);
+            Regex re = new Regex(keyCode, RegexOptions.RightToLeft | RegexOptions.Compiled);
             string replacement = new string('0', keyCode.Length);
-
-            int lengthOfKeyCode = keyCode.Length;
             foreach (var item in items)
             {
                 string code = Convert.ToString(item, 2);
