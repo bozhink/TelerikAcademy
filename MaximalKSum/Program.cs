@@ -14,15 +14,15 @@
                 array[i] = int.Parse(Console.ReadLine());
             }
 
-            long maximalKSum = 0;
-            for (int i = 0; i < n; ++i)
-            {
-                long sum = 0;
-                for (int j = 0; j < k; ++j)
-                {
+            Array.Sort(array);
 
-                }
+            long sum = 0;
+            for (int i = n - k; i < n; ++i)
+            {
+                sum += array[i];
             }
+
+            Console.WriteLine(sum);
         }
     }
 }
