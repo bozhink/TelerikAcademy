@@ -13,21 +13,20 @@
                 array[i] = int.Parse(Console.ReadLine());
             }
 
-            int maximalSequenceLength = 1;
+            int maximalSequenceLength = 0;
             int sequenceLength = 1;
             for (int i = 1; i < n; ++i)
             {
-                if (array[i] == array[i-1] + 1)
+                if (array[i] > array[i-1])
                 {
                     sequenceLength++;
-                }
-                else
-                {
                     if (maximalSequenceLength < sequenceLength)
                     {
                         maximalSequenceLength = sequenceLength;
                     }
-
+                }
+                else
+                {
                     sequenceLength = 1;
                 }
             }
