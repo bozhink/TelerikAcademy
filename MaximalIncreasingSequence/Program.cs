@@ -7,11 +7,6 @@
         public static void Main(string[] args)
         {
             int n = int.Parse(Console.ReadLine());
-            if (n < 1)
-            {
-                return;
-            }
-
             int[] array = new int[n];
             for (int i = 0; i < n; ++i)
             {
