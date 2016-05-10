@@ -17,7 +17,7 @@
             int sequenceLength = 1;
             for (int i = 1; i < n; ++i)
             {
-                if (array[i] > array[i-1])
+                if (array[i] > array[i - 1])
                 {
                     sequenceLength++;
                     if (maximalSequenceLength < sequenceLength)

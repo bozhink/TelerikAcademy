@@ -14,8 +14,8 @@
                 {
                     n--;
                     result = IsPrime(n);
-
-                } while (!result);
+                }
+                while (!result);
             }
 
             Console.WriteLine(n);

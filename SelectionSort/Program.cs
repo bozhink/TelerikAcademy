@@ -16,7 +16,7 @@
 
             SelectionSort(array);
 
-            for (int i =0; i < n; ++i)
+            for (int i = 0; i < n; ++i)
             {
                 Console.WriteLine(array[i]);
             }

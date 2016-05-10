@@ -30,11 +30,11 @@
                         currentRepeatedTimes++;
                     }
                 }
+
                 if (currentRepeatedTimes > repeatedTimes)
                 {
                     repeatingNumber = array[i];
                     repeatedTimes = currentRepeatedTimes;
-
                 }
 
                 currentRepeatedTimes = 1;
