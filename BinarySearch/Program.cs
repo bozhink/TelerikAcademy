@@ -23,33 +23,33 @@
             Console.WriteLine(index);
         }
 
-        private static int BinarySearch(int[] a, int x)
+        private static int BinarySearch(int[] array, int x)
         {
-            int n = a.Length;
+            int n = array.Length;
 
-            int l = 0, r = n - 1;
+            int left = 0, rigth = n - 1;
 
             for (int i = 0; i < n; ++i)
             {
-                if (l > r)
+                if (left > rigth)
                 {
                     return -1;
                 }
 
-                int m = (l + r) / 2;
+                int middle = (left + rigth) / 2;
 
-                if (a[m] == x)
+                if (array[middle] == x)
                 {
-                    return m;
+                    return middle;
                 }
 
-                if (a[m] < x)
+                if (array[middle] < x)
                 {
-                    l = m + 1;
+                    left = middle + 1;
                 }
                 else
                 {
-                    r = m - 1;
+                    rigth = middle - 1;
                 }
             }
 

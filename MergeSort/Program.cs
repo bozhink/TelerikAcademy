@@ -4,7 +4,7 @@
 
     public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             int n = int.Parse(Console.ReadLine());
             int[] array = new int[n];
