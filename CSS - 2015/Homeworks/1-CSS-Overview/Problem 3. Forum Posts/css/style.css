@@ -1,0 +1,53 @@
+body {
+	background-color: #A9A9A9;
+}
+
+h1 {
+	color: #FAFAD2;	
+}
+
+body>header>h1 {
+	text-align: center;
+	font-size: 25pt;
+}
+
+body>header>nav>ul li {
+	text-align: center;
+	list-style-type: none;
+}
+
+body>header>nav>ul li a {
+	color: #FFFFFF;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+body>header>nav>ul li:last-child a {
+	text-decoration: underline;
+}
+
+.current {
+	background-color: #D3D3D3;
+}
+
+article header h1 {
+	font-size: 17pt;
+}
+
+article > p {
+	font-size: 10pt;
+}
+
+article footer p {
+	font-size: 8pt;
+}
+
+article footer p a {
+	color: #000000;
+	text-decoration: none;
+}
+
+body > footer {
+	text-align: center;
+	font-size: 10pt;
+}

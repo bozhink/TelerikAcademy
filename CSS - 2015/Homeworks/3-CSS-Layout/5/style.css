@@ -1,0 +1,123 @@
+section {
+	border: solid black 2px;
+	border-radius: 7px;
+	width: 700px;
+	height: 505px;
+	font-family: sans-serif;
+}
+
+section header {
+	border-bottom: solid black 2px;
+	margin: 0px 20px;
+	padding: 5px 0;
+}
+
+section header h2 {
+	
+	margin: 0;
+	text-align: center;
+}
+
+section header h2 a {
+	color: skyblue;
+	text-decoration: underline;
+	font-weight: bold;
+	font-size: 16pt;
+}
+
+
+img {
+	display: block;
+	width: 100px;
+}
+
+fieldset {
+	position: relative;
+	padding: 5px;
+	display: block;
+	height: 120px;
+	width: 180px;
+	border-color: 1px solid black;
+	margin-top: 10px;
+}
+
+fieldset legend {
+	text-align: center;
+	padding: 0 10px;
+}
+
+fieldset img {
+	display: block;
+	position: absolute;
+	top: 30px;
+	left: 5px;
+}
+
+fieldset .ssd {
+	position: absolute;
+	top: 30px;
+	left: 100px;
+}
+
+fieldset .ram {
+	position: absolute;
+	top: 60px;
+	left: 100px;
+}
+
+fieldset .price {
+	position: absolute;
+	top: 90px;
+	left: 5px;
+}
+
+fieldset .proc {
+	position: absolute;
+	top: 90px;
+	left: 100px;
+}
+
+
+
+fieldset span {
+	display: inline-block;
+}
+
+.table {
+	display: table;
+}
+
+.row {
+	display: table-row;
+}
+
+.cell {
+	display: table-cell;
+}
+
+.cell img {
+	vertical-align: middle;
+}
+
+div.cell p:first-of-type {
+	margin-top: 0;
+}
+
+
+.border {
+	margin: 10px;
+	padding: 0 10px 10px 10px;
+	border: 1px solid black;
+}
+
+#left {
+	float: left;
+}
+
+#right {
+	float: left;
+	margin-top: 120px;
+	margin-left: 20px;
+	font-size: 16pt; 
+	text-align: center;
+}

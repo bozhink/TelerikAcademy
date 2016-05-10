@@ -1,0 +1,108 @@
+html {
+	font-family: sans-serif;
+	font-size: 12pt;
+	width: 800px;
+	height: 640px;
+	position: relative;
+}
+
+body > div > header {
+	display: none;
+}
+
+#main-wrapper {
+	border-radius: 5px;
+	background-color: #1F3A42;
+	padding-bottom: 10px;
+	overflow: auto;
+}
+
+body > div > nav {
+	padding: 5px 0;
+}
+
+ul {
+	padding: 0;
+}
+
+body > div > nav ul {
+	list-style: none;
+}
+
+body > div > nav ul > li {
+	display: inline-block;
+	color: #819C9D;
+	background-color: #4A6066;
+	padding: 15px;
+	font-weight: bold;
+}
+
+.selected {
+	background-color: inherit;
+}
+
+.selected a, .selected a:visited, .selected a:active {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.selected a:hover {
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+
+body > div > nav ul > li > a, body > div > nav ul > li > a:visited, body > div > nav ul > li > a:active {
+	text-decoration: none;
+	color: #819C9D;
+}
+
+body > div > nav ul > li > a:hover {
+	text-decoration: underline;
+	color: #819C9D;
+}
+
+article {
+	width: 40%;
+}
+
+article header {
+	padding: 10px;
+	border-top: 1px solid #516b76;
+	color: #a2afb6;
+}
+
+article header h2 {
+	margin: 0;
+	padding: 0;
+	font-size: inherit;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+article header h2 a, article header h2 a:hover, article header h2 a:active, article header h2 a:visited {
+	text-decoration: inherit;
+	color: inherit;
+}
+
+article header:hover {
+	background-color: #00958B;
+	color: #ffffff;
+}
+
+article:hover > div.content, article:active > div.content {
+	display: inline-block;
+	position: absolute;
+	z-index: 100;
+	left: 40%;
+	top: 98px;
+	width: 395px;
+	height: 320px;
+}
+
+
+
+
+.content {
+	display: none;
+}

@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="catalog.xsd">
+  <!-- Comment to see where to copy-paste next album :) -->
+  <album>
+    <name>Album 1</name>
+    <artist>Artist 1</artist>
+    <artist>Artist 2</artist>
+    <year>1015</year>
+    <producer>Producer 1</producer>
+    <price>25.97</price>
+    <songs>
+      <song>
+        <title>Song 1.1</title>
+        <duration>02:05</duration>
+      </song>
+      <song>
+        <title>Song 1.2</title>
+        <duration>12:05</duration>
+      </song>
+      <song>
+        <title>Song 1.3</title>
+        <duration>22:15</duration>
+      </song>
+    </songs>
+  </album>
+  <!-- Comment to see where to copy-paste next album :) -->
+  <album>
+    <name>Album 2</name>
+    <artist>Artist 2</artist>
+    <artist>Artist 1</artist>
+    <year>2015</year>
+    <producer>Producer 2</producer>
+    <price>15.97</price>
+    <songs>
+      <song>
+        <title>Song 2.1</title>
+        <duration>02:05</duration>
+      </song>
+      <song>
+        <title>Song 2.2</title>
+        <duration>12:05</duration>
+      </song>
+      <song>
+        <title>Song 2.3</title>
+        <duration>12:15</duration>
+      </song>
+    </songs>
+  </album>
+  <!-- Comment to see where to copy-paste next album :) -->
+  <album>
+    <name>Album 3</name>
+    <artist>Artist 3</artist>
+    <year>2015</year>
+    <producer>Producer 3</producer>
+    <price>15.97</price>
+    <songs>
+      <song>
+        <title>Song 3.1</title>
+        <duration>02:05</duration>
+      </song>
+      <song>
+        <title>Song 3.2</title>
+        <duration>12:05</duration>
+      </song>
+      <song>
+        <title>Song 3.3</title>
+        <duration>12:15</duration>
+      </song>
+    </songs>
+  </album>
+  <!-- Comment to see where to copy-paste next album :) -->
+  <album>
+    <name>Album 4</name>
+    <artist>Artist 4</artist>
+    <year>2015</year>
+    <producer>Producer 4</producer>
+    <price>15.97</price>
+    <songs>
+      <song>
+        <title>Song 4.1</title>
+        <duration>02:05</duration>
+      </song>
+      <song>
+        <title>Song 4.2</title>
+        <duration>12:05</duration>
+      </song>
+      <song>
+        <title>Song 4.3</title>
+        <duration>12:15</duration>
+      </song>
+    </songs>
+  </album>
+  <!-- Comment to see where to copy-paste next album :) -->
+  <album>
+    <name>Album 5</name>
+    <artist>Artist 5</artist>
+    <year>2015</year>
+    <producer>Producer 5</producer>
+    <price>15.97</price>
+    <songs>
+      <song>
+        <title>Song 5.1</title>
+        <duration>02:05</duration>
+      </song>
+      <song>
+        <title>Song 5.2</title>
+        <duration>12:05</duration>
+      </song>
+      <song>
+        <title>Song 5.3</title>
+        <duration>12:15</duration>
+      </song>
+    </songs>
+  </album>
+  <!-- Comment to see where to copy-paste next album :) -->
+  <album>
+    <name>Album 6</name>
+    <artist>Artist 6</artist>
+    <year>2015</year>
+    <producer>Producer 6</producer>
+    <price>15.97</price>
+    <songs>
+      <song>
+        <title>Song 6.1</title>
+        <duration>02:05</duration>
+      </song>
+      <song>
+        <title>Song 6.2</title>
+        <duration>12:05</duration>
+      </song>
+      <song>
+        <title>Song 6.3</title>
+        <duration>12:15</duration>
+      </song>
+    </songs>
+  </album>
+  <!-- Comment to see where to copy-paste next album :) -->
+  <album>
+    <name>Album 7</name>
+    <artist>Artist 7</artist>
+    <year>2015</year>
+    <producer>Producer 7</producer>
+    <price>15.97</price>
+    <songs>
+      <song>
+        <title>Song 7.1</title>
+        <duration>02:05</duration>
+      </song>
+      <song>
+        <title>Song 7.2</title>
+        <duration>12:05</duration>
+      </song>
+      <song>
+        <title>Song 7.3</title>
+        <duration>12:15</duration>
+      </song>
+    </songs>
+  </album>
+</catalog>

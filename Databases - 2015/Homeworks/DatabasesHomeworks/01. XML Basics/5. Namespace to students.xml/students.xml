@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<student:students xmlns:student="urn:students" xmlns:exam="urn:exams">
+  <student:student>
+    <student:name>Pesho</student:name>
+    <student:sex>
+      unknown
+    </student:sex>
+    <student:birth-date>
+      2050-12-31
+    </student:birth-date>
+    <student:phone>
+      555-555-555-555
+    </student:phone>
+    <student:email>
+      pesho@pesho.com
+    </student:email>
+    <student:course>
+      Databases
+    </student:course>
+    <student:specialty>
+      QA
+    </student:specialty>
+    <student:faculty-number>
+      00000000
+    </student:faculty-number>
+    <student:taken-exams>
+      <exam:exam exam:name="C# Part 1" exam:tutor="Tutor" exam:score="80"/>
+      <exam:exam exam:name="C# Part 2" exam:tutor="Tutor" exam:score="80"/>
+      <exam:exam exam:name="HTML" exam:tutor="Tutor" exam:score="80"/>
+      <exam:exam exam:name="CSS" exam:tutor="Tutor" exam:score="80"/>
+    </student:taken-exams>
+  </student:student>
+  <student:student>
+    <student:name>Gosho</student:name>
+    <student:sex>
+      unknown
+    </student:sex>
+    <student:birth-date>
+      2030-12-31
+    </student:birth-date>
+    <student:phone>
+      555-555-555-555
+    </student:phone>
+    <student:email>
+      gosho@gosho.com
+    </student:email>
+    <student:course>
+      Databases
+    </student:course>
+    <student:specialty>
+      QA
+    </student:specialty>
+    <student:faculty-number>
+      00000033
+    </student:faculty-number>
+    <student:taken-exams>
+      <exam:exam exam:name="C# Part 1" exam:tutor="Tutor" exam:score="90"/>
+      <exam:exam exam:name="C# Part 2" exam:tutor="Tutor" exam:score="70"/>
+      <exam:exam exam:name="HTML" exam:tutor="Tutor" exam:score="5"/>
+      <exam:exam exam:name="CSS" exam:tutor="Tutor" exam:score="60"/>
+    </student:taken-exams>
+  </student:student>
+  <student:student>
+    <student:name>
+      Stamat
+    </student:name>
+    <student:sex>
+      unknown
+    </student:sex>
+    <student:birth-date>
+      2030-12-31
+    </student:birth-date>
+    <student:phone>
+      555-555-555-555
+    </student:phone>
+    <student:email>
+      stamat@stamat.com
+    </student:email>
+    <student:course>
+      Databases
+    </student:course>
+    <student:specialty>
+      QA
+    </student:specialty>
+    <student:faculty-number>
+      00000033
+    </student:faculty-number>
+    <student:taken-exams>
+      <exam:exam exam:name="C# Part 1" exam:tutor="Tutor" exam:score="90"/>
+      <exam:exam exam:name="C# Part 2" exam:tutor="Tutor" exam:score="70"/>
+      <exam:exam exam:name="HTML" exam:tutor="Tutor" exam:score="5"/>
+      <exam:exam exam:name="CSS" exam:tutor="Tutor" exam:score="60"/>
+    </student:taken-exams>
+  </student:student>
+  <student:student>
+    <student:name>
+      John
+    </student:name>
+    <student:sex>
+      unknown
+    </student:sex>
+    <student:birth-date>
+      2030-12-31
+    </student:birth-date>
+    <student:phone>
+      555-555-555-555
+    </student:phone>
+    <student:email>
+      john@super-john.com
+    </student:email>
+    <student:course>
+      Databases
+    </student:course>
+    <student:specialty>
+      QA
+    </student:specialty>
+    <student:faculty-number>
+      00000033
+    </student:faculty-number>
+    <student:taken-exams>
+      <exam:exam exam:name="C# Part 1" exam:tutor="Tutor" exam:score="90"/>
+      <exam:exam exam:name="C# Part 2" exam:tutor="Tutor" exam:score="70"/>
+      <exam:exam exam:name="HTML" exam:tutor="Tutor" exam:score="5"/>
+      <exam:exam exam:name="CSS" exam:tutor="Tutor" exam:score="60"/>
+    </student:taken-exams>
+  </student:student>
+</student:students>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+	Problem 3. LinkedIn
+		Create a web page using semantic HTML by the design.
+	Note: Do not try to make the same styles. Implement just the content with its semantics.
+ -->
+<head>
+	<title>Student system</title>
+	<meta charset="UTF-8"/>
+</head>
+<body>
+	<header>
+		<h1>LinkedIn</h1>
+		<nav>
+			<ul>
+				<li>
+					<a href="#" title="Home">Home</a>
+				</li>
+				<li>
+					<a href="#" title="What is LinkedIn">What is LinkedIn</a>
+				</li>
+				<li>
+					<a href="#" title="Join Today">Join Today</a>
+				</li>
+				<li>
+					<form method="post" name="sign-in">
+						<label>Sign In</label>
+						<ul>
+							<li>
+								<label for="email">Email:</label>
+								<input type="email" id="email" name="emailText" required="required" pattern="[^\s\\\/,;@]+@[^\s\\\/,;@]+\.[^\s\\\/,;@]+"/>
+							</li>
+							<li>
+								<label for="password">Password:</label>
+								<input type="password" id="password" name="passwordText"  required="required" />
+							</li>
+							<li>
+								<input type="submit" value="Sign In"/>
+							</li>
+						</ul>
+					</form>
+				</li>
+			</ul>
+		</nav>
+		<hr/>
+	</header>
+	<main>
+		<header>
+			<h2>Over 175 millions professionals use LinkedIn to exchange information, ideas and opportunities</h2>
+		</header>
+		<ul>
+			<li>
+				Stay informed about your contacts and industry
+			</li>
+			<li>
+				Find the people &amp; knowledge you need to achieve your goals
+			</li>
+			<li>
+				Control your professional identity online
+			</li>
+		</ul>
+	</main>
+	<section>
+		<header>
+			<h2>Join LinkedIn Today</h2>
+		</header>
+		<form method="post" name="sign-up">
+			<label>Sign Up</label>
+			<ul>
+				<li>
+					<label for="first-name">First Name:</label>
+					<input type="text" id="first-name" name="firstName" />
+				</li>
+				<li>
+					<label for="last-name">Last Name:</label>
+					<input type="text" id="last-name" name="lastName" />
+				</li>
+				<li>
+					<label for="email-up">Email:</label>
+					<input type="email" id="email-up" name="emailUpText" required="required" pattern="[^\s\\\/,;@]+@[^\s\\\/,;@]+\.[^\s\\\/,;@]+"/>
+				</li>
+				<li>
+					<label for="password-up">Password:</label>
+					<input type="password" id="password-up" name="passwordUpText"  required="required" />
+					<label>6 or more characters</label>
+				</li>
+			</ul>
+			<input type="submit" value="Join now"/>
+			<span id="terms-of-use"><a href="#" title="Terms of use">*</a></span>
+		</form>
+		<p>Already on LinkedIn? <a href="#" title="Sign In">Sign In</a></p>
+	</section>
+	<footer>
+		<form name="searchPeople" method="post">
+			<h3>Search for someone by name</h3>
+			<ul>
+				<li>
+					<label for="first-name-search">First Name:</label>
+					<input type="text" id="first-name-search" name="firstNameSearch" />
+				</li>
+				<li>
+					<label for="last-name-search">Last Name:</label>
+					<input type="text" id="last-name-search" name="lastNameSearch" />
+				</li>
+			</ul>
+			<input type="submit" value="Go"/>
+		</form>
+	</footer>
+</body>
+</html>

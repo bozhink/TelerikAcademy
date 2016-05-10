@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+	Problem 2. Student System
+		Create a web page using semantic HTML by the design.
+		Use some kind of approach to support old (non-HTML5-compatible) Web browsers like IE8.
+	Note: Do not try to make the same styles. Implement just the content with its semantics.
+ -->
+<head>
+	<title>Student system</title>
+	<meta charset="UTF-8"/>
+<!--[if lt IE 9]>
+  <script>
+    document.createElement("header" );
+    document.createElement("footer" );
+    document.createElement("section"); 
+    document.createElement("aside"  );
+    document.createElement("nav"    );
+    document.createElement("article"); 
+    document.createElement("hgroup" ); 
+    document.createElement("time"   );
+  </script>
+  <noscript>
+     <strong>Warning !</strong>
+     Because your browser does not support HTML5, some elements are created using JavaScript.
+     Unfortunately your browser has disabled scripting. Please enable it in order to display this page.
+  </noscript>
+<![endif]-->
+</head>
+<body>
+	<header>
+		<img id="logo-image" src="images/logo.png" alt="Logo"/>
+		<h1>Welcome to Our Web Site</h1>
+		<nav>
+			<ul>
+				<li>Nav item 1</li>
+				<li>Nav item 1</li>
+				<li>Nav item 1</li>
+				<li>Nav item 1</li>
+			</ul>
+		</nav>
+	</header>
+	<section>
+		<table rules="all">
+			<tbody>
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Score</th>
+				</tr>
+				<tr>
+					<td>Ivan</td>
+					<td>Ivanov</td>
+					<td>4.54</td>
+				</tr>
+				<tr>
+					<td>Petar</td>
+					<td>Petrov</td>
+					<td>4.31</td>
+				</tr><tr>
+					<td>Kiro</td>
+					<td>Kirov</td>
+					<td>4.62</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+</body>
+</html>

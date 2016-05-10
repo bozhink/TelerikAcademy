@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="urn:exams" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:exams" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="exam">
+    <xs:complexType>
+      <xs:attribute ref="tns:name" use="required" />
+      <xs:attribute ref="tns:tutor" use="required" />
+      <xs:attribute ref="tns:score" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:attribute name="name" type="xs:string" />
+  <xs:attribute name="tutor" type="xs:string" />
+  <xs:attribute name="score" type="xs:unsignedByte" />
+</xs:schema>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+	Problem 3. Calculator
+	Create a Calculator-like table. You should use a HTML 5 form for the Calculator.
+		Buttons for all the numbers and operators (+, -, etc.)
+		Textbox for the result
+
+	Note: Do not make the same styles as the example
+	Note: Do not implement functionalities
+ -->
+	<head>
+		<title>Simple HTML form</title>
+		<meta charset="UTF-8"/>
+		<style type="text/css">
+		td, th {
+			text-align: center;
+		}
+		td input {
+			width: 40px;
+			height: 40px;
+		}
+		td[colspan='2'] input {
+			width: 83px;
+			height: 40px;
+		}
+		th input {
+			width: 168px;
+			font-size: 16pt;
+			text-align: right;
+		}
+		</style>
+	</head>
+	<body>
+		<form>
+			<table border="1" style="border-collapse:collapse;">
+				<thead>
+					<tr>
+						<th colspan="4">
+							<input type="text" id="output-text" name="outputText" value="123"/>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<input type="button" id="button-1" name="button1" value="1"/>
+						</td>
+						<td>
+							<input type="button" id="button-2" name="button2" value="2"/>
+						</td>
+						<td>
+							<input type="button" id="button-3" name="button3" value="3"/>
+						</td>
+						<td>
+							<input type="button" id="button-plus" name="buttonPlus" value="+"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="button" id="button-4" name="button4" value="4"/>
+						</td>
+						<td>
+							<input type="button" id="button-5" name="button5" value="5"/>
+						</td>
+						<td>
+							<input type="button" id="button-6" name="button6" value="6"/>
+						</td>
+						<td>
+							<input type="button" id="button-minus" name="buttonMinus" value="-"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="button" id="button-7" name="button7" value="7"/>
+						</td>
+						<td>
+							<input type="button" id="button-8" name="button8" value="8"/>
+						</td>
+						<td>
+							<input type="button" id="button-9" name="button9" value="9"/>
+						</td>
+						<td>
+							<input type="button" id="button-mult" name="buttonMult" value="*"/>
+						</td>
+					</tr>
+					<tr>
+						<td 
+							colspan="2"><input type="button" id="button-0" name="button0" value="0"/>
+						</td>
+						<td>
+							<input type="button" id="button-dot" name="buttonDot" value="."/>
+						</td>
+						<td>
+							<input type="button" id="button-div" name="buttonDiv" value="/"/>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+ul {
+	list-style: none;
+}
+
+li > ul {
+	display: none;
+}
+
+li {
+	margin-left: -25px;
+	white-space: nowrap;
+	width: auto;
+}
+
+a, a:hover, a:active, a:visited {
+	text-decoration: none;
+	color: black;
+}
+
+
+li:hover > a {
+	text-decoration: underline;
+}
+
+li:hover > ul {
+	display: block;
+	opacity: 0.7; /* Not a good idea for many nested ul */
+}

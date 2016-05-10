@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<students xmlns="urn:students">
+  <student>
+    <name>Pesho</name>
+    <sex>
+      unknown
+    </sex>
+    <birth-date>
+      2050-12-31
+    </birth-date>
+    <phone>
+      555-555-555-555
+    </phone>
+    <email>
+      pesho@pesho.com
+    </email>
+    <course>
+      Databases
+    </course>
+    <specialty>
+      QA
+    </specialty>
+    <faculty-number>
+      00000000
+    </faculty-number>
+    <taken-exams>
+      <exam name="C# Part 1" tutor="Tutor" score="80"/>
+      <exam name="C# Part 2" tutor="Tutor" score="80"/>
+      <exam name="HTML" tutor="Tutor" score="80"/>
+      <exam name="CSS" tutor="Tutor" score="80"/>
+    </taken-exams>
+  </student>
+  <student>
+    <name>Gosho</name>
+    <sex>
+      unknown
+    </sex>
+    <birth-date>
+      2030-12-31
+    </birth-date>
+    <phone>
+      555-555-555-555
+    </phone>
+    <email>
+      gosho@gosho.com
+    </email>
+    <course>
+      Databases
+    </course>
+    <specialty>
+      QA
+    </specialty>
+    <faculty-number>
+      00000033
+    </faculty-number>
+    <taken-exams>
+      <exam name="C# Part 1" tutor="Tutor" score="90"/>
+      <exam name="C# Part 2" tutor="Tutor" score="70"/>
+      <exam name="HTML" tutor="Tutor" score="5"/>
+      <exam name="CSS" tutor="Tutor" score="60"/>
+    </taken-exams>
+  </student>
+  <student>
+    <name>
+      Stamat
+    </name>
+    <sex>
+      unknown
+    </sex>
+    <birth-date>
+      2030-12-31
+    </birth-date>
+    <phone>
+      555-555-555-555
+    </phone>
+    <email>
+      stamat@stamat.com
+    </email>
+    <course>
+      Databases
+    </course>
+    <specialty>
+      QA
+    </specialty>
+    <faculty-number>
+      00000033
+    </faculty-number>
+    <taken-exams>
+      <exam name="C# Part 1" tutor="Tutor" score="90"/>
+      <exam name="C# Part 2" tutor="Tutor" score="70"/>
+      <exam name="HTML" tutor="Tutor" score="5"/>
+      <exam name="CSS" tutor="Tutor" score="60"/>
+    </taken-exams>
+  </student>
+  <student>
+    <name>
+      John
+    </name>
+    <sex>
+      unknown
+    </sex>
+    <birth-date>
+      2030-12-31
+    </birth-date>
+    <phone>
+      555-555-555-555
+    </phone>
+    <email>
+      john@super-john.com
+    </email>
+    <course>
+      Databases
+    </course>
+    <specialty>
+      QA
+    </specialty>
+    <faculty-number>
+      00000033
+    </faculty-number>
+    <taken-exams>
+      <exam name="C# Part 1" tutor="Tutor" score="90"/>
+      <exam name="C# Part 2" tutor="Tutor" score="70"/>
+      <exam name="HTML" tutor="Tutor" score="5"/>
+      <exam name="CSS" tutor="Tutor" score="60"/>
+    </taken-exams>
+  </student>
+</students>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+	Problem 2. HTML Form
+	Create a Web Page like the following using forms
+ -->
+	<head>
+		<title>Simple HTML form</title>
+		<meta charset="UTF-8"/>
+		<style type="text/css">
+			div {
+				display: table-row;
+			}
+			.image {
+				width: 80px;
+			}
+			.c1, .c2, .c3 {
+				margin-bottom: 5px;
+				display: table-cell;
+			}
+			.c2 {
+				margin-left: 6px;
+				margin-right: 6px;
+			}
+			.c3 {
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<form>
+			<div>
+				<label class="c1" for="member-name">Member name:</label>
+				<input class="c2" id="member-name" type="text" required="required" autofocus="autofocus"/>
+				<label class="c3">*req</label>
+			</div>
+			<div>
+				<label class="c1" for="email">Email:</label>
+				<input class="c2" id="email" type="email" required="required" pattern="[^\s\\\/@]+@[^\s\\\/@]+\.[^\s\\\/@]+"/>
+				<label class="c3">*req</label>
+			</div>
+			<div>
+				<label class="c1" for="school">School:</label>
+				<input class="c2" id="school" type="text" required="required"/>
+				<label class="c3">*req</label>
+			</div>
+			<div>
+				<input class="image c1" type="image" src="SubmitButton.png" alt="Submit"/>
+			</div>
+		</form>
+	</body>
+</html>
