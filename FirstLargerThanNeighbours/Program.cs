@@ -12,7 +12,6 @@
 
             int[] array = input.Select(i => int.Parse(i)).ToArray();
 
-            int count = 0;
             for (int i = 0; i < n; ++i)
             {
                 bool larger = IsLargerThanNeighbours(array, i - 1, i, i + 1);
