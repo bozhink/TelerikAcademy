@@ -47,7 +47,7 @@
         public static long Sum(int[] args)
         {
             long sum = 0;
-            for (int i = 0; i< args.Length; ++i)
+            for (int i = 0; i < args.Length; ++i)
             {
                 sum += args[i];
             }
