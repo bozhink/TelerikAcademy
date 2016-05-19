@@ -11,7 +11,7 @@ namespace TriangleSurfaceByTwoSidesAndAngle
             double angle = Math.PI / 180.0 * double.Parse(Console.ReadLine());
 
             double altitude = a * Math.Sin(angle);
-            double area = 0.5  * altitude * b;
+            double area = 0.5 * altitude * b;
 
             Console.WriteLine("{0:F2}", area);
         }
