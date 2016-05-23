@@ -17,6 +17,7 @@
 [Rr]eleases/
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 [Xx]64/
 [Xx]86/
 [Bb]uild/
@@ -30,12 +31,18 @@ build/
 [Xx]86/
 [Bb]uild/
 >>>>>>> csharp-1-03-operators-and-expressions
+=======
+[Xx]64/
+[Xx]86/
+[Bb]uild/
+>>>>>>> CSharp-Part-2-03-Methods
 bld/
 [Bb]in/
 [Oo]bj/
 
 # Visual Studio 2015 cache/options directory
 .vs/
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 # Uncomment if you have tasks that create the project's static files in wwwroot
@@ -46,6 +53,10 @@ bld/
 # Uncomment if you have tasks that create the project's static files in wwwroot
 #wwwroot/
 >>>>>>> csharp-1-03-operators-and-expressions
+=======
+# Uncomment if you have tasks that create the project's static files in wwwroot
+#wwwroot/
+>>>>>>> CSharp-Part-2-03-Methods
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
@@ -98,13 +109,17 @@ ipch/
 *.ncb
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> csharp-1-03-operators-and-expressions
+=======
+>>>>>>> CSharp-Part-2-03-Methods
 *.opendb
 *.opensdf
 *.sdf
 *.cachefile
 *.VC.db
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 *.opensdf
@@ -113,6 +128,8 @@ ipch/
 >>>>>>> csharp-part-1-hw-1-introduction
 =======
 >>>>>>> csharp-1-03-operators-and-expressions
+=======
+>>>>>>> CSharp-Part-2-03-Methods
 
 # Visual Studio profiler
 *.psess
@@ -120,12 +137,16 @@ ipch/
 *.vspx
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 *.sap
 =======
 >>>>>>> csharp-part-1-hw-1-introduction
 =======
 *.sap
 >>>>>>> csharp-1-03-operators-and-expressions
+=======
+*.sap
+>>>>>>> CSharp-Part-2-03-Methods
 
 # TFS 2012 Local Workspace
 $tf/
@@ -152,12 +173,16 @@ _NCrunch_*
 .*crunch*.local.xml
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 nCrunchTemp_*
 =======
 >>>>>>> csharp-part-1-hw-1-introduction
 =======
 nCrunchTemp_*
 >>>>>>> csharp-1-03-operators-and-expressions
+=======
+nCrunchTemp_*
+>>>>>>> CSharp-Part-2-03-Methods
 
 # MightyMoose
 *.mm.*
@@ -187,13 +212,17 @@ publish/
 *.azurePubxml
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> csharp-1-03-operators-and-expressions
+=======
+>>>>>>> CSharp-Part-2-03-Methods
 
 # TODO: Un-comment the next line if you do not want to checkin 
 # your web deploy settings because they may include unencrypted
 # passwords
 #*.pubxml
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 ## TODO: Comment the next line if you want to checkin your
@@ -204,6 +233,8 @@ publish/
 >>>>>>> csharp-part-1-hw-1-introduction
 =======
 >>>>>>> csharp-1-03-operators-and-expressions
+=======
+>>>>>>> CSharp-Part-2-03-Methods
 *.publishproj
 
 # NuGet Packages
@@ -216,8 +247,11 @@ publish/
 #!**/packages/repositories.config
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> csharp-1-03-operators-and-expressions
+=======
+>>>>>>> CSharp-Part-2-03-Methods
 # NuGet v3's project.json files produces more ignoreable files
 *.nuget.props
 *.nuget.targets
@@ -237,6 +271,7 @@ ApplicationInsights.config
 AppPackages/
 BundleArtifacts/
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 # Windows Azure Build Output
@@ -248,6 +283,8 @@ AppPackages/
 >>>>>>> csharp-part-1-hw-1-introduction
 =======
 >>>>>>> csharp-1-03-operators-and-expressions
+=======
+>>>>>>> CSharp-Part-2-03-Methods
 
 # Visual Studio cache files
 # files ending in .cache can be ignored
@@ -292,6 +329,7 @@ FakesAssemblies/
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 # GhostDoc plugin setting file
 *.GhostDoc.xml
 
@@ -302,6 +340,11 @@ FakesAssemblies/
 *.GhostDoc.xml
 
 >>>>>>> csharp-1-03-operators-and-expressions
+=======
+# GhostDoc plugin setting file
+*.GhostDoc.xml
+
+>>>>>>> CSharp-Part-2-03-Methods
 # Node.js Tools for Visual Studio
 .ntvs_analysis.dat
 
@@ -313,8 +356,11 @@ FakesAssemblies/
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> csharp-1-03-operators-and-expressions
+=======
+>>>>>>> CSharp-Part-2-03-Methods
 # Visual Studio LightSwitch build output
 **/*.HTMLClient/GeneratedArtifacts
 **/*.DesktopClient/GeneratedArtifacts
@@ -332,6 +378,7 @@ ModelManifest.xml
 
 # FAKE - F# Make
 <<<<<<< HEAD
+<<<<<<< HEAD
 .fake/
 =======
 # LightSwitch generated files
@@ -342,3 +389,6 @@ ModelManifest.xml
 =======
 .fake/
 >>>>>>> csharp-1-03-operators-and-expressions
+=======
+.fake/
+>>>>>>> CSharp-Part-2-03-Methods
