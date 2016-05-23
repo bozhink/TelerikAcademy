@@ -15,48 +15,17 @@
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 [Xx]64/
 [Xx]86/
 [Bb]uild/
-=======
-x64/
-x86/
-build/
->>>>>>> csharp-part-1-hw-1-introduction
-=======
-[Xx]64/
-[Xx]86/
-[Bb]uild/
->>>>>>> csharp-1-03-operators-and-expressions
-=======
-[Xx]64/
-[Xx]86/
-[Bb]uild/
->>>>>>> CSharp-Part-2-03-Methods
 bld/
 [Bb]in/
 [Oo]bj/
 
 # Visual Studio 2015 cache/options directory
 .vs/
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 # Uncomment if you have tasks that create the project's static files in wwwroot
 #wwwroot/
-=======
->>>>>>> csharp-part-1-hw-1-introduction
-=======
-# Uncomment if you have tasks that create the project's static files in wwwroot
-#wwwroot/
->>>>>>> csharp-1-03-operators-and-expressions
-=======
-# Uncomment if you have tasks that create the project's static files in wwwroot
-#wwwroot/
->>>>>>> CSharp-Part-2-03-Methods
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
@@ -107,46 +76,17 @@ _Chutzpah*
 ipch/
 *.aps
 *.ncb
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> csharp-1-03-operators-and-expressions
-=======
->>>>>>> CSharp-Part-2-03-Methods
 *.opendb
 *.opensdf
 *.sdf
 *.cachefile
 *.VC.db
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-*.opensdf
-*.sdf
-*.cachefile
->>>>>>> csharp-part-1-hw-1-introduction
-=======
->>>>>>> csharp-1-03-operators-and-expressions
-=======
->>>>>>> CSharp-Part-2-03-Methods
 
 # Visual Studio profiler
 *.psess
 *.vsp
 *.vspx
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 *.sap
-=======
->>>>>>> csharp-part-1-hw-1-introduction
-=======
-*.sap
->>>>>>> csharp-1-03-operators-and-expressions
-=======
-*.sap
->>>>>>> CSharp-Part-2-03-Methods
 
 # TFS 2012 Local Workspace
 $tf/
@@ -171,18 +111,7 @@ _TeamCity*
 # NCrunch
 _NCrunch_*
 .*crunch*.local.xml
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 nCrunchTemp_*
-=======
->>>>>>> csharp-part-1-hw-1-introduction
-=======
-nCrunchTemp_*
->>>>>>> csharp-1-03-operators-and-expressions
-=======
-nCrunchTemp_*
->>>>>>> CSharp-Part-2-03-Methods
 
 # MightyMoose
 *.mm.*
@@ -210,31 +139,11 @@ publish/
 # Publish Web Output
 *.[Pp]ublish.xml
 *.azurePubxml
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> csharp-1-03-operators-and-expressions
-=======
->>>>>>> CSharp-Part-2-03-Methods
 
 # TODO: Un-comment the next line if you do not want to checkin 
 # your web deploy settings because they may include unencrypted
 # passwords
 #*.pubxml
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-## TODO: Comment the next line if you want to checkin your
-## web deploy settings but do note that will include unencrypted
-## passwords
-#*.pubxml
-
->>>>>>> csharp-part-1-hw-1-introduction
-=======
->>>>>>> csharp-1-03-operators-and-expressions
-=======
->>>>>>> CSharp-Part-2-03-Methods
 *.publishproj
 
 # NuGet Packages
@@ -245,13 +154,6 @@ publish/
 !**/packages/build/
 # Uncomment if necessary however generally it will be regenerated when needed
 #!**/packages/repositories.config
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> csharp-1-03-operators-and-expressions
-=======
->>>>>>> CSharp-Part-2-03-Methods
 # NuGet v3's project.json files produces more ignoreable files
 *.nuget.props
 *.nuget.targets
@@ -270,21 +172,6 @@ ApplicationInsights.config
 # Windows Store app package directory
 AppPackages/
 BundleArtifacts/
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-# Windows Azure Build Output
-csx/
-*.build.csdef
-
-# Windows Store app package directory
-AppPackages/
->>>>>>> csharp-part-1-hw-1-introduction
-=======
->>>>>>> csharp-1-03-operators-and-expressions
-=======
->>>>>>> CSharp-Part-2-03-Methods
 
 # Visual Studio cache files
 # files ending in .cache can be ignored
@@ -327,24 +214,9 @@ UpgradeLog*.htm
 # Microsoft Fakes
 FakesAssemblies/
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 # GhostDoc plugin setting file
 *.GhostDoc.xml
 
-=======
->>>>>>> csharp-part-1-hw-1-introduction
-=======
-# GhostDoc plugin setting file
-*.GhostDoc.xml
-
->>>>>>> csharp-1-03-operators-and-expressions
-=======
-# GhostDoc plugin setting file
-*.GhostDoc.xml
-
->>>>>>> CSharp-Part-2-03-Methods
 # Node.js Tools for Visual Studio
 .ntvs_analysis.dat
 
@@ -354,13 +226,6 @@ FakesAssemblies/
 # Visual Studio 6 workspace options file
 *.opt
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> csharp-1-03-operators-and-expressions
-=======
->>>>>>> CSharp-Part-2-03-Methods
 # Visual Studio LightSwitch build output
 **/*.HTMLClient/GeneratedArtifacts
 **/*.DesktopClient/GeneratedArtifacts
@@ -377,18 +242,4 @@ ModelManifest.xml
 .paket/paket.exe
 
 # FAKE - F# Make
-<<<<<<< HEAD
-<<<<<<< HEAD
 .fake/
-=======
-# LightSwitch generated files
-GeneratedArtifacts/
-_Pvt_Extensions/
-ModelManifest.xml
->>>>>>> csharp-part-1-hw-1-introduction
-=======
-.fake/
->>>>>>> csharp-1-03-operators-and-expressions
-=======
-.fake/
->>>>>>> CSharp-Part-2-03-Methods
