@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ReverseNumber")]
+[assembly: AssemblyTitle("NumberAsArray")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ReverseNumber")]
+[assembly: AssemblyProduct("NumberAsArray")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c8769a22-5240-443c-b4ab-ee364ac6acdd")]
+[assembly: Guid("4791ca85-76c4-48af-9d81-024ce571ca3f")]
 
 // Version information for an assembly consists of the following four values:
 //

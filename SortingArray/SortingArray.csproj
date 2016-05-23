@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C8769A22-5240-443C-B4AB-EE364AC6ACDD}</ProjectGuid>
+    <ProjectGuid>{325380C5-9B9A-4485-9E76-A534AB1EFBDF}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ReverseNumber</RootNamespace>
-    <AssemblyName>ReverseNumber</AssemblyName>
+    <RootNamespace>SortingArray</RootNamespace>
+    <AssemblyName>SortingArray</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
