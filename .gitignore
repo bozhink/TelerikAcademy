@@ -16,6 +16,7 @@
 [Rr]elease/
 [Rr]eleases/
 <<<<<<< HEAD
+<<<<<<< HEAD
 [Xx]64/
 [Xx]86/
 [Bb]uild/
@@ -24,6 +25,11 @@ x64/
 x86/
 build/
 >>>>>>> csharp-part-1-hw-1-introduction
+=======
+[Xx]64/
+[Xx]86/
+[Bb]uild/
+>>>>>>> csharp-1-03-operators-and-expressions
 bld/
 [Bb]in/
 [Oo]bj/
@@ -31,10 +37,15 @@ bld/
 # Visual Studio 2015 cache/options directory
 .vs/
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Uncomment if you have tasks that create the project's static files in wwwroot
 #wwwroot/
 =======
 >>>>>>> csharp-part-1-hw-1-introduction
+=======
+# Uncomment if you have tasks that create the project's static files in wwwroot
+#wwwroot/
+>>>>>>> csharp-1-03-operators-and-expressions
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
@@ -86,25 +97,35 @@ ipch/
 *.aps
 *.ncb
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> csharp-1-03-operators-and-expressions
 *.opendb
 *.opensdf
 *.sdf
 *.cachefile
 *.VC.db
+<<<<<<< HEAD
 =======
 *.opensdf
 *.sdf
 *.cachefile
 >>>>>>> csharp-part-1-hw-1-introduction
+=======
+>>>>>>> csharp-1-03-operators-and-expressions
 
 # Visual Studio profiler
 *.psess
 *.vsp
 *.vspx
 <<<<<<< HEAD
+<<<<<<< HEAD
 *.sap
 =======
 >>>>>>> csharp-part-1-hw-1-introduction
+=======
+*.sap
+>>>>>>> csharp-1-03-operators-and-expressions
 
 # TFS 2012 Local Workspace
 $tf/
@@ -130,9 +151,13 @@ _TeamCity*
 _NCrunch_*
 .*crunch*.local.xml
 <<<<<<< HEAD
+<<<<<<< HEAD
 nCrunchTemp_*
 =======
 >>>>>>> csharp-part-1-hw-1-introduction
+=======
+nCrunchTemp_*
+>>>>>>> csharp-1-03-operators-and-expressions
 
 # MightyMoose
 *.mm.*
@@ -161,11 +186,15 @@ publish/
 *.[Pp]ublish.xml
 *.azurePubxml
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> csharp-1-03-operators-and-expressions
 
 # TODO: Un-comment the next line if you do not want to checkin 
 # your web deploy settings because they may include unencrypted
 # passwords
 #*.pubxml
+<<<<<<< HEAD
 =======
 ## TODO: Comment the next line if you want to checkin your
 ## web deploy settings but do note that will include unencrypted
@@ -173,6 +202,8 @@ publish/
 #*.pubxml
 
 >>>>>>> csharp-part-1-hw-1-introduction
+=======
+>>>>>>> csharp-1-03-operators-and-expressions
 *.publishproj
 
 # NuGet Packages
@@ -184,6 +215,9 @@ publish/
 # Uncomment if necessary however generally it will be regenerated when needed
 #!**/packages/repositories.config
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> csharp-1-03-operators-and-expressions
 # NuGet v3's project.json files produces more ignoreable files
 *.nuget.props
 *.nuget.targets
@@ -202,6 +236,7 @@ ApplicationInsights.config
 # Windows Store app package directory
 AppPackages/
 BundleArtifacts/
+<<<<<<< HEAD
 =======
 
 # Windows Azure Build Output
@@ -211,6 +246,8 @@ csx/
 # Windows Store app package directory
 AppPackages/
 >>>>>>> csharp-part-1-hw-1-introduction
+=======
+>>>>>>> csharp-1-03-operators-and-expressions
 
 # Visual Studio cache files
 # files ending in .cache can be ignored
@@ -254,11 +291,17 @@ UpgradeLog*.htm
 FakesAssemblies/
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 # GhostDoc plugin setting file
 *.GhostDoc.xml
 
 =======
 >>>>>>> csharp-part-1-hw-1-introduction
+=======
+# GhostDoc plugin setting file
+*.GhostDoc.xml
+
+>>>>>>> csharp-1-03-operators-and-expressions
 # Node.js Tools for Visual Studio
 .ntvs_analysis.dat
 
@@ -269,6 +312,9 @@ FakesAssemblies/
 *.opt
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> csharp-1-03-operators-and-expressions
 # Visual Studio LightSwitch build output
 **/*.HTMLClient/GeneratedArtifacts
 **/*.DesktopClient/GeneratedArtifacts
@@ -285,6 +331,7 @@ ModelManifest.xml
 .paket/paket.exe
 
 # FAKE - F# Make
+<<<<<<< HEAD
 .fake/
 =======
 # LightSwitch generated files
@@ -292,3 +339,6 @@ GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
 >>>>>>> csharp-part-1-hw-1-introduction
+=======
+.fake/
+>>>>>>> csharp-1-03-operators-and-expressions
