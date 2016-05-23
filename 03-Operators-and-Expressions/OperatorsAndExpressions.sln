@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModifyBit", "ModifyBit\ModifyBit.csproj", "{DA268E2B-61E5-44B3-8559-97206E32FB48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitExchange", "BitExchange\BitExchange.csproj", "{5E6AC344-46B3-40B0-ACB8-6C25D384D378}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitSwap", "BitSwap\BitSwap.csproj", "{F3AF8A40-9D69-496C-A3C5-5E9C88869822}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA268E2B-61E5-44B3-8559-97206E32FB48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA268E2B-61E5-44B3-8559-97206E32FB48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA268E2B-61E5-44B3-8559-97206E32FB48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA268E2B-61E5-44B3-8559-97206E32FB48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E6AC344-46B3-40B0-ACB8-6C25D384D378}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E6AC344-46B3-40B0-ACB8-6C25D384D378}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E6AC344-46B3-40B0-ACB8-6C25D384D378}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E6AC344-46B3-40B0-ACB8-6C25D384D378}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3AF8A40-9D69-496C-A3C5-5E9C88869822}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3AF8A40-9D69-496C-A3C5-5E9C88869822}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3AF8A40-9D69-496C-A3C5-5E9C88869822}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3AF8A40-9D69-496C-A3C5-5E9C88869822}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
