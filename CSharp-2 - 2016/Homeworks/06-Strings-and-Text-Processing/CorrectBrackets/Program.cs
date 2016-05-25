@@ -1,46 +1,38 @@
 ﻿namespace CorrectBrackets
 {
     using System;
-    using System.Collections.Generic;
 
     public class Program
     {
-        private const string Incorrect = "Incorrect";
-        private const string Correct = "Correct";
-
-        public static void Main(string[] args)
+        public static bool CheckForCorrect(string text, char leftChar, char rightChar)
         {
-            string input = Console.ReadLine();
+            bool iscorrect = true;
+            int leftIndex = text.IndexOf(leftChar);
+            int rightIndex = text.IndexOf(rightChar);
 
-            var stack = new Stack<char>();
-            for (int i = 0; i < input.Length; ++i)
+            while (leftIndex != -1 || rightIndex != -1)
             {
-                char ch = input[i];
-                switch (ch)
+                if (((leftIndex != -1 && rightIndex == -1) || (leftIndex == -1 && rightIndex != -1)) || (leftIndex > rightIndex))
                 {
-                    case '(':
-                        stack.Push(ch);
-                        break;
-
-                    case ')':
-                        if (stack.Count > 0)
-                        {
-                            stack.Pop();
-                        }
-                        else
-                        {
-                            Console.WriteLine(Incorrect);
-                            return;
-                        }
-
-                        break;
-
-                    default:
-                        break;
+                    iscorrect = false;
+                    break;
                 }
+
+                leftIndex = text.IndexOf(leftChar, leftIndex + 1);
+                rightIndex = text.IndexOf(rightChar, rightIndex + 1);
+
             }
 
-            Console.WriteLine(Correct);
+            return iscorrect;
+        }
+
+        public static void Main()
+        {
+            string inpput = Console.ReadLine();
+            bool correct = CheckForCorrect(inpput, '(', ')');
+
+            Console.WriteLine(correct ? "Correct" : "Incorrect");
         }
     }
+
 }
