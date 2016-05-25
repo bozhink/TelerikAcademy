@@ -20,7 +20,6 @@
 
                 leftIndex = text.IndexOf(leftChar, leftIndex + 1);
                 rightIndex = text.IndexOf(rightChar, rightIndex + 1);
-
             }
 
             return iscorrect;
@@ -34,5 +33,4 @@
             Console.WriteLine(correct ? "Correct" : "Incorrect");
         }
     }
-
 }
