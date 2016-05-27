@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Text;
     using System.Text.RegularExpressions;
 
     public static class Program
@@ -11,12 +12,63 @@
 
         public static void Main(string[] args)
         {
-            string word = Console.ReadLine();
-            string text = Console.ReadLine();
+            var word = Console.ReadLine();
+            var text = Console.ReadLine();
+            Console.WriteLine(ExtratSentencesFromText(text, word));
+        }
 
-            var matchingSentences = GetSentencesContainingWord(word, text);
+        public static string ExtratSentencesFromText(string text, string word)
+        {
+            var stringBuilder = new StringBuilder();
 
-            Console.WriteLine(string.Join(string.Empty, matchingSentences));
+            var sentences = text.Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(x => x.Trim())
+                .ToArray();
+            for (int i = 0; i < sentences.Length; ++i)
+            {
+                if (IsWordInSentance(sentences[i], word))
+                {
+                    stringBuilder.Append(sentences[i]);
+                    stringBuilder.Append('.');
+
+                    if (i < sentences.Length)
+                    {
+                        stringBuilder.Append(" ");
+                    }
+                }
+            }
+
+            return stringBuilder.ToString().Trim();
+        }
+
+        public static bool IsWordInSentance(string sentance, string word)
+        {
+            bool found = false;
+            int nextIndexOfWord = sentance.IndexOf(word);
+            int lastIndex = sentance.Length - word.Length;
+
+            while (nextIndexOfWord > -1)
+            {
+                if (nextIndexOfWord != 0 &&
+                  (char.IsLetter(sentance[nextIndexOfWord - 1]) ||
+                   (sentance[nextIndexOfWord - 1] == '-')))
+                {
+                    nextIndexOfWord = sentance.IndexOf(word, nextIndexOfWord + 1);
+                }
+                else if (nextIndexOfWord < lastIndex &&
+                    (char.IsLetter(sentance[nextIndexOfWord + word.Length]) ||
+                    (sentance[nextIndexOfWord + word.Length] == '-')))
+                {
+                    nextIndexOfWord = sentance.IndexOf(word, nextIndexOfWord + 1);
+                }
+                else
+                {
+                    found = true;
+                    break;
+                }
+            }
+
+            return found;
         }
 
         public static IEnumerable<string> GetSentencesContainingWord(string word, string text)

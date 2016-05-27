@@ -9,7 +9,7 @@
 
         public static void Main(string[] args)
         {
-            string input = Console.ReadLine().Replace(@"\", string.Empty);
+            string input = Console.ReadLine();
             Console.WriteLine(input.PadRight(MaximalLength, FillingChar));
         }
     }
