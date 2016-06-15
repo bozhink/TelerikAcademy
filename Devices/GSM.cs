@@ -1,17 +1,23 @@
 ﻿namespace Devices
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using CallsManager;
 
     public class GSM
     {
         private static GSM iphone4S;
 
-        public Battery batteryCharacteristics;
-        public decimal price;
-        public Display displayCharacteristics;
-        public string manufacturer;
-        public string model;
-        public string owner;
+        private readonly ICollection<Call> callHistory;
+
+        private Battery batteryCharacteristics;
+        private decimal price;
+        private Display displayCharacteristics;
+        private string manufacturer;
+        private string model;
+        private string owner;
 
         static GSM()
         {
@@ -26,6 +32,7 @@
             this.price = 0.0m;
             this.displayCharacteristics = null;
             this.owner = null;
+            this.callHistory = new List<Call>();
         }
 
         public GSM(string model, string manufacturer, string owner, decimal price, Battery batteryCharacteristics, Display displayCharacteristics)
@@ -36,9 +43,12 @@
             this.Price = price;
             this.BatteryCharacteristics = batteryCharacteristics;
             this.DisplayCharacteristics = displayCharacteristics;
+            this.callHistory = new List<Call>();
         }
 
         public static GSM IPhone4S => iphone4S;
+
+        public ICollection<Call> CallHistory => this.callHistory;
 
         public Battery BatteryCharacteristics
         {
@@ -146,6 +156,40 @@
 
                 this.owner = value;
             }
+        }
+
+        public void AddCall(Call call)
+        {
+            if (call == null)
+            {
+                throw new ArgumentNullException(nameof(call));
+            }
+
+            this.CallHistory.Add(call);
+        }
+
+        public void DeleteCall(Call call)
+        {
+            if (call == null)
+            {
+                throw new ArgumentNullException(nameof(call));
+            }
+
+            this.CallHistory.Remove(call);
+        }
+
+        public void ClearCallHistory()
+        {
+            this.CallHistory.Clear();
+        }
+
+        public decimal TotalPriceOfCalls(decimal pricePerMinute)
+        {
+            decimal pricePerSecond = pricePerMinute / 60.0m;
+
+            return this.CallHistory
+                .Select(c => c.DurationInSeconds * pricePerSecond)
+                .Sum();
         }
 
         public string GetInformation()

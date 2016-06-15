@@ -4,9 +4,11 @@
     {
         public static void Main(string[] args)
         {
-            var tests = new GSMTest();
+            var gsmTests = new GSMTest();
+            gsmTests.DevicesTest();
 
-            tests.DevicesTest();
+            var callTests = new GSMCallHistoryTest();
+            callTests.RunGSMCallHistoryTest();
         }
     }
 }

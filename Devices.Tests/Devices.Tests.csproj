@@ -36,6 +36,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GSMCallHistoryTest.cs" />
     <Compile Include="GSMTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -44,6 +45,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CallsManager\CallsManager.csproj">
+      <Project>{8634C5FC-DB63-425D-813A-596CE71A8E74}</Project>
+      <Name>CallsManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Devices\Devices.csproj">
       <Project>{ad49d7cf-3e22-460c-9f9d-33ecfd7f83e7}</Project>
       <Name>Devices</Name>
