@@ -13,7 +13,7 @@
 
         public string LastName { get; set; }
 
-        public uint FN { get; set; }
+        public string FN { get; set; }
 
         public string Tel { get; set; }
 
