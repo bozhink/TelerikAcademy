@@ -36,6 +36,13 @@
     <Compile Include="IEnumerableExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringBuilderExtensions.cs" />
+    <Compile Include="StudentGroupsExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LinqProblems\LinqProblems.csproj">
+      <Project>{d3f1a73f-5f95-4e08-b202-27f9e63c9126}</Project>
+      <Name>LinqProblems</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

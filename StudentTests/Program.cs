@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq;
+    using Extensions;
     using LinqProblems;
     using LinqProblems.Models;
 
@@ -20,6 +21,10 @@
 
             var studentGroups = new StudentGroups();
             studentGroups.GetStudentsInGroup(students)
+                .ToList()
+                .ForEach(s => Console.WriteLine(s.GroupNumber));
+
+            students.GetStudentsInGroup()
                 .ToList()
                 .ForEach(s => Console.WriteLine(s.GroupNumber));
         }

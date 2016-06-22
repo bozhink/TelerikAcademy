@@ -43,6 +43,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Extensions\Extensions.csproj">
+      <Project>{0f3d5264-fe9d-4df6-99c0-81604da9bded}</Project>
+      <Name>Extensions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LinqProblems\LinqProblems.csproj">
       <Project>{d3f1a73f-5f95-4e08-b202-27f9e63c9126}</Project>
       <Name>LinqProblems</Name>
