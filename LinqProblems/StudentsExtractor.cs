@@ -78,5 +78,41 @@
                 .SelectMany(s => s.Marks)
                 .ToList();
         }
+
+        // Problem 16.* Groups
+        public IEnumerable<object> ExtractStudentsFromMathematicsDepartment(
+            IEnumerable<Student> students,
+            IEnumerable<Models.Group> groups)
+        {
+            if (students == null)
+            {
+                throw new ArgumentNullException(nameof(groups));
+            }
+
+            if (groups == null)
+            {
+                throw new ArgumentNullException(nameof(groups));
+            }
+
+            var result = students.Join(
+                groups,
+                s => s.GroupNumber,
+                g => g.GroupNumber,
+                (s, g) => new
+                {
+                    s.Age,
+                    s.Email,
+                    s.FirstName,
+                    s.FN,
+                    s.LastName,
+                    s.Marks,
+                    s.Tel,
+                    g.DepartmentName
+                })
+                .Where(r => r.DepartmentName == "Mathematics")
+                .ToList();
+
+            return result;
+        }
     }
 }
