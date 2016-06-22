@@ -37,6 +37,7 @@
     <Compile Include="FirstBeforeLast.cs" />
     <Compile Include="Models\AgeRangeStudentResponseModel.cs" />
     <Compile Include="Models\Student.cs" />
+    <Compile Include="OrderStudents.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
