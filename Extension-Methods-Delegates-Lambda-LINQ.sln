@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions", "Extensions\Ex
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqProblems", "LinqProblems\LinqProblems.csproj", "{D3F1A73F-5F95-4E08-B202-27F9E63C9126}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Timer", "Timer\Timer.csproj", "{244D5EBB-5F51-450B-80C4-15776B5D39E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{D3F1A73F-5F95-4E08-B202-27F9E63C9126}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3F1A73F-5F95-4E08-B202-27F9E63C9126}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3F1A73F-5F95-4E08-B202-27F9E63C9126}.Release|Any CPU.Build.0 = Release|Any CPU
+		{244D5EBB-5F51-450B-80C4-15776B5D39E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{244D5EBB-5F51-450B-80C4-15776B5D39E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{244D5EBB-5F51-450B-80C4-15776B5D39E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{244D5EBB-5F51-450B-80C4-15776B5D39E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
