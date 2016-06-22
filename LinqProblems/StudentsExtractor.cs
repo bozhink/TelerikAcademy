@@ -114,5 +114,23 @@
 
             return result;
         }
+
+        // Problem 18. Grouped by GroupNumber
+        public void GroupByGroupNumberAndPrint(IEnumerable<Student> students)
+        {
+            if (students == null)
+            {
+                throw new ArgumentNullException(nameof(students));
+            }
+
+            foreach (var group in students.GroupBy(s => s.GroupNumber))
+            {
+                Console.WriteLine("Group Number: {0}", group.Key);
+                foreach (var student in group)
+                {
+                    Console.WriteLine(student);
+                }
+            }
+        }
     }
 }
