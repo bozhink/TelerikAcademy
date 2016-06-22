@@ -34,6 +34,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AgeRange.cs" />
+    <Compile Include="DivisibleBy7And3.cs" />
     <Compile Include="FirstBeforeLast.cs" />
     <Compile Include="Models\AgeRangeStudentResponseModel.cs" />
     <Compile Include="Models\Student.cs" />
