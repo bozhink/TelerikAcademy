@@ -1,13 +1,9 @@
 ﻿namespace LinqProblems.Models
 {
-    public class Student
+    public class AgeRangeStudentResponseModel
     {
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
-
-        public uint StudentId { get; set; }
-
-        public uint Age { get; set; }
     }
 }
