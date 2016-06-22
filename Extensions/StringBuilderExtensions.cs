@@ -1,4 +1,4 @@
-﻿namespace StringBuilder.Substring
+﻿namespace Extensions
 {
     using System.Text;
 
