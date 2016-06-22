@@ -36,7 +36,7 @@
     <Compile Include="IEnumerableExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringBuilderExtensions.cs" />
-    <Compile Include="StudentGroupsExtensions.cs" />
+    <Compile Include="StudentsExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LinqProblems\LinqProblems.csproj">
