@@ -15,7 +15,7 @@
             this.Sex = sex;
         }
 
-        public virtual string Name
+        public string Name
         {
             get
             {
@@ -33,7 +33,7 @@
             }
         }
 
-        public virtual decimal Age
+        public decimal Age
         {
             get
             {
@@ -56,8 +56,13 @@
             }
         }
 
-        public virtual Sex Sex { get; private set; }
+        public Sex Sex { get; private set; }
 
         public abstract string ProduceSound();
+
+        public override string ToString()
+        {
+            return $"{this.Name}, {this.Age}, {this.Sex} -- {this.ProduceSound()}";
+        }
     }
 }
