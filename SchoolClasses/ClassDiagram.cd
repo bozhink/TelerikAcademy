@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SchoolClasses.Models.Class">
+    <Position X="7" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Models\Class.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SchoolClasses.Models.Commentable">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Models\Commentable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SchoolClasses.Models.Discipline">
+    <Position X="13.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAASAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Discipline.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SchoolClasses.Models.Person">
+    <Position X="10.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Person.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SchoolClasses.Models.School" Collapsed="true">
+    <Position X="18" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\School.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SchoolClasses.Models.Student">
+    <Position X="11.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Student.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SchoolClasses.Models.Teacher">
+    <Position X="9.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Teacher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SchoolClasses.Attribures.OptionalAttribute" Collapsed="true">
+    <Position X="16.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attribures\OptionalAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SchoolClasses.Attribures.UniqueAttribute" Collapsed="true">
+    <Position X="16.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attribures\UniqueAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
