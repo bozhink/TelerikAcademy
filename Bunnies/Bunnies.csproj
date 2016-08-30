@@ -36,7 +36,12 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bunnies.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="Bunny.cs" />
+    <Compile Include="ConsoleWriter.cs" />
+    <Compile Include="Contracts\IWriter.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="FurType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
