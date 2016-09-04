@@ -89,7 +89,7 @@
         }
 
         /// <summary>
-        /// Capitalize the first letter of an inpit string.
+        /// Capitalize the first letter of an input string.
         /// </summary>
         /// <param name="input">The input string which first letter will be capitalized.</param>
         /// <returns>The input string with the first letter capitalized.</returns>
@@ -110,7 +110,7 @@
         /// <param name="startString">The initial phrase of the result.</param>
         /// <param name="endString">The phase next the result.</param>
         /// <param name="startFrom">The index of initial substring search.</param>
-        /// <returns>The string between two string phares, includeing the first one.</returns>
+        /// <returns>The string between two string phases, including the first one.</returns>
         public static string GetStringBetween(this string input, string startString, string endString, int startFrom = 0)
         {
             input = input.Substring(startFrom);
@@ -136,7 +136,7 @@
         }
 
         /// <summary>
-        /// Alphabetical transcription of cyrillic letters to latin.
+        /// Alphabetical transcription of Cyrillic letters to Latin.
         /// </summary>
         /// <param name="input">The string to be transcribed.</param>
         /// <returns>The transcribed result.</returns>
@@ -163,7 +163,7 @@
         }
 
         /// <summary>
-        /// Keyboard transcription of latin letters to cyrillic.
+        /// Keyboard transcription of Latin letters to Cyrillic.
         /// </summary>
         /// <param name="input">The string to be transcribed.</param>
         /// <returns>The transcribed result.</returns>
@@ -216,7 +216,7 @@
         /// <summary>
         /// Gets first characters of a given string.
         /// </summary>
-        /// <param name="input">The string from which characters will be extractd.</param>
+        /// <param name="input">The string from which characters will be extracted.</param>
         /// <param name="charsCount">Number of characters to be extracted.</param>
         /// <returns>Extracted first characters.</returns>
         public static string GetFirstCharacters(this string input, int charsCount)
