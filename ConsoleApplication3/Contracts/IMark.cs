@@ -5,6 +5,7 @@
     public interface IMark
     {
         Subject Subject { get; }
+
         float Value { get; }
     }
 }

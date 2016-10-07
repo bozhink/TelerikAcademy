@@ -21,7 +21,7 @@
                 }
                 catch (Exception)
                 {
-                    //who cares?
+                    // who cares?
                 }
             }
 
