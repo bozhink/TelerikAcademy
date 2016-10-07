@@ -24,7 +24,7 @@ namespace SchoolSystem
                 .Add(cain);
         }        
         public string lName;
-        public Subjct subject;
+        public Subject subject;
 
 
 
@@ -47,7 +47,7 @@ namespace SchoolSystem
 
 
 
-        Teachers(string Name, string last, Subjct suzan)
+        Teachers(string Name, string last, Subject suzan)
         {
             fName = 
                 Name;

@@ -1,6 +1,6 @@
 ﻿namespace SchoolSystem
 {
-    public enum Subjct
+    public enum Subject
     {
         Bulgarian,
         English,

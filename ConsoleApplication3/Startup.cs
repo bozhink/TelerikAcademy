@@ -30,7 +30,7 @@
     public class Engine
     {
         // TODO: change param to IReader instead ConsoleReaderProvider
-        // mujhe tum par vishvaas hai
+        // I have faith in you
         public Engine(ConsoleReaderProvider readed)
         {
             read = readed;

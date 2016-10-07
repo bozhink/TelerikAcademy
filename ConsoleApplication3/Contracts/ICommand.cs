@@ -1,4 +1,4 @@
-﻿namespace SchoolSystem
+﻿namespace SchoolSystem.Contracts
 {
     using System.Collections.Generic;
 

@@ -1,11 +1,13 @@
-﻿using SchoolSystem;
+﻿
+
+namespace SchoolSystem
+{using SchoolSystem;
 using SchoolSystem;
 using SchoolSystem;
 using System;
 using System.Collections.Generic;
 
-namespace SchoolSystem
-{
+    using Contracts;
     class CreateTeacherCommand : ICommand
     {
 

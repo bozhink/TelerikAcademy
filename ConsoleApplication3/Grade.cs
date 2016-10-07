@@ -1,1 +1,11 @@
-﻿using System; using System.Collections.Generic; using System.Text; using System.Threading.Tasks; namespace SchoolSystem { enum Grade { Eighth = 8, Ninth = 9, Tenth = 10, Eleventh = 11, Twelfth = 12 } }
+﻿namespace SchoolSystem
+{
+    public enum Grade
+    {
+        Eighth = 8,
+        Ninth = 9,
+        Tenth = 10,
+        Eleventh = 11,
+        Twelfth = 12
+    }
+}
