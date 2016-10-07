@@ -17,9 +17,9 @@
             this.writer = writer;
         }
 
-        public static Dictionary<int, ITeacher> Teachers { get; private set; } = new Dictionary<int, ITeacher>();
+        public static IDictionary<int, ITeacher> Teachers { get; private set; } = new Dictionary<int, ITeacher>();
 
-        public static Dictionary<int, IStudent> Students { get; private set; } = new Dictionary<int, IStudent>();
+        public static IDictionary<int, IStudent> Students { get; private set; } = new Dictionary<int, IStudent>();
 
         public void Run()
         {

@@ -7,6 +7,7 @@
 
     internal class CreateStudentCommand : ICommand
     {
+        // CreateStudent [FirstName] [LastName] [Grade]
         public string Execute(IList<string> parameters)
         {
             var firstName = parameters[0];
