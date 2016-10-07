@@ -4,18 +4,19 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
-    using System.Threading;
 
     using Contracts;
     using Models;
 
     internal class Engine
     {
-        // TODO: change param to IReader instead ConsoleReaderProvider
-        // I have faith in you
-        public Engine(ConsoleReader readed)
+        private readonly IReader reader;
+        private readonly IWriter writer;
+
+        public Engine(IReader reader, IWriter writer)
         {
-            read = readed;
+            this.reader = reader;
+            this.writer = writer;
         }
 
         public void BrumBrum()
@@ -49,36 +50,13 @@
                     var aadesh = Activator.CreateInstance(tpyeinfo) as ICommand;
                     var paramss = cmd.Split(' ').ToList();
                     paramss.RemoveAt(0);
-                    this.WriteLine(aadesh.Execute(paramss));
+                    this.writer.WriteLine(aadesh.Execute(paramss));
                 }
                 catch (Exception ex)
                 {
-                    this.WriteLine(ex.Message);
+                    this.writer.WriteLine(ex.Message);
                 }
             }
-        }
-
-        private ConsoleReader read;
-
-        private void WriteLine(string m)
-        {
-            var p = m.Split();
-            var s = string.Join(" ", p);
-            var c = 0d;
-            for (double i = 0; i < 0x105; i++)
-            {
-                try
-                {
-                    Console.Write(s[int.Parse(i.ToString())]);
-                }
-                catch (Exception)
-                {
-                    //who cares?
-                }
-            }
-
-            Console.Write("\n");
-            Thread.Sleep(350);
         }
 
         internal static Dictionary<int, Teacher> teachers { get; set; } = new Dictionary<int, Teacher>();

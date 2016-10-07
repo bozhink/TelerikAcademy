@@ -49,7 +49,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\ICommand.cs" />
+    <Compile Include="Contracts\IConsoleWriter.cs" />
     <Compile Include="Contracts\IReader.cs" />
+    <Compile Include="Contracts\IWriter.cs" />
     <Compile Include="Core\BusinessLogicService.cs" />
     <Compile Include="Core\Commands\CreateStudentCommand.cs" />
     <Compile Include="Core\Commands\CreateTeacherCommand.cs" />
@@ -59,7 +61,8 @@
     <Compile Include="Contracts\IMark.cs" />
     <Compile Include="Contracts\IStudent.cs" />
     <Compile Include="Contracts\ITeacher.cs" />
-    <Compile Include="Core\ConsoleReaderProvider.cs" />
+    <Compile Include="Core\ConsoleReader.cs" />
+    <Compile Include="Core\ConsoleWriter.cs" />
     <Compile Include="Core\Engine.cs" />
     <Compile Include="Contracts\IConsoleReader.cs" />
     <Compile Include="Core\IdGenerator.cs" />
@@ -73,7 +76,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Docs\Rules.ruleset" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
