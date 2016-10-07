@@ -8,7 +8,7 @@
         public void Execute(IReader reader, IWriter writer)
         {
             var engine = new Engine(reader, writer);
-            engine.BrumBrum();
+            engine.Run();
         }
     }
 }

@@ -4,11 +4,9 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
-
     using Contracts;
-    using Models;
 
-    internal class Engine
+    internal class Engine : IEngine
     {
         private readonly IReader reader;
         private readonly IWriter writer;
@@ -19,42 +17,40 @@
             this.writer = writer;
         }
 
-        internal static Dictionary<int, Teacher> Teachers { get; private set; } = new Dictionary<int, Teacher>();
+        public static Dictionary<int, ITeacher> Teachers { get; private set; } = new Dictionary<int, ITeacher>();
 
-        internal static Dictionary<int, Student> Students { get; private set; } = new Dictionary<int, Student>();
+        public static Dictionary<int, IStudent> Students { get; private set; } = new Dictionary<int, IStudent>();
 
-        public void BrumBrum()
+        public void Run()
         {
             while (true)
             {
                 try
                 {
-                    var cmd = Console.ReadLine();
-                    if (cmd == "End")
+                    var stringCommand = this.reader.ReadLine();
+                    if (stringCommand == "End")
                     {
                         break;
                     }
 
-                    var aadeshName = cmd.Split(' ')[0];
+                    var commandName = stringCommand.Split(' ')[0];
 
-                    // When I wrote this, only God and I understood what it was doing
-                    // Now, only God knows
-                    var assembli = GetType().GetTypeInfo().Assembly;
-                    var tpyeinfo = assembli.DefinedTypes
+                    var assembly = this.GetType().GetTypeInfo().Assembly;
+                    var typeInfo = assembly.DefinedTypes
                         .Where(type => type.ImplementedInterfaces.Any(inter => inter == typeof(ICommand)))
-                        .Where(type => type.Name.ToLower().Contains(aadeshName.ToLower()))
+                        .Where(type => type.Name.ToLower().Contains(commandName.ToLower()))
                         .FirstOrDefault();
 
-                    if (tpyeinfo == null)
+                    if (typeInfo == null)
                     {
-                        // throw exception when type info is null
                         throw new ArgumentException("The passed command is not found!");
                     }
 
-                    var aadesh = Activator.CreateInstance(tpyeinfo) as ICommand;
-                    var paramss = cmd.Split(' ').ToList();
-                    paramss.RemoveAt(0);
-                    this.writer.WriteLine(aadesh.Execute(paramss));
+                    var parameters = stringCommand.Split(' ').ToList();
+                    parameters.RemoveAt(0);
+
+                    var commandInstance = Activator.CreateInstance(typeInfo) as ICommand;
+                    this.writer.WriteLine(commandInstance.Execute(parameters));
                 }
                 catch (Exception ex)
                 {
@@ -62,7 +58,5 @@
                 }
             }
         }
-
-
     }
 }
