@@ -3,13 +3,9 @@
     using System.Collections.Generic;
     using Types;
 
-    public interface IStudent
+    public interface IStudent : IPerson
     {
-        string FirstName { get; }
-
         Grade Grade { get; }
-
-        string LastName { get; }
 
         ICollection<IMark> Marks { get; }
 

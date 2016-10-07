@@ -2,12 +2,8 @@
 {
     using Types;
 
-    public interface ITeacher
+    public interface ITeacher : IPerson
     {
-        string FirstName { get; }
-
-        string LastName { get; }
-
         Subject Subject { get; }
 
         void AddMark(IStudent student, float value);

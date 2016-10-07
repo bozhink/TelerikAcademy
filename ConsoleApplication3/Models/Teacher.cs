@@ -3,18 +3,13 @@
     using Contracts;
     using Types;
 
-    public class Teacher : ITeacher
+    public class Teacher : Person, ITeacher
     {
         private Teacher(string firstName, string lastName, Subject subject)
+            : base(firstName, lastName)
         {
-            this.FirstName = firstName;
-            this.LastName = lastName;
             this.Subject = subject;
         }
-
-        public string FirstName { get; private set; }
-
-        public string LastName { get; private set; }
 
         public Subject Subject { get; private set; }
 

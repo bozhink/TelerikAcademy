@@ -48,8 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\ValidationConstants.cs" />
     <Compile Include="Contracts\ICommand.cs" />
     <Compile Include="Contracts\IConsoleWriter.cs" />
+    <Compile Include="Contracts\IPerson.cs" />
     <Compile Include="Contracts\IReader.cs" />
     <Compile Include="Contracts\IWriter.cs" />
     <Compile Include="Core\BusinessLogicService.cs" />
@@ -67,6 +69,7 @@
     <Compile Include="Contracts\IConsoleReader.cs" />
     <Compile Include="Core\IdGenerator.cs" />
     <Compile Include="Contracts\IEngine.cs" />
+    <Compile Include="Models\Person.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Types\Grade.cs" />
     <Compile Include="Types\Subject.cs" />
