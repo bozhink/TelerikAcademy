@@ -7,7 +7,7 @@
     using Constants;
     using Contracts;
 
-    internal class Engine : IEngine
+    public class Engine : IEngine
     {
         private readonly IReader reader;
         private readonly IWriter writer;
@@ -16,6 +16,16 @@
 
         public Engine(IReader reader, IWriter writer)
         {
+            if (reader == null)
+            {
+                throw new ArgumentNullException(nameof(reader));
+            }
+
+            if (writer == null)
+            {
+                throw new ArgumentNullException(nameof(writer));
+            }
+
             this.reader = reader;
             this.writer = writer;
 
