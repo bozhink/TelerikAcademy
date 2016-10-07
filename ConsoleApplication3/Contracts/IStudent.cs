@@ -10,7 +10,7 @@
 
         string LastName { get; }
 
-        ICollection<Mark> Marks { get; }
+        ICollection<IMark> Marks { get; }
 
         string ListMarks();
     }

@@ -11,14 +11,14 @@
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Grade = grade;
-            this.Marks = new List<Mark>();
+            this.Marks = new List<IMark>();
         }
 
         public string FirstName { get; private set; }
 
         public Grade Grade { get; private set; }
 
-        public ICollection<Mark> Marks { get; private set; }
+        public ICollection<IMark> Marks { get; private set; }
 
         public string LastName { get; private set; }
 
