@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="MarkTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TeacherTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
