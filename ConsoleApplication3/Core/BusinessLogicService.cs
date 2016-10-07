@@ -1,6 +1,6 @@
-﻿namespace SchoolSystem
+﻿namespace SchoolSystem.Core
 {
-    public class BusinessLogicService
+    internal class BusinessLogicService
     {
         public void Execute(ConsoleReaderProvider consoleReaderProvider)
         {
