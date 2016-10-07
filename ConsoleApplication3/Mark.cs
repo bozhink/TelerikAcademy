@@ -2,13 +2,13 @@
 {
     public class Mark
     {
-        public Mark(Subject sbj, float va) {
-            subject = sbj;
-            value = va;
+        public Mark(Subject subject, float value) {
+            this.Subject = subject;
+            this.Value = value;
         }
 
-        internal float value;
+        internal float Value { get; set; }
 
-        internal Subject subject;
+        internal Subject Subject { get; set; }
     }
 }

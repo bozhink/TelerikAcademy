@@ -14,7 +14,7 @@
 
         public string ListMarks()
         {
-            var potatos = mark.Select(m => $"{m.subject} => {m.value}").ToList();
+            var potatos = mark.Select(m => $"{m.Subject} => {m.Value}").ToList();
             return string.Join("\n", potatos);
         }
     }
