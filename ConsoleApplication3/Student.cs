@@ -2,8 +2,9 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using Contracts;
 
-    public class Student
+    public class Student : IStudent
     {
         public Student(string firstName, string lastName, Grade grade)
         {

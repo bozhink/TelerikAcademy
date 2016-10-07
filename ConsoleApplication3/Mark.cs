@@ -1,14 +1,17 @@
 ﻿namespace SchoolSystem
 {
-    public class Mark
+    using Contracts;
+
+    public class Mark : IMark
     {
-        public Mark(Subject subject, float value) {
+        public Mark(Subject subject, float value)
+        {
             this.Subject = subject;
             this.Value = value;
         }
 
-        internal float Value { get; set; }
+        public float Value { get; private set; }
 
-        internal Subject Subject { get; set; }
+        public Subject Subject { get; private set; }
     }
 }

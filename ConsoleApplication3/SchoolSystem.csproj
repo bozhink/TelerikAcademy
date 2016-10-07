@@ -50,6 +50,8 @@
   <ItemGroup>
     <Compile Include="Contracts\ICommand.cs" />
     <Compile Include="CreateStudentCommand.cs" />
+    <Compile Include="Contracts\IMark.cs" />
+    <Compile Include="Contracts\IStudent.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Grade.cs" />
     <Compile Include="Subject.cs" />
