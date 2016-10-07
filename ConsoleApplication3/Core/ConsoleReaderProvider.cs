@@ -1,11 +1,11 @@
 ﻿namespace SchoolSystem.Core
 {
     using System;
+    using Contracts;
 
-    internal class ConsoleReaderProvider
+    internal class ConsoleReader : IConsoleReader
     {
-        // TODO: make ConsoleReaderProvider implement IReader
-        public string PadhanaLine()
+        public string ReadLine()
         {
             return Console.ReadLine();
         }

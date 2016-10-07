@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\ICommand.cs" />
+    <Compile Include="Contracts\IReader.cs" />
     <Compile Include="Core\BusinessLogicService.cs" />
     <Compile Include="Core\Commands\CreateStudentCommand.cs" />
     <Compile Include="Core\Commands\CreateTeacherCommand.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Contracts\ITeacher.cs" />
     <Compile Include="Core\ConsoleReaderProvider.cs" />
     <Compile Include="Core\Engine.cs" />
+    <Compile Include="Contracts\IConsoleReader.cs" />
     <Compile Include="Core\IdGenerator.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Types\Grade.cs" />

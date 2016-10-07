@@ -13,7 +13,7 @@
     {
         // TODO: change param to IReader instead ConsoleReaderProvider
         // I have faith in you
-        public Engine(ConsoleReaderProvider readed)
+        public Engine(ConsoleReader readed)
         {
             read = readed;
         }
@@ -58,7 +58,7 @@
             }
         }
 
-        private ConsoleReaderProvider read;
+        private ConsoleReader read;
 
         private void WriteLine(string m)
         {

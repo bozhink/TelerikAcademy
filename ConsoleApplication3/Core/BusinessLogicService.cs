@@ -2,7 +2,7 @@
 {
     internal class BusinessLogicService
     {
-        public void Execute(ConsoleReaderProvider consoleReaderProvider)
+        public void Execute(ConsoleReader consoleReaderProvider)
         {
             var engine = new Engine(consoleReaderProvider);
             engine.BrumBrum();
