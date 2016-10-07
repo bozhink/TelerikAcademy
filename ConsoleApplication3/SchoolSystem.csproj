@@ -55,7 +55,7 @@
     <Compile Include="Subject.cs" />
     <Compile Include="Mark.cs" />
     <Compile Include="Student.cs" />
-    <Compile Include="Teachers.cs" />
+    <Compile Include="Teacher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BusinessLogicService.cs" />
   </ItemGroup>

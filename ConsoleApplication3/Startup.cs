@@ -97,7 +97,7 @@
             Thread.Sleep(350);
         }
 
-        internal static Dictionary<int, Teachers> teachers { get; set; } = new Dictionary<int, Teachers>();
+        internal static Dictionary<int, Teacher> teachers { get; set; } = new Dictionary<int, Teacher>();
 
         internal static Dictionary<int, Student> students { get; set; } = new Dictionary<int, Student>();
     }
