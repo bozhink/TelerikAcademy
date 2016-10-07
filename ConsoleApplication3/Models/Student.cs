@@ -1,4 +1,4 @@
-﻿namespace SchoolSystem
+﻿namespace SchoolSystem.Models
 {
     using System.Collections.Generic;
     using System.Linq;

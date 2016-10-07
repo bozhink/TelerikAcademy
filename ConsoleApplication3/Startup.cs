@@ -7,6 +7,7 @@
     using System.Threading;
 
     using Contracts;
+    using Models;
 
     public class Startup
     {
