@@ -4,5 +4,6 @@
     {
         public const string CommandNotFoundErrorMessage = "The passed command is not found!";
         public const string StudentHasNoMarksMessage = "This student has no marks.";
+        public const string StudentHasMarks = "The student has these marks:";
     }
 }

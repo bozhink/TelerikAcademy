@@ -12,7 +12,7 @@
 
             Engine.Teachers.Remove(teacherId);
 
-            return $"Teacher with ID {teacherId} was successfully removed.";
+            return $"Teacher with ID {teacherId} was sucessfully removed.";
         }
     }
 }

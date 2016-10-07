@@ -7,6 +7,13 @@
 
     internal class CreateStudentCommand : ICommand
     {
+        private static readonly IdGenerator IdGenerator;
+
+        static CreateStudentCommand()
+        {
+            IdGenerator = new IdGenerator();
+        }
+
         // CreateStudent [FirstName] [LastName] [Grade]
         public string Execute(IList<string> parameters)
         {

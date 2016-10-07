@@ -12,7 +12,7 @@
 
             Engine.Students.Remove(studentId);
 
-            return $"Student with ID {studentId} was successfully removed.";
+            return $"Student with ID {studentId} was sucessfully removed.";
         }
     }
 }

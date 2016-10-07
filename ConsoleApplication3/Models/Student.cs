@@ -31,7 +31,7 @@
                 return Messages.StudentHasNoMarksMessage;
             }
 
-            return string.Join("\n", marks);
+            return string.Join("\n", Messages.StudentHasMarks, string.Join("\n", marks));
         }
     }
 }
