@@ -5,17 +5,29 @@
 
     public class Student
     {
-        // This code sucks, you know it and I know it.
-        // Move on and call me an idiot later.
-        public string fNeim; public Grade grads; public List<Mark> mark; public string lNeim;
+        public Student(string firstName, string lastName, Grade grade)
+        {
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.Grade = grade;
+            this.Marks = new List<Mark>();
+        }
 
-        private Student(string _, string __, Grade ___)
-        { fNeim = _; lNeim = __; grads = ___; mark = new List<Mark>(); }
+        public string FirstName { get; private set; }
+
+        public Grade Grade { get; private set; }
+
+        public ICollection<Mark> Marks { get; private set; }
+
+        public string LastName { get; private set; }
 
         public string ListMarks()
         {
-            var potatos = mark.Select(m => $"{m.Subject} => {m.Value}").ToList();
-            return string.Join("\n", potatos);
+            var marks = this.Marks
+                .Select(m => $"{m.Subject} => {m.Value}")
+                .ToList();
+
+            return string.Join("\n", marks);
         }
     }
 }

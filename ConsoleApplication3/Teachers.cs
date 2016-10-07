@@ -20,7 +20,7 @@ namespace SchoolSystem
                     subject
                     , val);
             teacher.
-                mark
+                Marks
                 .Add(cain);
         }        
         public string lName;

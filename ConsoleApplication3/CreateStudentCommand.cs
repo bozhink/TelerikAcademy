@@ -56,7 +56,7 @@ using System.Collections.Generic;
             var student = Engine.students[teecherid];
             var adhyaapak = Engine.teachers[studentid];
             adhyaapak.AddMark(student, float.Parse(prms[2]));
-            return $"Teacher {adhyaapak.fName} {adhyaapak.lName} added mark {float.Parse(prms[2])} to student {student.fNeim} {student.lNeim} in {adhyaapak.subject}.";
+            return $"Teacher {adhyaapak.fName} {adhyaapak.lName} added mark {float.Parse(prms[2])} to student {student.FirstName} {student.LastName} in {adhyaapak.subject}.";
         }
     }
 }
