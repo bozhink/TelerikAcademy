@@ -5,6 +5,7 @@
 
     internal class RemoveStudentCommand : ICommand
     {
+        // RemoveStudent [StudentId]
         public string Execute(IList<string> parameters)
         {
             var studentId = int.Parse(parameters[0]);
