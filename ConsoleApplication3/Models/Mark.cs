@@ -1,4 +1,4 @@
-﻿namespace SchoolSystem
+﻿namespace SchoolSystem.Models
 {
     using Contracts;
     using Types;
