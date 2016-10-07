@@ -19,6 +19,10 @@
             this.writer = writer;
         }
 
+        internal static Dictionary<int, Teacher> Teachers { get; private set; } = new Dictionary<int, Teacher>();
+
+        internal static Dictionary<int, Student> Students { get; private set; } = new Dictionary<int, Student>();
+
         public void BrumBrum()
         {
             while (true)
@@ -59,8 +63,6 @@
             }
         }
 
-        internal static Dictionary<int, Teacher> teachers { get; set; } = new Dictionary<int, Teacher>();
 
-        internal static Dictionary<int, Student> students { get; set; } = new Dictionary<int, Student>();
     }
 }

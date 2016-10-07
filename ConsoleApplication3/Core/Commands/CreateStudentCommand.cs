@@ -16,7 +16,7 @@
             var student = new Student(firstName, lastName, grade);
 
             var id = IdGenerator.Next();
-            Engine.students.Add(id, student);
+            Engine.Students.Add(id, student);
 
             return $"A new student with name {firstName} {lastName}, grade {grade} and ID {id} was created.";
         }

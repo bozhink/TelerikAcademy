@@ -8,10 +8,10 @@
         public string Execute(IList<string> parameters)
         {
             var studentId = int.Parse(parameters[1]);
-            var student = Engine.students[studentId];
+            var student = Engine.Students[studentId];
 
             var teacherId = int.Parse(parameters[0]);
-            var teacher = Engine.teachers[teacherId];
+            var teacher = Engine.Teachers[teacherId];
 
             var markValue = float.Parse(parameters[2]);
             teacher.AddMark(student, markValue);

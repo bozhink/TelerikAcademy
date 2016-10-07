@@ -9,7 +9,7 @@
         {
             var studentId = int.Parse(parameters[0]);
 
-            Engine.students.Remove(studentId);
+            Engine.Students.Remove(studentId);
 
             return $"Student with ID {studentId} was successfully removed.";
         }

@@ -8,7 +8,7 @@
         public string Execute(IList<string> parameters)
         {
             var studentId = int.Parse(parameters[0]);
-            var student = Engine.students[studentId];
+            var student = Engine.Students[studentId];
 
             return student.ListMarks();
         }
