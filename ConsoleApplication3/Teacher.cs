@@ -1,6 +1,8 @@
 ﻿namespace SchoolSystem
 {
-    public class Teacher
+    using Contracts;
+
+    public class Teacher : ITeacher
     {
         private Teacher(string firstName, string lastName, Subject subject)
         {
