@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using Contracts;
+    using Core;
     using Types;
 
     public class Student : Person, IStudent
@@ -11,7 +12,7 @@
             : base(firstName, lastName)
         {
             this.Grade = grade;
-            this.Marks = new List<IMark>();
+            this.Marks = new Collection<IMark>();
         }
 
         public Grade Grade { get; private set; }

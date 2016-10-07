@@ -55,6 +55,7 @@
     <Compile Include="Contracts\IReader.cs" />
     <Compile Include="Contracts\IWriter.cs" />
     <Compile Include="Core\BusinessLogicService.cs" />
+    <Compile Include="Core\Collection.cs" />
     <Compile Include="Core\Commands\CreateStudentCommand.cs" />
     <Compile Include="Core\Commands\CreateTeacherCommand.cs" />
     <Compile Include="Core\Commands\RemoveStudentCommand.cs" />
