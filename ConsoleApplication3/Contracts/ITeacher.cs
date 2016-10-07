@@ -1,5 +1,7 @@
 ﻿namespace SchoolSystem.Contracts
 {
+    using Types;
+
     public interface ITeacher
     {
         string FirstName { get; }

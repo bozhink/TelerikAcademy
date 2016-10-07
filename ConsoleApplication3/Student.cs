@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using Contracts;
+    using Types;
 
     public class Student : IStudent
     {

@@ -1,6 +1,7 @@
 ﻿namespace SchoolSystem
 {
     using Contracts;
+    using Types;
 
     public class Teacher : ITeacher
     {

@@ -1,6 +1,7 @@
 ﻿namespace SchoolSystem.Contracts
 {
     using System.Collections.Generic;
+    using Types;
 
     public interface IStudent
     {
