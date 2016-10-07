@@ -42,11 +42,12 @@
             {
                 try
                 {
-                    var cmd = System.Console.ReadLine();
+                    var cmd = Console.ReadLine();
                     if (cmd == "End")
                     {
                         break;
                     }
+
                     var aadeshName = cmd.Split(' ')[0];
 
                     // When I wrote this, only God and I understood what it was doing
@@ -58,7 +59,7 @@
                         .FirstOrDefault();
                     if (tpyeinfo == null)
                     {
-                        // throw exception when typeinfo is null
+                        // throw exception when type info is null
                         throw new ArgumentException("The passed command is not found!");
                     }
                     var aadesh = Activator.CreateInstance(tpyeinfo) as ICommand;
@@ -89,12 +90,13 @@
                     //who cares?
                 }
             }
+
             Console.Write("\n");
             Thread.Sleep(350);
-            //// MARK: Bug fix
         }
 
         internal static Dictionary<int, Teachers> teachers { get; set; } = new Dictionary<int, Teachers>();
+
         internal static Dictionary<int, Student> students { get; set; } = new Dictionary<int, Student>();
     }
 }
