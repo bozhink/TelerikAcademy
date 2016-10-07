@@ -1,10 +1,10 @@
-﻿using ConsoleApplication3;
-using ConsoleApplication3;
-using ConsoleApplication3;
+﻿using SchoolSystem;
+using SchoolSystem;
+using SchoolSystem;
 using System;
 using System.Collections.Generic;
 
-namespace ConsoleApplication3
+namespace SchoolSystem
 {
     class CreateTeacherCommand : ICommand
     {

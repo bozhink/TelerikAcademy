@@ -1,4 +1,4 @@
-﻿namespace ConsoleApplication3
+﻿namespace SchoolSystem
 {
     using System.Collections.Generic;
     using System.Linq;

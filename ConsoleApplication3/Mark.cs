@@ -1,7 +1,7 @@
-﻿using ConsoleApplication3;
+﻿using SchoolSystem;
 using System;
 
-namespace ConsoleApplication3
+namespace SchoolSystem
 {
     class Mark {
         public Mark(Subjct sbj, float va) {

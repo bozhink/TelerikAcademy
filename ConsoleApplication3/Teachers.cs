@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using ConsoleApplication3;
+using SchoolSystem;
 using System.Linq;
 
 
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication3
+namespace SchoolSystem
 {
     class Teachers
     {

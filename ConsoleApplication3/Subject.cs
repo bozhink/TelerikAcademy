@@ -1,4 +1,4 @@
-﻿namespace ConsoleApplication3
+﻿namespace SchoolSystem
 {
     public enum Subjct
     {

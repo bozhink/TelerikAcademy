@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-
-namespace ConsoleApplication3
+﻿namespace SchoolSystem
 {
-    interface ICommand
+    using System.Collections.Generic;
+
+    public interface ICommand
     {
         string Execute(IList<string> parameters);
     }
