@@ -1,5 +1,6 @@
 ﻿namespace SchoolSystem.Models
 {
+    using System;
     using Contracts;
     using Types;
 
@@ -15,6 +16,11 @@
 
         public void AddMark(IStudent student, float value)
         {
+            if (student == null)
+            {
+                throw new ArgumentNullException(nameof(student));
+            }
+
             var mark = new Mark(this.Subject, value);
             student.Marks.Add(mark);
         }

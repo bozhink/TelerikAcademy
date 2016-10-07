@@ -12,10 +12,11 @@
         [Test(Description = "Mark with valid parameters in constructor should return instance of IMark")]
         public void Mark_WithValidParametersInConstructor_ShouldReturnInstanceOfIMark()
         {
-            // Arrange + Act
+            // Arrange
             var subject = Subject.Math;
             var value = 3.50f;
 
+            // Act
             var mark = new Mark(subject, value);
 
             // Assert
@@ -25,10 +26,11 @@
         [Test(Description = "Mark with valid parameters in constructor should set properly subject and value")]
         public void Mark_WithValidParametersInConstructor_ShouldSetProperlySubjectAndValue()
         {
-            // Arrange + Act
+            // Arrange
             var subject = Subject.Math;
             var value = 3.50f;
 
+            // Act
             var mark = new Mark(subject, value);
 
             // Assert
