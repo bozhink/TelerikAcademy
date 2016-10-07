@@ -6,6 +6,8 @@
     using System.Reflection;
     using System.Threading;
 
+    using Contracts;
+
     public class Startup
     {
         public static void Main()
