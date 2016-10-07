@@ -5,7 +5,7 @@
 
     public class Teacher : Person, ITeacher
     {
-        private Teacher(string firstName, string lastName, Subject subject)
+        public Teacher(string firstName, string lastName, Subject subject)
             : base(firstName, lastName)
         {
             this.Subject = subject;
