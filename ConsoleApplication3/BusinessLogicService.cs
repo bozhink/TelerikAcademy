@@ -1,21 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SchoolSystem
+﻿namespace SchoolSystem
 {
-
-
-
-    // I am not sure if we need this, but too scared to delete. 
-    class BusinessLogicService
+    public class BusinessLogicService
     {
-        public void Execute(ConsoleReaderProvider padhana)
+        public void Execute(ConsoleReaderProvider consoleReaderProvider)
         {
-            var injan = new Engine(padhana);
-            injan.BrumBrum();
+            var engine = new Engine(consoleReaderProvider);
+            engine.BrumBrum();
         }
     }
 }
