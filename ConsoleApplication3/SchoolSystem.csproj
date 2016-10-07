@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\CommandConstants.cs" />
+    <Compile Include="Constants\Messages.cs" />
     <Compile Include="Constants\ValidationConstants.cs" />
     <Compile Include="Contracts\ICommand.cs" />
     <Compile Include="Contracts\IConsoleWriter.cs" />
