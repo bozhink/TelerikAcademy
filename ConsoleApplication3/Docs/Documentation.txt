@@ -1,5 +1,5 @@
 ﻿Bottleneck description: --------------------
-#1:
+#1: In the WriteLine method: the use of loops and Thread.Sleep instead of simple Console.WriteLine.
 
 
 Bug reports: --------------------
