@@ -8,6 +8,6 @@
 
         Subject Subject { get; }
 
-        void AddMark(Student student, float value);
+        void AddMark(IStudent student, float value);
     }
 }

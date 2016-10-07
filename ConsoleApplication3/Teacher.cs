@@ -17,7 +17,7 @@
 
         public Subject Subject { get; private set; }
 
-        public void AddMark(Student student, float value)
+        public void AddMark(IStudent student, float value)
         {
             var mark = new Mark(this.Subject, value);
             student.Marks.Add(mark);
