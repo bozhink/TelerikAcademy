@@ -49,10 +49,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\ICommand.cs" />
-    <Compile Include="CreateStudentCommand.cs" />
+    <Compile Include="Core\Commands\CreateStudentCommand.cs" />
+    <Compile Include="Core\Commands\CreateTeacherCommand.cs" />
+    <Compile Include="Core\Commands\RemoveStudentCommand.cs" />
+    <Compile Include="Core\Commands\StudentListMarksCommand.cs" />
+    <Compile Include="Core\Commands\TeacherAddMarkCommand.cs" />
     <Compile Include="Contracts\IMark.cs" />
     <Compile Include="Contracts\IStudent.cs" />
     <Compile Include="Contracts\ITeacher.cs" />
+    <Compile Include="Core\IdGenerator.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Types\Grade.cs" />
     <Compile Include="Types\Subject.cs" />
@@ -67,9 +72,7 @@
     <None Include="Docs\Rules.ruleset" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Core\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Docs\Documentation.txt" />
   </ItemGroup>
