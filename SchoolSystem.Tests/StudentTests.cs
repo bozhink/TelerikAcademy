@@ -1,12 +1,13 @@
 ﻿namespace SchoolSystem.Tests
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
+    using System.Text.RegularExpressions;
 
     using Moq;
     using NUnit.Framework;
 
+    using SchoolSystem.Constants;
     using SchoolSystem.Contracts;
     using SchoolSystem.Models;
     using SchoolSystem.Types;
@@ -137,6 +138,123 @@
             var mark = student.Marks.Single();
             Assert.AreEqual(markSubject, mark.Subject);
             Assert.AreEqual(markValue, mark.Value);
+        }
+
+        [Test(Description = "Student Marks add allowed number of marks should work")]
+        [TestCase(0)]
+        [TestCase(1)]
+        [TestCase(2)]
+        [TestCase(ValidationConstants.MaximalNumberOfStudentMarks - 2)]
+        [TestCase(ValidationConstants.MaximalNumberOfStudentMarks - 1)]
+        [TestCase(ValidationConstants.MaximalNumberOfStudentMarks)]
+        public void Student_Marks_AddAllowedNumberOfMarks_ShouldWork(int numberOfMarksToAdd)
+        {
+            // Arrange
+            var firstName = "Gosho";
+            var lastName = "Vesheff";
+            var grade = Grade.Eighth;
+            var student = new Student(firstName, lastName, grade);
+
+            // Act
+            for (int i = 0; i < numberOfMarksToAdd; ++i)
+            {
+                var markSubject = Subject.English;
+                var markValue = ((1.0f * i) / ValidationConstants.MaximalNumberOfStudentMarks) * ValidationConstants.MinimalMarkValue;
+
+                var markMock = new Mock<IMark>();
+                markMock
+                    .Setup(m => m.Subject)
+                    .Returns(markSubject);
+                markMock
+                    .Setup(m => m.Value)
+                    .Returns(markValue);
+
+                student.Marks.Add(markMock.Object);
+            }
+
+            // Assert
+            Assert.AreEqual(numberOfMarksToAdd, student.Marks.Count);
+        }
+
+        [Test(Description = "Student Marks add more than allowed number of marks should throw ArgumentOutOfRangeException")]
+        [TestCase(ValidationConstants.MaximalNumberOfStudentMarks + 1)]
+        [TestCase(ValidationConstants.MaximalNumberOfStudentMarks + 2)]
+        [TestCase(ValidationConstants.MaximalNumberOfStudentMarks + 100)]
+        public void Student_Marks_AddMoreThanAllowedNumberOfMarks_ShouldThrowArgumentOutOfRangeException(int numberOfMarksToAdd)
+        {
+            // Arrange
+            var firstName = "Gosho";
+            var lastName = "Vesheff";
+            var grade = Grade.Eighth;
+            var student = new Student(firstName, lastName, grade);
+
+            var markSubject = Subject.English;
+            var markValue = 3.5f;
+
+            var markMock = new Mock<IMark>();
+            markMock
+                .Setup(m => m.Subject)
+                .Returns(markSubject);
+            markMock
+                .Setup(m => m.Value)
+                .Returns(markValue);
+
+            // Act + Assert
+            Assert.Throws<ArgumentOutOfRangeException>(() =>
+            {
+                for (int i = 0; i < numberOfMarksToAdd; ++i)
+                {
+                    student.Marks.Add(markMock.Object);
+                }
+            });
+        }
+
+        [TestCase("This student has no marks.", Description = "Student ListMarks with no marks should return correct message")]
+        public void Student_ListMarks_WithNoMarks_ShouldReturnCorrectMessage(string message)
+        {
+            // Arrange
+            var firstName = "Gosho";
+            var lastName = "Vesheff";
+            var grade = Grade.Eighth;
+            var student = new Student(firstName, lastName, grade);
+
+            // Act
+            var result = student.ListMarks();
+
+            // Assert
+            Assert.AreEqual(message, result);
+        }
+
+        [TestCase(@"The student has these marks:English => 3.5", Description = "Student ListMarks with single mark should return correct message")]
+        public void Student_ListMarks_WithSingleMark_ShouldReturnCorrectMessage(string message)
+        {
+            // Arrange
+            var firstName = "Gosho";
+            var lastName = "Vesheff";
+            var grade = Grade.Eighth;
+            var student = new Student(firstName, lastName, grade);
+
+            var markSubject = Subject.English;
+            var markValue = 3.5f;
+
+            var markMock = new Mock<IMark>();
+            markMock
+                .Setup(m => m.Subject)
+                .Returns(markSubject);
+            markMock
+                .Setup(m => m.Value)
+                .Returns(markValue);
+
+            var removeNewLinesRegEx = new Regex(@"[\r\n]+");
+
+            // Act
+            student.Marks.Add(markMock.Object);
+            var result = student.ListMarks();
+
+            // Assert
+            Assert.AreEqual(
+                removeNewLinesRegEx.Replace(message, string.Empty),
+                removeNewLinesRegEx.Replace(result, string.Empty));
         }
     }
 }
