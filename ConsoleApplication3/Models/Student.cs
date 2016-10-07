@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using Constants;
     using Contracts;
     using Core;
     using Types;
@@ -24,6 +25,11 @@
             var marks = this.Marks
                 .Select(m => $"{m.Subject} => {m.Value}")
                 .ToList();
+
+            if (marks.Count < 1)
+            {
+                return Messages.StudentHasNoMarksMessage;
+            }
 
             return string.Join("\n", marks);
         }
