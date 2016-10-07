@@ -36,6 +36,11 @@
                 try
                 {
                     var stringCommand = this.reader.ReadLine();
+                    if (string.IsNullOrWhiteSpace(stringCommand))
+                    {
+                        continue;
+                    }
+
                     if (stringCommand == CommandConstants.EndCommandValue)
                     {
                         break;
