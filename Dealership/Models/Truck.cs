@@ -1,11 +1,9 @@
-﻿using System.Text;
-using Dealership.Common.Enums;
-using Dealership.Contracts;
-using Dealership.Common;
-using System;
-
-namespace Dealership.Models
+﻿namespace Dealership.Models
 {
+    using Dealership.Common;
+    using Dealership.Common.Enums;
+    using Dealership.Contracts;
+
     public class Truck : Vehicle, ITruck
     {
         private const string WeightCapacityPropery = "Weight capacity";

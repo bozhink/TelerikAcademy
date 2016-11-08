@@ -1,12 +1,12 @@
-﻿using Dealership.Contracts;
-using System;
-using System.Collections.Generic;
-using Dealership.Common.Enums;
-using Dealership.Common;
-using System.Text;
-
-namespace Dealership.Models
+﻿namespace Dealership.Models
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+    using Dealership.Common;
+    using Dealership.Common.Enums;
+    using Dealership.Contracts;
+
     public class User : IUser
     {
         private const string UsernameProperty = "Username";

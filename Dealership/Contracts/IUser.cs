@@ -1,8 +1,8 @@
-﻿using Dealership.Common.Enums;
-using System.Collections.Generic;
-
-namespace Dealership.Contracts
+﻿namespace Dealership.Contracts
 {
+    using System.Collections.Generic;
+    using Dealership.Common.Enums;
+
     public interface IUser
     {
         string Username { get; }

@@ -1,46 +1,43 @@
-﻿using Dealership.Common;
-using Dealership.Common.Enums;
-using Dealership.Contracts;
-using Dealership.Factories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Dealership.Engine
+﻿namespace Dealership.Engine
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using Dealership.Common.Enums;
+    using Dealership.Contracts;
+    using Dealership.Factories;
+
     public sealed class DealershipEngine : IEngine
     {
+        private const string CommentAddedSuccessfully = "{0} added comment successfully!";
+
+        private const string CommentDoesNotExist = "The comment does not exist!";
+
+        private const string CommentRemovedSuccessfully = "{0} removed comment successfully!";
+
         // Commands constants
         private const string InvalidCommand = "Invalid command!";
 
-        private const string UserAlreadyExist = "User {0} already exist. Choose a different username!";
-        private const string UserLoggedInAlready = "User {0} is logged in! Please log out first!";
-        private const string UserRegisterеd = "User {0} registered successfully!";
-        private const string UserNotLogged = "You are not logged! Please login first!";
         private const string NoSuchUser = "There is no user with username {0}!";
-        private const string UserLoggedOut = "You logged out!";
+        private const string RemovedCommentDoesNotExist = "Cannot remove comment! The comment does not exist!";
+        private const string RemovedVehicleDoesNotExist = "Cannot remove comment! The vehicle does not exist!";
+        private const string UserAlreadyExist = "User {0} already exist. Choose a different username!";
         private const string UserLoggedIn = "User {0} successfully logged in!";
+        private const string UserLoggedInAlready = "User {0} is logged in! Please log out first!";
+        private const string UserLoggedOut = "You logged out!";
+        private const string UserNotLogged = "You are not logged! Please login first!";
+        private const string UserRegisterеd = "User {0} registered successfully!";
+        private const string VehicleAddedSuccessfully = "{0} added vehicle successfully!";
+        private const string VehicleDoesNotExist = "The vehicle does not exist!";
+        private const string VehicleRemovedSuccessfully = "{0} removed vehicle successfully!";
         private const string WrongUsernameOrPassword = "Wrong username or password!";
         private const string YouAreNotAnAdmin = "You are not an admin!";
-
-        private const string CommentAddedSuccessfully = "{0} added comment successfully!";
-        private const string CommentRemovedSuccessfully = "{0} removed comment successfully!";
-
-        private const string VehicleRemovedSuccessfully = "{0} removed vehicle successfully!";
-        private const string VehicleAddedSuccessfully = "{0} added vehicle successfully!";
-
-        private const string RemovedVehicleDoesNotExist = "Cannot remove comment! The vehicle does not exist!";
-        private const string RemovedCommentDoesNotExist = "Cannot remove comment! The comment does not exist!";
-
-        private const string CommentDoesNotExist = "The comment does not exist!";
-        private const string VehicleDoesNotExist = "The vehicle does not exist!";
-
         private static readonly IEngine SingleInstance = new DealershipEngine();
 
         private IDealershipFactory factory;
-        private ICollection<IUser> users;
         private IUser loggedUser;
+        private ICollection<IUser> users;
 
         private DealershipEngine()
         {
@@ -57,13 +54,6 @@ namespace Dealership.Engine
             }
         }
 
-        public void Start()
-        {
-            var commands = this.ReadCommands();
-            var commandResult = this.ProcessCommands(commands);
-            this.PrintReports(commandResult);
-        }
-
         public void Reset()
         {
             this.factory = new DealershipFactory();
@@ -74,22 +64,98 @@ namespace Dealership.Engine
             this.PrintReports(commandResult);
         }
 
-
-        private IList<ICommand> ReadCommands()
+        public void Start()
         {
-            var commands = new List<ICommand>();
+            var commands = this.ReadCommands();
+            var commandResult = this.ProcessCommands(commands);
+            this.PrintReports(commandResult);
+        }
 
-            var currentLine = Console.ReadLine();
-
-            while (!string.IsNullOrEmpty(currentLine))
+        private static void ValidateRange(int? value, int min, int max, string message)
+        {
+            if (value < min || value >= max)
             {
-                var currentCommand = new Command(currentLine);
-                commands.Add(currentCommand);
+                throw new ArgumentException(message);
+            }
+        }
 
-                currentLine = Console.ReadLine();
+        private string AddComment(string content, int vehicleIndex, string author)
+        {
+            var comment = this.factory.CreateComment(content);
+            comment.Author = this.loggedUser.Username;
+            var user = this.users.FirstOrDefault(u => u.Username == author);
+
+            if (user == null)
+            {
+                return string.Format(NoSuchUser, author);
             }
 
-            return commands;
+            ValidateRange(vehicleIndex, 0, user.Vehicles.Count, VehicleDoesNotExist);
+
+            var vehicle = user.Vehicles[vehicleIndex];
+
+            this.loggedUser.AddComment(comment, vehicle);
+
+            return string.Format(CommentAddedSuccessfully, this.loggedUser.Username);
+        }
+
+        private string AddVehicle(VehicleType type, string make, string model, decimal price, string additionalParam)
+        {
+            IVehicle vehicle = null;
+
+            if (type == VehicleType.Car)
+            {
+                vehicle = this.factory.CreateCar(make, model, price, int.Parse(additionalParam));
+            }
+            else if (type == VehicleType.Motorcycle)
+            {
+                vehicle = this.factory.CreateMotorcycle(make, model, price, additionalParam);
+            }
+            else if (type == VehicleType.Truck)
+            {
+                vehicle = this.factory.CreateTruck(make, model, price, int.Parse(additionalParam));
+            }
+
+            this.loggedUser.AddVehicle(vehicle);
+
+            return string.Format(VehicleAddedSuccessfully, this.loggedUser.Username);
+        }
+
+        private string Login(string username, string password)
+        {
+            if (this.loggedUser != null)
+            {
+                return string.Format(UserLoggedInAlready, this.loggedUser.Username);
+            }
+
+            var userFound = this.users.FirstOrDefault(u => u.Username.ToLower() == username.ToLower());
+
+            if (userFound != null && userFound.Password == password)
+            {
+                this.loggedUser = userFound;
+                return string.Format(UserLoggedIn, username);
+            }
+
+            return WrongUsernameOrPassword;
+        }
+
+        private string Logout()
+        {
+            this.loggedUser = null;
+            return UserLoggedOut;
+        }
+
+        private void PrintReports(IList<string> reports)
+        {
+            var output = new StringBuilder();
+
+            foreach (var report in reports)
+            {
+                output.AppendLine(report);
+                output.AppendLine(new string('#', 20));
+            }
+
+            Console.Write(output.ToString());
         }
 
         private IList<string> ProcessCommands(IList<ICommand> commands)
@@ -110,19 +176,6 @@ namespace Dealership.Engine
             }
 
             return reports;
-        }
-
-        private void PrintReports(IList<string> reports)
-        {
-            var output = new StringBuilder();
-
-            foreach (var report in reports)
-            {
-                output.AppendLine(report);
-                output.AppendLine(new string('#', 20));
-            }
-
-            Console.Write(output.ToString());
         }
 
         private string ProcessSingleCommand(ICommand command)
@@ -205,6 +258,23 @@ namespace Dealership.Engine
             }
         }
 
+        private IList<ICommand> ReadCommands()
+        {
+            var commands = new List<ICommand>();
+
+            var currentLine = Console.ReadLine();
+
+            while (!string.IsNullOrEmpty(currentLine))
+            {
+                var currentCommand = new Command(currentLine);
+                commands.Add(currentCommand);
+
+                currentLine = Console.ReadLine();
+            }
+
+            return commands;
+        }
+
         private string RegisterUser(string username, string firstName, string lastName, string password, Role role)
         {
             if (this.loggedUser != null)
@@ -222,83 +292,6 @@ namespace Dealership.Engine
             this.users.Add(user);
 
             return string.Format(UserRegisterеd, username);
-        }
-
-        private string Login(string username, string password)
-        {
-            if (this.loggedUser != null)
-            {
-                return string.Format(UserLoggedInAlready, this.loggedUser.Username);
-            }
-
-            var userFound = this.users.FirstOrDefault(u => u.Username.ToLower() == username.ToLower());
-
-            if (userFound != null && userFound.Password == password)
-            {
-                this.loggedUser = userFound;
-                return string.Format(UserLoggedIn, username);
-            }
-
-            return WrongUsernameOrPassword;
-        }
-
-        private string Logout()
-        {
-            this.loggedUser = null;
-            return UserLoggedOut;
-        }
-
-        private string AddVehicle(VehicleType type, string make, string model, decimal price, string additionalParam)
-        {
-            IVehicle vehicle = null;
-
-            if (type == VehicleType.Car)
-            {
-                vehicle = this.factory.CreateCar(make, model, price, int.Parse(additionalParam));
-            }
-            else if (type == VehicleType.Motorcycle)
-            {
-                vehicle = this.factory.CreateMotorcycle(make, model, price, additionalParam);
-            }
-            else if (type == VehicleType.Truck)
-            {
-                vehicle = this.factory.CreateTruck(make, model, price, int.Parse(additionalParam));
-            }
-
-            this.loggedUser.AddVehicle(vehicle);
-
-            return string.Format(VehicleAddedSuccessfully, this.loggedUser.Username);
-        }
-
-        private string RemoveVehicle(int vehicleIndex)
-        {
-            ValidateRange(vehicleIndex, 0, this.loggedUser.Vehicles.Count, RemovedVehicleDoesNotExist);
-
-            var vehicle = this.loggedUser.Vehicles[vehicleIndex];
-
-            this.loggedUser.RemoveVehicle(vehicle);
-
-            return string.Format(VehicleRemovedSuccessfully, this.loggedUser.Username);
-        }
-
-        private string AddComment(string content, int vehicleIndex, string author)
-        {
-            var comment = this.factory.CreateComment(content);
-            comment.Author = this.loggedUser.Username;
-            var user = this.users.FirstOrDefault(u => u.Username == author);
-
-            if (user == null)
-            {
-                return string.Format(NoSuchUser, author);
-            }
-
-            ValidateRange(vehicleIndex, 0, user.Vehicles.Count, VehicleDoesNotExist);
-
-            var vehicle = user.Vehicles[vehicleIndex];
-
-            this.loggedUser.AddComment(comment, vehicle);
-
-            return string.Format(CommentAddedSuccessfully, this.loggedUser.Username);
         }
 
         private string RemoveComment(int vehicleIndex, int commentIndex, string username)
@@ -319,6 +312,17 @@ namespace Dealership.Engine
             this.loggedUser.RemoveComment(comment, vehicle);
 
             return string.Format(CommentRemovedSuccessfully, this.loggedUser.Username);
+        }
+
+        private string RemoveVehicle(int vehicleIndex)
+        {
+            ValidateRange(vehicleIndex, 0, this.loggedUser.Vehicles.Count, RemovedVehicleDoesNotExist);
+
+            var vehicle = this.loggedUser.Vehicles[vehicleIndex];
+
+            this.loggedUser.RemoveVehicle(vehicle);
+
+            return string.Format(VehicleRemovedSuccessfully, this.loggedUser.Username);
         }
 
         private string ShowAllUsers()
@@ -350,14 +354,6 @@ namespace Dealership.Engine
             }
 
             return user.PrintVehicles();
-        }
-
-        private static void ValidateRange(int? value, int min, int max, string message)
-        {
-            if (value < min || value >= max)
-            {
-                throw new ArgumentException(message);
-            }
         }
     }
 }

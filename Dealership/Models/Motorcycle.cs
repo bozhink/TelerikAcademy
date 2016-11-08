@@ -1,10 +1,9 @@
-﻿using Dealership.Common;
-using Dealership.Common.Enums;
-using Dealership.Contracts;
-using System.Text;
-
-namespace Dealership.Models
+﻿namespace Dealership.Models
 {
+    using Dealership.Common;
+    using Dealership.Common.Enums;
+    using Dealership.Contracts;
+
     public class Motorcycle : Vehicle, IMotorcycle
     {
         private const string CategoryProperty = "Category";

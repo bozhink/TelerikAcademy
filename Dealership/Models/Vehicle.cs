@@ -1,11 +1,11 @@
-﻿using Dealership.Common;
-using Dealership.Common.Enums;
-using Dealership.Contracts;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Dealership.Models
+﻿namespace Dealership.Models
 {
+    using System.Collections.Generic;
+    using System.Text;
+    using Dealership.Common;
+    using Dealership.Common.Enums;
+    using Dealership.Contracts;
+
     public abstract class Vehicle : IVehicle, ICommentable
     {
         private const string MakeProperty = "Make";

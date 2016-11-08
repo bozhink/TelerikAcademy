@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-
-namespace Dealership.Engine
+﻿namespace Dealership.Engine
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text.RegularExpressions;
+
     public class Command : ICommand
     {
         private const char SplitCommandSymbol = ' ';
@@ -30,7 +30,6 @@ namespace Dealership.Engine
             {
                 if (string.IsNullOrEmpty(value))
                 {
-
                     throw new ArgumentNullException("Name cannot be null or empty.");
                 }
 

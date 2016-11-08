@@ -1,7 +1,7 @@
-﻿using Dealership.Contracts;
-
-namespace Dealership.Factories
+﻿namespace Dealership.Factories
 {
+    using Dealership.Contracts;
+
     public interface IDealershipFactory
     {
         IUser CreateUser(string username, string firstName, string lastName, string password, string role);

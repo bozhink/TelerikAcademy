@@ -53,6 +53,5 @@
 
         // Added additionally
         public const string PropertyCannotBeNull = "{0} cannot be null!";
-
     }
 }

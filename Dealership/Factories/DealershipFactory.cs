@@ -1,10 +1,10 @@
-﻿using Dealership.Contracts;
-using System;
-using Dealership.Models;
-using Dealership.Common.Enums;
-
-namespace Dealership.Factories
+﻿namespace Dealership.Factories
 {
+    using System;
+    using Dealership.Common.Enums;
+    using Dealership.Contracts;
+    using Dealership.Models;
+
     public class DealershipFactory : IDealershipFactory
     {
         public IVehicle CreateCar(string make, string model, decimal price, int seats)

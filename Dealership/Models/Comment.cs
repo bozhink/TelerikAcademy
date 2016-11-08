@@ -1,9 +1,9 @@
-﻿using Dealership.Common;
-using Dealership.Contracts;
-using System.Text;
-
-namespace Dealership.Models
+﻿namespace Dealership.Models
 {
+    using System.Text;
+    using Dealership.Common;
+    using Dealership.Contracts;
+
     public class Comment : IComment
     {
         private const string CommentHeader = "    ----------";
