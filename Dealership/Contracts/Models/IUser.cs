@@ -1,7 +1,7 @@
-﻿namespace Dealership.Contracts
+﻿namespace Dealership.Contracts.Models
 {
     using System.Collections.Generic;
-    using Dealership.Common.Enums;
+    using Common.Enums;
 
     public interface IUser
     {

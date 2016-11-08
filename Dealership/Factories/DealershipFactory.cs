@@ -1,9 +1,9 @@
 ﻿namespace Dealership.Factories
 {
     using System;
-    using Dealership.Common.Enums;
-    using Dealership.Contracts;
-    using Dealership.Models;
+    using Common.Enums;
+    using Contracts.Models;
+    using Models;
 
     public class DealershipFactory : IDealershipFactory
     {

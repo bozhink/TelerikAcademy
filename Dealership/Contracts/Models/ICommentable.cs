@@ -1,4 +1,4 @@
-﻿namespace Dealership.Contracts
+﻿namespace Dealership.Contracts.Models
 {
     using System.Collections.Generic;
 

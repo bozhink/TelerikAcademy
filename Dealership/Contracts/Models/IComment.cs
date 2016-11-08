@@ -1,4 +1,4 @@
-﻿namespace Dealership.Contracts
+﻿namespace Dealership.Contracts.Models
 {
     public interface IComment
     {

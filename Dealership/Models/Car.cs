@@ -1,8 +1,8 @@
 ﻿namespace Dealership.Models
 {
-    using Dealership.Common;
-    using Dealership.Common.Enums;
-    using Dealership.Contracts;
+    using Common;
+    using Common.Enums;
+    using Contracts.Models;
 
     public class Car : Vehicle, ICar
     {

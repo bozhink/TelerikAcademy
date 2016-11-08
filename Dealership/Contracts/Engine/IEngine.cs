@@ -1,4 +1,4 @@
-﻿namespace Dealership.Engine
+﻿namespace Dealership.Contracts.Engine
 {
     public interface IEngine
     {

@@ -1,8 +1,8 @@
 ﻿namespace Dealership.Models
 {
     using System.Text;
-    using Dealership.Common;
-    using Dealership.Contracts;
+    using Common;
+    using Contracts.Models;
 
     public class Comment : IComment
     {

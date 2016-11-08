@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Text.RegularExpressions;
+    using Contracts.Engine;
 
     public class Command : ICommand
     {

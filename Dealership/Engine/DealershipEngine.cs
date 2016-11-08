@@ -4,9 +4,10 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
-    using Dealership.Common.Enums;
-    using Dealership.Contracts;
-    using Dealership.Factories;
+    using Common.Enums;
+    using Contracts.Engine;
+    using Contracts.Models;
+    using Factories;
 
     public sealed class DealershipEngine : IEngine
     {
