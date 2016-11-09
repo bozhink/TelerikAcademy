@@ -35,25 +35,16 @@
         private const string VehicleRemovedSuccessfully = "{0} removed vehicle successfully!";
         private const string WrongUsernameOrPassword = "Wrong username or password!";
         private const string YouAreNotAnAdmin = "You are not an admin!";
-        private static readonly IEngine SingleInstance = new DealershipEngine();
 
         private IDealershipFactory factory;
         private IUser loggedUser;
         private ICollection<IUser> users;
 
-        private DealershipEngine()
+        public DealershipEngine()
         {
             this.factory = new DealershipFactory();
             this.users = new List<IUser>();
             this.loggedUser = null;
-        }
-
-        public static IEngine Instance
-        {
-            get
-            {
-                return SingleInstance;
-            }
         }
 
         public void Reset()

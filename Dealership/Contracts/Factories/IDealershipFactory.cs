@@ -1,6 +1,6 @@
 ﻿namespace Dealership.Contracts.Factories
 {
-    using Contracts.Models;
+    using Models;
 
     public interface IDealershipFactory
     {
