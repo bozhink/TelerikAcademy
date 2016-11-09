@@ -6,6 +6,7 @@
     using System.Text;
     using Common.Enums;
     using Contracts.Engine;
+    using Common;
     using Contracts.Factories;
     using Contracts.Models;
 
@@ -67,14 +68,6 @@
             this.PrintReports(commandResult);
         }
 
-        private static void ValidateRange(int? value, int min, int max, string message)
-        {
-            if (value < min || value >= max)
-            {
-                throw new ArgumentException(message);
-            }
-        }
-
         private string AddComment(string content, int vehicleIndex, string author)
         {
             var comment = this.factory.CreateComment(content);
@@ -86,7 +79,7 @@
                 return string.Format(NoSuchUser, author);
             }
 
-            ValidateRange(vehicleIndex, 0, user.Vehicles.Count, VehicleDoesNotExist);
+            Validator.ValidateIntRange(vehicleIndex, 0, user.Vehicles.Count, VehicleDoesNotExist);
 
             var vehicle = user.Vehicles[vehicleIndex];
 
@@ -299,8 +292,8 @@
                 return string.Format(NoSuchUser, username);
             }
 
-            ValidateRange(vehicleIndex, 0, user.Vehicles.Count, RemovedVehicleDoesNotExist);
-            ValidateRange(commentIndex, 0, user.Vehicles[vehicleIndex].Comments.Count, RemovedCommentDoesNotExist);
+            Validator.ValidateIntRange(vehicleIndex, 0, user.Vehicles.Count, RemovedVehicleDoesNotExist);
+            Validator.ValidateIntRange(commentIndex, 0, user.Vehicles[vehicleIndex].Comments.Count, RemovedCommentDoesNotExist);
 
             var vehicle = user.Vehicles[vehicleIndex];
             var comment = user.Vehicles[vehicleIndex].Comments[commentIndex];
@@ -312,7 +305,7 @@
 
         private string RemoveVehicle(int vehicleIndex)
         {
-            ValidateRange(vehicleIndex, 0, this.loggedUser.Vehicles.Count, RemovedVehicleDoesNotExist);
+            Validator.ValidateIntRange(vehicleIndex, 0, this.loggedUser.Vehicles.Count, RemovedVehicleDoesNotExist);
 
             var vehicle = this.loggedUser.Vehicles[vehicleIndex];
 
