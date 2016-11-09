@@ -2,13 +2,13 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Text;
-    using Common.Enums;
-    using Contracts.Engine;
-    using Common;
-    using Contracts.Factories;
-    using Contracts.Models;
+    using Dealership.Common;
+    using Dealership.Common.Enums;
+    using Dealership.Contracts.Engine;
+    using Dealership.Contracts.Factories;
+    using Dealership.Contracts.Models;
+    using Dealership.Data.Contracts.Repositories;
 
     public sealed class DealershipEngine : IEngine
     {
@@ -37,24 +37,29 @@
         private const string YouAreNotAnAdmin = "You are not an admin!";
 
         private IDealershipFactory factory;
+        private IUsersRepository usersRepository;
         private IUser loggedUser;
-        private ICollection<IUser> users;
 
-        public DealershipEngine(IDealershipFactory factory)
+        public DealershipEngine(IDealershipFactory factory, IUsersRepository usersRepository)
         {
             if (factory == null)
             {
                 throw new ArgumentNullException(nameof(factory));
             }
 
+            if (usersRepository == null)
+            {
+                throw new ArgumentNullException(nameof(usersRepository));
+            }
+
             this.factory = factory;
-            this.users = new List<IUser>();
+            this.usersRepository = usersRepository;
             this.loggedUser = null;
         }
 
         public void Reset()
         {
-            this.users = new List<IUser>();
+            this.usersRepository.Reset();
             this.loggedUser = null;
             var commands = new List<ICommand>();
             var commandResult = new List<string>();
@@ -72,7 +77,7 @@
         {
             var comment = this.factory.CreateComment(content);
             comment.Author = this.loggedUser.Username;
-            var user = this.users.FirstOrDefault(u => u.Username == author);
+            var user = this.usersRepository.GetByUserName(author);
 
             if (user == null)
             {
@@ -117,8 +122,7 @@
                 return string.Format(UserLoggedInAlready, this.loggedUser.Username);
             }
 
-            var userFound = this.users.FirstOrDefault(u => u.Username.ToLower() == username.ToLower());
-
+            var userFound = this.usersRepository.GetByUserName(username, true);
             if (userFound != null && userFound.Password == password)
             {
                 this.loggedUser = userFound;
@@ -271,21 +275,21 @@
                 return string.Format(UserLoggedInAlready, this.loggedUser.Username);
             }
 
-            if (this.users.Any(u => u.Username.ToLower() == username.ToLower()))
+            if (this.usersRepository.GetByUserName(username, true) != null)
             {
                 return string.Format(UserAlreadyExist, username);
             }
 
             var user = this.factory.CreateUser(username, firstName, lastName, password, role.ToString());
             this.loggedUser = user;
-            this.users.Add(user);
+            this.usersRepository.Add(user);
 
             return string.Format(UserRegisterеd, username);
         }
 
         private string RemoveComment(int vehicleIndex, int commentIndex, string username)
         {
-            var user = this.users.FirstOrDefault(u => u.Username == username);
+            var user = this.usersRepository.GetByUserName(username);
 
             if (user == null)
             {
@@ -324,7 +328,7 @@
             var builder = new StringBuilder();
             builder.AppendLine("--USERS--");
             var counter = 1;
-            foreach (var user in this.users)
+            foreach (var user in this.usersRepository.All())
             {
                 builder.AppendLine(string.Format("{0}. {1}", counter, user.ToString()));
                 counter++;
@@ -335,7 +339,7 @@
 
         private string ShowUserVehicles(string username)
         {
-            var user = this.users.FirstOrDefault(u => u.Username.ToLower() == username.ToLower());
+            var user = this.usersRepository.GetByUserName(username, true);
 
             if (user == null)
             {

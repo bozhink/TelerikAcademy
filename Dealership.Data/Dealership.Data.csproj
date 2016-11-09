@@ -34,7 +34,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IUsersDbContext.cs" />
+    <Compile Include="Contracts\Repositories\IUsersRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\UsersRepository.cs" />
+    <Compile Include="UsersDbContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dealership.Common\Dealership.Common.csproj">
+      <Project>{5345ebcf-5aeb-474e-aafa-c77d6ca03b10}</Project>
+      <Name>Dealership.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dealership.Contracts\Dealership.Contracts.csproj">
+      <Project>{d7e08de5-a3fd-4367-ab3f-a2b5560682ac}</Project>
+      <Name>Dealership.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dealership.Models\Dealership.Models.csproj">
+      <Project>{3e27bde9-fb53-4a38-9fb4-734188b52965}</Project>
+      <Name>Dealership.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

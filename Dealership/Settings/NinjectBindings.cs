@@ -1,5 +1,7 @@
 ﻿namespace Dealership.Settings
 {
+    using System.IO;
+    using System.Reflection;
     using Contracts.Engine;
     using Engine;
     using Ninject.Extensions.Conventions;
@@ -11,7 +13,7 @@
         {
             this.Bind(b =>
             {
-                b.FromThisAssembly()
+                b.FromAssembliesInPath(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location))
                  .SelectAllClasses()
                  .BindDefaultInterface();
             });

@@ -33,6 +33,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\Data\IDbContext.cs" />
     <Compile Include="Contracts\Engine\ICommand.cs" />
     <Compile Include="Contracts\Engine\IEngine.cs" />
     <Compile Include="Contracts\Factories\IDealershipFactory.cs" />
