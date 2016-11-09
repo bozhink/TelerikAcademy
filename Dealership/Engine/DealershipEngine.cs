@@ -8,7 +8,6 @@
     using Contracts.Engine;
     using Contracts.Factories;
     using Contracts.Models;
-    using Factories;
 
     public sealed class DealershipEngine : IEngine
     {
@@ -40,16 +39,20 @@
         private IUser loggedUser;
         private ICollection<IUser> users;
 
-        public DealershipEngine()
+        public DealershipEngine(IDealershipFactory factory)
         {
-            this.factory = new DealershipFactory();
+            if (factory == null)
+            {
+                throw new ArgumentNullException(nameof(factory));
+            }
+
+            this.factory = factory;
             this.users = new List<IUser>();
             this.loggedUser = null;
         }
 
         public void Reset()
         {
-            this.factory = new DealershipFactory();
             this.users = new List<IUser>();
             this.loggedUser = null;
             var commands = new List<ICommand>();

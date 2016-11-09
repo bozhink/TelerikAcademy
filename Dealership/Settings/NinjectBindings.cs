@@ -1,7 +1,9 @@
 ﻿namespace Dealership.Settings
 {
     using Contracts.Engine;
+    using Contracts.Factories;
     using Engine;
+    using Factories;
     using Ninject.Extensions.Conventions;
     using Ninject.Modules;
 
@@ -16,7 +18,8 @@
                  .BindDefaultInterface();
             });
 
-            this.Bind<IEngine>().To<DealershipEngine>();
+            this.Bind<IEngine>()
+                .To<DealershipEngine>();
         }
     }
 }
