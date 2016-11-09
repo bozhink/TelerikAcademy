@@ -2,6 +2,7 @@
 {
     using System;
     using Common.Enums;
+    using Contracts.Factories;
     using Contracts.Models;
     using Models;
 

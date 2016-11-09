@@ -1,4 +1,4 @@
-﻿namespace Dealership.Factories
+﻿namespace Dealership.Contracts.Factories
 {
     using Contracts.Models;
 

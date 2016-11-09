@@ -6,6 +6,7 @@
     using System.Text;
     using Common.Enums;
     using Contracts.Engine;
+    using Contracts.Factories;
     using Contracts.Models;
     using Factories;
 
