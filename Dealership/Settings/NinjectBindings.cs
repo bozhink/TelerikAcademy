@@ -26,10 +26,10 @@
                 .To<DealershipEngine>();
 
             this.Bind<IEnumerable<ICommandHandler>>()
-                .ToConstant(Assembly.GetExecutingAssembly()
+                .ToMethod(context => Assembly.GetExecutingAssembly()
                     .GetTypes()
-                    .Where(t => t.IsClass && !t.IsAbstract && t.IsInstanceOfType(typeof(ICommandHandler)))
-                    .Select(t => (ICommandHandler)this.Kernel.Get(t)));
+                    .Where(t => t.IsClass && !t.IsAbstract && t.GetInterface(typeof(ICommandHandler).FullName) != null)
+                    .Select(t => (ICommandHandler)context.Kernel.Get(t)));
         }
     }
 }

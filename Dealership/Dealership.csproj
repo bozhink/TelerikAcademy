@@ -59,6 +59,7 @@
     <Compile Include="Engine\Command.cs" />
     <Compile Include="Engine\DealershipEngine.cs" />
     <Compile Include="Factories\DealershipFactory.cs" />
+    <Compile Include="Handlers\RegisterUserCommandHandler.cs" />
     <Compile Include="Handlers\ShowVehiclesCommandHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings\NinjectBindings.cs" />

@@ -74,12 +74,12 @@
             this.PrintReports(commandResult);
         }
 
-        private string AddComment(string content, int vehicleIndex, string author)
+        private string AddComment(IUser loggedUser, string content, int vehicleIndex, string author)
         {
             var comment = this.factory.CreateComment(content);
-            comment.Author = this.signInManager.LoggedUser.Username;
-            var user = this.usersRepository.GetByUserName(author);
+            comment.Author = loggedUser.Username;
 
+            var user = this.usersRepository.GetByUserName(author);
             if (user == null)
             {
                 return string.Format(Messages.NoSuchUser, author);
@@ -89,12 +89,12 @@
 
             var vehicle = user.Vehicles[vehicleIndex];
 
-            this.signInManager.LoggedUser.AddComment(comment, vehicle);
+            loggedUser.AddComment(comment, vehicle);
 
             return string.Format(Messages.CommentAddedSuccessfully, this.signInManager.LoggedUser.Username);
         }
 
-        private string AddVehicle(VehicleType type, string make, string model, decimal price, string additionalParam)
+        private string AddVehicle(IUser loggedUser, VehicleType type, string make, string model, decimal price, string additionalParam)
         {
             IVehicle vehicle = null;
 
@@ -111,9 +111,9 @@
                 vehicle = this.factory.CreateTruck(make, model, price, int.Parse(additionalParam));
             }
 
-            this.signInManager.LoggedUser.AddVehicle(vehicle);
+            loggedUser.AddVehicle(vehicle);
 
-            return string.Format(Messages.VehicleAddedSuccessfully, this.signInManager.LoggedUser.Username);
+            return string.Format(Messages.VehicleAddedSuccessfully, loggedUser.Username);
         }
 
         private void PrintReports(IList<string> reports)
@@ -161,8 +161,8 @@
 
             switch (command.Name)
             {
-                case CommandNames.RegisterUserCommandName:
-                    return RegisterUserCommandHandler(command);
+                ////case CommandNames.RegisterUserCommandName:
+                ////    return RegisterUserCommandHandler(command);
 
                 case CommandNames.LoginCommandName:
                     return LoginCommandHandler(command);
@@ -197,7 +197,6 @@
         private string ShowVehiclesCommandHandler(ICommand command)
         {
             var username = command.Parameters[0];
-
             return this.ShowUserVehicles(username);
         }
 
@@ -221,7 +220,7 @@
             var author = command.Parameters[1];
             var vehicleIndex = int.Parse(command.Parameters[2]) - 1;
 
-            return this.AddComment(content, vehicleIndex, author);
+            return this.AddComment(this.signInManager.LoggedUser, content, vehicleIndex, author);
         }
 
         private string RemoveVehicleCommandHandler(ICommand command)
@@ -240,7 +239,7 @@
 
             var typeEnum = (VehicleType)Enum.Parse(typeof(VehicleType), type, true);
 
-            return this.AddVehicle(typeEnum, make, model, price, additionalParam);
+            return this.AddVehicle(this.signInManager.LoggedUser, typeEnum, make, model, price, additionalParam);
         }
 
         private string LogoutCommandHandler()
@@ -254,22 +253,6 @@
             var password = command.Parameters[1];
 
             return this.signInManager.Login(username, password).ToString();
-        }
-
-        private string RegisterUserCommandHandler(ICommand command)
-        {
-            var username = command.Parameters[0];
-            var firstName = command.Parameters[1];
-            var lastName = command.Parameters[2];
-            var password = command.Parameters[3];
-            var role = Role.Normal;
-
-            if (command.Parameters.Count > 4)
-            {
-                role = (Role)Enum.Parse(typeof(Role), command.Parameters[4]);
-            }
-
-            return this.RegisterUser(username, firstName, lastName, password, role);
         }
 
         private IList<ICommand> ReadCommands()
@@ -289,30 +272,11 @@
             return commands;
         }
 
-        private string RegisterUser(string username, string firstName, string lastName, string password, Role role)
-        {
-            if (this.signInManager.LoggedUser != null)
-            {
-                return string.Format(Messages.UserLoggedInAlready, this.signInManager.LoggedUser.Username);
-            }
 
-            if (this.usersRepository.GetByUserName(username, true) != null)
-            {
-                return string.Format(Messages.UserAlreadyExist, username);
-            }
-
-            var user = this.factory.CreateUser(username, firstName, lastName, password, role.ToString());
-            this.usersRepository.Add(user);
-
-            this.signInManager.Login(username, password);
-
-            return string.Format(Messages.UserRegisterеd, username);
-        }
 
         private string RemoveComment(int vehicleIndex, int commentIndex, string username)
         {
             var user = this.usersRepository.GetByUserName(username);
-
             if (user == null)
             {
                 return string.Format(Messages.NoSuchUser, username);
@@ -362,7 +326,6 @@
         private string ShowUserVehicles(string username)
         {
             var user = this.usersRepository.GetByUserName(username, true);
-
             if (user == null)
             {
                 return string.Format(Messages.NoSuchUser, username);
