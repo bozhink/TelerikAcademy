@@ -85,6 +85,10 @@
       <Project>{d7e08de5-a3fd-4367-ab3f-a2b5560682ac}</Project>
       <Name>Dealership.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Dealership.Services\Dealership.Services.csproj">
+      <Project>{596032a6-ae23-450e-904a-52e682ed1e91}</Project>
+      <Name>Dealership.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

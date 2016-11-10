@@ -12,15 +12,16 @@
     using Dealership.Data.Contracts.Repositories;
     using System.Linq;
     using Constants;
+    using Dealership.Services.Contracts;
 
     public sealed class DealershipEngine : IEngine
     {
         private readonly IDealershipFactory factory;
         private readonly IUsersRepository usersRepository;
         private readonly IEnumerable<ICommandHandler> commandHanlers;
-        private IUser loggedUser;
+        private readonly ISignInManagerService signInManager;
 
-        public DealershipEngine(IDealershipFactory factory, IUsersRepository usersRepository, IEnumerable<ICommandHandler> commandHanlers)
+        public DealershipEngine(IDealershipFactory factory, IUsersRepository usersRepository, ISignInManagerService signInManager, IEnumerable<ICommandHandler> commandHanlers)
         {
             if (factory == null)
             {
@@ -32,6 +33,11 @@
                 throw new ArgumentNullException(nameof(usersRepository));
             }
 
+            if (signInManager == null)
+            {
+                throw new ArgumentNullException(nameof(signInManager));
+            }
+
             if (commandHanlers == null)
             {
                 throw new ArgumentNullException(nameof(commandHanlers));
@@ -39,14 +45,15 @@
 
             this.factory = factory;
             this.usersRepository = usersRepository;
+            this.signInManager = signInManager;
             this.commandHanlers = commandHanlers;
-            this.loggedUser = null;
         }
 
         public void Reset()
         {
             this.usersRepository.Reset();
-            this.loggedUser = null;
+            this.signInManager.Logout();
+
             var commands = new List<ICommand>();
             var commandResult = new List<string>();
             this.PrintReports(commandResult);
@@ -70,7 +77,7 @@
         private string AddComment(string content, int vehicleIndex, string author)
         {
             var comment = this.factory.CreateComment(content);
-            comment.Author = this.loggedUser.Username;
+            comment.Author = this.signInManager.LoggedUser.Username;
             var user = this.usersRepository.GetByUserName(author);
 
             if (user == null)
@@ -82,9 +89,9 @@
 
             var vehicle = user.Vehicles[vehicleIndex];
 
-            this.loggedUser.AddComment(comment, vehicle);
+            this.signInManager.LoggedUser.AddComment(comment, vehicle);
 
-            return string.Format(Messages.CommentAddedSuccessfully, this.loggedUser.Username);
+            return string.Format(Messages.CommentAddedSuccessfully, this.signInManager.LoggedUser.Username);
         }
 
         private string AddVehicle(VehicleType type, string make, string model, decimal price, string additionalParam)
@@ -104,32 +111,9 @@
                 vehicle = this.factory.CreateTruck(make, model, price, int.Parse(additionalParam));
             }
 
-            this.loggedUser.AddVehicle(vehicle);
+            this.signInManager.LoggedUser.AddVehicle(vehicle);
 
-            return string.Format(Messages.VehicleAddedSuccessfully, this.loggedUser.Username);
-        }
-
-        private string Login(string username, string password)
-        {
-            if (this.loggedUser != null)
-            {
-                return string.Format(Messages.UserLoggedInAlready, this.loggedUser.Username);
-            }
-
-            var userFound = this.usersRepository.GetByUserName(username, true);
-            if (userFound != null && userFound.Password == password)
-            {
-                this.loggedUser = userFound;
-                return string.Format(Messages.UserLoggedIn, username);
-            }
-
-            return Messages.WrongUsernameOrPassword;
-        }
-
-        private string Logout()
-        {
-            this.loggedUser = null;
-            return Messages.UserLoggedOut;
+            return string.Format(Messages.VehicleAddedSuccessfully, this.signInManager.LoggedUser.Username);
         }
 
         private void PrintReports(IList<string> reports)
@@ -169,7 +153,7 @@
         {
             if (command.Name != CommandNames.RegisterUserCommandName && command.Name != CommandNames.LoginCommandName)
             {
-                if (this.loggedUser == null)
+                if (this.signInManager.LoggedUser == null)
                 {
                     return Messages.UserNotLogged;
                 }
@@ -261,7 +245,7 @@
 
         private string LogoutCommandHandler()
         {
-            return this.Logout();
+            return this.signInManager.Logout().ToString();
         }
 
         private string LoginCommandHandler(ICommand command)
@@ -269,7 +253,7 @@
             var username = command.Parameters[0];
             var password = command.Parameters[1];
 
-            return this.Login(username, password);
+            return this.signInManager.Login(username, password).ToString();
         }
 
         private string RegisterUserCommandHandler(ICommand command)
@@ -307,9 +291,9 @@
 
         private string RegisterUser(string username, string firstName, string lastName, string password, Role role)
         {
-            if (this.loggedUser != null)
+            if (this.signInManager.LoggedUser != null)
             {
-                return string.Format(Messages.UserLoggedInAlready, this.loggedUser.Username);
+                return string.Format(Messages.UserLoggedInAlready, this.signInManager.LoggedUser.Username);
             }
 
             if (this.usersRepository.GetByUserName(username, true) != null)
@@ -318,8 +302,9 @@
             }
 
             var user = this.factory.CreateUser(username, firstName, lastName, password, role.ToString());
-            this.loggedUser = user;
             this.usersRepository.Add(user);
+
+            this.signInManager.Login(username, password);
 
             return string.Format(Messages.UserRegisterеd, username);
         }
@@ -339,25 +324,25 @@
             var vehicle = user.Vehicles[vehicleIndex];
             var comment = user.Vehicles[vehicleIndex].Comments[commentIndex];
 
-            this.loggedUser.RemoveComment(comment, vehicle);
+            this.signInManager.LoggedUser.RemoveComment(comment, vehicle);
 
-            return string.Format(Messages.CommentRemovedSuccessfully, this.loggedUser.Username);
+            return string.Format(Messages.CommentRemovedSuccessfully, this.signInManager.LoggedUser.Username);
         }
 
         private string RemoveVehicle(int vehicleIndex)
         {
-            Validator.ValidateIntRange(vehicleIndex, 0, this.loggedUser.Vehicles.Count, Messages.RemovedVehicleDoesNotExist);
+            Validator.ValidateIntRange(vehicleIndex, 0, this.signInManager.LoggedUser.Vehicles.Count, Messages.RemovedVehicleDoesNotExist);
 
-            var vehicle = this.loggedUser.Vehicles[vehicleIndex];
+            var vehicle = this.signInManager.LoggedUser.Vehicles[vehicleIndex];
 
-            this.loggedUser.RemoveVehicle(vehicle);
+            this.signInManager.LoggedUser.RemoveVehicle(vehicle);
 
-            return string.Format(Messages.VehicleRemovedSuccessfully, this.loggedUser.Username);
+            return string.Format(Messages.VehicleRemovedSuccessfully, this.signInManager.LoggedUser.Username);
         }
 
         private string ShowAllUsers()
         {
-            if (this.loggedUser.Role != Role.Admin)
+            if (this.signInManager.LoggedUser.Role != Role.Admin)
             {
                 return Messages.YouAreNotAnAdmin;
             }
