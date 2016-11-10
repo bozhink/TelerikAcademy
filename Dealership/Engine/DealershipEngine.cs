@@ -7,6 +7,7 @@
     using Contracts.Handlers;
     using Dealership.Common;
     using Dealership.Contracts.Engine;
+    using Dealership.Contracts;
     using Dealership.Services.Contracts;
     using Contracts.Providers;
 
@@ -14,8 +15,12 @@
     {
         private readonly IEnumerable<ICommandHandler> commandHanlers;
         private readonly ISignInManagerService signInManager;
+        private readonly IReporter reporter;
 
-        public DealershipEngine(ISignInManagerService signInManager, IHandlersProvider handlersProvider)
+        public DealershipEngine(
+            ISignInManagerService signInManager,
+            IHandlersProvider handlersProvider,
+            IReporter reporter)
         {
             if (signInManager == null)
             {
@@ -27,28 +32,22 @@
                 throw new ArgumentNullException(nameof(handlersProvider));
             }
 
+            if (reporter == null)
+            {
+                throw new ArgumentNullException(nameof(reporter));
+            }
+
             this.signInManager = signInManager;
             this.commandHanlers = handlersProvider.GetCommandHandler();
+            this.reporter = reporter;
         }
 
         public void Start()
         {
             var commands = this.ReadCommands();
             var commandResult = this.ProcessCommands(commands);
-            this.PrintReports(commandResult);
-        }
 
-        private void PrintReports(IList<string> reports)
-        {
-            var output = new StringBuilder();
-
-            foreach (var report in reports)
-            {
-                output.AppendLine(report);
-                output.AppendLine(new string('#', 20));
-            }
-
-            Console.Write(output.ToString());
+            this.reporter.PrintReports(commandResult).Wait();
         }
 
         private IList<string> ProcessCommands(IList<ICommand> commands)

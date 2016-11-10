@@ -7,6 +7,9 @@
     using Contracts.Handlers;
     using Contracts.Providers;
 
+    /// <summary>
+    /// Ninject cannot bind directly IEnumerable<ICommandHandler>, so we need here this provider.
+    /// </summary>
     public class HandlersProvider : IHandlersProvider
     {
         private readonly Func<Type, ICommandHandler> commandHandlerFactory;
@@ -23,10 +26,15 @@
 
         public IEnumerable<ICommandHandler> GetCommandHandler()
         {
-            return Assembly.GetExecutingAssembly()
+            string defaultCommandHadlerInterfaceFullName = typeof(ICommandHandler).FullName;
+
+            var query = Assembly.GetExecutingAssembly()
                 .GetTypes()
-                .Where(t => t.IsClass && !t.IsAbstract && typeof(ICommandHandler).IsAssignableFrom(t))
-                .Select(t => (ICommandHandler)this.commandHandlerFactory(t));
+                .Where(t => t.IsClass && !t.IsGenericType && !t.IsAbstract)
+                .Where(t => t.GetInterfaces().Any(i => i.FullName == defaultCommandHadlerInterfaceFullName))
+                .Select(t => this.commandHandlerFactory(t));
+
+            return query.ToArray();
         }
     }
 }

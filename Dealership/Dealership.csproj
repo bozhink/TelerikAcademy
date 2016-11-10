@@ -57,6 +57,8 @@
     <Compile Include="Contracts\Factories\IDealershipFactory.cs" />
     <Compile Include="Contracts\Handlers\ICommandHandler.cs" />
     <Compile Include="Contracts\Providers\IHandlersProvider.cs" />
+    <Compile Include="Core\ConsolePrinter.cs" />
+    <Compile Include="Core\Reporter.cs" />
     <Compile Include="Engine\Command.cs" />
     <Compile Include="Engine\DealershipEngine.cs" />
     <Compile Include="Factories\DealershipFactory.cs" />
