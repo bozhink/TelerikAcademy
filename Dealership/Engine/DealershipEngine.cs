@@ -164,8 +164,8 @@
                 ////case CommandNames.RegisterUserCommandName:
                 ////    return RegisterUserCommandHandler(command);
 
-                case CommandNames.LoginCommandName:
-                    return LoginCommandHandler(command);
+                ////case CommandNames.LoginCommandName:
+                ////    return LoginCommandHandler(command);
 
                 case CommandNames.LogoutCommandName:
                     return LogoutCommandHandler();
@@ -233,14 +233,6 @@
         private string LogoutCommandHandler()
         {
             return this.signInManager.Logout().ToString();
-        }
-
-        private string LoginCommandHandler(ICommand command)
-        {
-            var username = command.Parameters[0];
-            var password = command.Parameters[1];
-
-            return this.signInManager.Login(username, password).ToString();
         }
 
         private IList<ICommand> ReadCommands()
