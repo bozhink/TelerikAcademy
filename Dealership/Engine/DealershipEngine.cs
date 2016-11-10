@@ -74,25 +74,7 @@
             this.PrintReports(commandResult);
         }
 
-        private string AddComment(IUser loggedUser, string content, int vehicleIndex, string author)
-        {
-            var comment = this.factory.CreateComment(content);
-            comment.Author = loggedUser.Username;
 
-            var user = this.usersRepository.GetByUserName(author);
-            if (user == null)
-            {
-                return string.Format(Messages.NoSuchUser, author);
-            }
-
-            Validator.ValidateIntRange(vehicleIndex, 0, user.Vehicles.Count, Messages.VehicleDoesNotExist);
-
-            var vehicle = user.Vehicles[vehicleIndex];
-
-            loggedUser.AddComment(comment, vehicle);
-
-            return string.Format(Messages.CommentAddedSuccessfully, this.signInManager.LoggedUser.Username);
-        }
 
         private void PrintReports(IList<string> reports)
         {
@@ -154,8 +136,8 @@
                 ////case CommandNames.RemoveVehicleCommandName:
                 ////    return RemoveVehicleCommandHandler(command);
 
-                case CommandNames.AddCommentCommandName:
-                    return AddCommentCommandHandler(command);
+                ////case CommandNames.AddCommentCommandName:
+                ////    return AddCommentCommandHandler(command);
 
                 case CommandNames.RemoveCommentCommandName:
                     return RemoveCommentCommandHanler(command);
@@ -178,15 +160,6 @@
             var username = command.Parameters[2];
 
             return this.RemoveComment(vehicleIndex, commentIndex, username);
-        }
-
-        private string AddCommentCommandHandler(ICommand command)
-        {
-            var content = command.Parameters[0];
-            var author = command.Parameters[1];
-            var vehicleIndex = int.Parse(command.Parameters[2]) - 1;
-
-            return this.AddComment(this.signInManager.LoggedUser, content, vehicleIndex, author);
         }
 
         private IList<ICommand> ReadCommands()
