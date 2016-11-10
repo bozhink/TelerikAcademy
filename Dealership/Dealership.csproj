@@ -52,7 +52,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\CommandNames.cs" />
-    <Compile Include="Constants\Messages.cs" />
     <Compile Include="Contracts\Engine\ICommand.cs" />
     <Compile Include="Contracts\Engine\IEngine.cs" />
     <Compile Include="Contracts\Factories\IDealershipFactory.cs" />
