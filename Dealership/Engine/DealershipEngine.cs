@@ -139,8 +139,8 @@
                 ////case CommandNames.AddCommentCommandName:
                 ////    return AddCommentCommandHandler(command);
 
-                case CommandNames.RemoveCommentCommandName:
-                    return RemoveCommentCommandHanler(command);
+                ////case CommandNames.RemoveCommentCommandName:
+                ////    return RemoveCommentCommandHanler(command);
 
                 ////case CommandNames.ShowUsersCommandName:
                 ////    return ShowUsersCommandHandler();
@@ -151,15 +151,6 @@
                 default:
                     return string.Format(Messages.InvalidCommand, command.Name);
             }
-        }
-
-        private string RemoveCommentCommandHanler(ICommand command)
-        {
-            var vehicleIndex = int.Parse(command.Parameters[0]) - 1;
-            var commentIndex = int.Parse(command.Parameters[1]) - 1;
-            var username = command.Parameters[2];
-
-            return this.RemoveComment(vehicleIndex, commentIndex, username);
         }
 
         private IList<ICommand> ReadCommands()
@@ -181,24 +172,6 @@
 
 
 
-        private string RemoveComment(int vehicleIndex, int commentIndex, string username)
-        {
-            var user = this.usersRepository.GetByUserName(username);
-            if (user == null)
-            {
-                return string.Format(Messages.NoSuchUser, username);
-            }
-
-            Validator.ValidateIntRange(vehicleIndex, 0, user.Vehicles.Count, Messages.RemovedVehicleDoesNotExist);
-            Validator.ValidateIntRange(commentIndex, 0, user.Vehicles[vehicleIndex].Comments.Count, Messages.RemovedCommentDoesNotExist);
-
-            var vehicle = user.Vehicles[vehicleIndex];
-            var comment = user.Vehicles[vehicleIndex].Comments[commentIndex];
-
-            this.signInManager.LoggedUser.RemoveComment(comment, vehicle);
-
-            return string.Format(Messages.CommentRemovedSuccessfully, this.signInManager.LoggedUser.Username);
-        }
 
 
     }
