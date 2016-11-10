@@ -167,8 +167,8 @@
                 ////case CommandNames.LoginCommandName:
                 ////    return LoginCommandHandler(command);
 
-                case CommandNames.LogoutCommandName:
-                    return LogoutCommandHandler();
+                ////case CommandNames.LogoutCommandName:
+                ////    return LogoutCommandHandler();
 
                 case CommandNames.AddVehicleCommandName:
                     return AddVehicleCommandHandler(command);
@@ -228,11 +228,6 @@
             var typeEnum = (VehicleType)Enum.Parse(typeof(VehicleType), type, true);
 
             return this.AddVehicle(this.signInManager.LoggedUser, typeEnum, make, model, price, additionalParam);
-        }
-
-        private string LogoutCommandHandler()
-        {
-            return this.signInManager.Logout().ToString();
         }
 
         private IList<ICommand> ReadCommands()
