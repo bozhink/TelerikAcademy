@@ -1,7 +1,5 @@
-﻿namespace Dealership.Contracts.Contracts.Data
+﻿namespace Dealership.Contracts.Data
 {
-    using System.Collections.Generic;
-
     public interface IDbContext
     {
     }

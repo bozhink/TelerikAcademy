@@ -1,26 +1,28 @@
 ﻿namespace Dealership.Engine
 {
-    using Constants;
     using System;
     using System.Collections.Generic;
-    using System.Text;
-    using Contracts.Handlers;
     using Dealership.Common;
-    using Dealership.Contracts.Engine;
+    using Dealership.Constants;
     using Dealership.Contracts;
+    using Dealership.Contracts.Core;
+    using Dealership.Contracts.Engine;
+    using Dealership.Contracts.Handlers;
+    using Dealership.Contracts.Providers;
     using Dealership.Services.Contracts;
-    using Contracts.Providers;
 
     public sealed class DealershipEngine : IEngine
     {
         private readonly IEnumerable<ICommandHandler> commandHanlers;
         private readonly ISignInManagerService signInManager;
         private readonly IReporter reporter;
+        private readonly ICommandReader reader;
 
         public DealershipEngine(
             ISignInManagerService signInManager,
             IHandlersProvider handlersProvider,
-            IReporter reporter)
+            IReporter reporter,
+            ICommandReader reader)
         {
             if (signInManager == null)
             {
@@ -37,20 +39,26 @@
                 throw new ArgumentNullException(nameof(reporter));
             }
 
+            if (reader == null)
+            {
+                throw new ArgumentNullException(nameof(reader));
+            }
+
             this.signInManager = signInManager;
             this.commandHanlers = handlersProvider.GetCommandHandler();
             this.reporter = reporter;
+            this.reader = reader;
         }
 
         public void Start()
         {
-            var commands = this.ReadCommands();
+            var commands = this.reader.ReadCommands();
             var commandResult = this.ProcessCommands(commands);
 
             this.reporter.PrintReports(commandResult).Wait();
         }
 
-        private IList<string> ProcessCommands(IList<ICommand> commands)
+        private IEnumerable<string> ProcessCommands(IEnumerable<ICommand> commands)
         {
             var reports = new List<string>();
 
@@ -89,23 +97,6 @@
             }
 
             return string.Format(Messages.InvalidCommand, command.Name);
-        }
-
-        private IList<ICommand> ReadCommands()
-        {
-            var commands = new List<ICommand>();
-
-            var currentLine = Console.ReadLine();
-
-            while (!string.IsNullOrEmpty(currentLine))
-            {
-                var currentCommand = new Command(currentLine);
-                commands.Add(currentCommand);
-
-                currentLine = Console.ReadLine();
-            }
-
-            return commands;
         }
     }
 }

@@ -3,16 +3,15 @@
     using System;
     using System.IO;
     using System.Reflection;
-    using Contracts.Engine;
-    using Engine;
     using Dealership.Contracts;
+    using Dealership.Contracts.Core;
+    using Dealership.Contracts.Engine;
+    using Dealership.Contracts.Handlers;
+    using Dealership.Core;
+    using Dealership.Engine;
+    using Ninject;
     using Ninject.Extensions.Conventions;
     using Ninject.Modules;
-    using Ninject;
-    using Core;
-    using System.Collections.Generic;
-    using Contracts.Handlers;
-    using System.Linq;
 
     public class NinjectBindings : NinjectModule
     {
@@ -32,8 +31,16 @@
                 .To<ConsolePrinter>()
                 .InSingletonScope();
 
+            this.Bind<IReader>()
+                .To<ConsoleReader>()
+                .InSingletonScope();
+
             this.Bind<IReporter>()
                 .To<Reporter>()
+                .InSingletonScope();
+
+            this.Bind<ICommandReader>()
+                .To<CommandReader>()
                 .InSingletonScope();
 
             this.Bind<Func<Type, ICommandHandler>>()

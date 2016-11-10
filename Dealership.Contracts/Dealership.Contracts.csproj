@@ -35,6 +35,7 @@
   <ItemGroup>
     <Compile Include="Data\IDbContext.cs" />
     <Compile Include="IPrinter.cs" />
+    <Compile Include="IReader.cs" />
     <Compile Include="IReporter.cs" />
     <Compile Include="Models\ICar.cs" />
     <Compile Include="Models\IComment.cs" />

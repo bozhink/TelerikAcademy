@@ -1,6 +1,6 @@
 ﻿namespace Dealership.Contracts.Handlers
 {
-    using Engine;
+    using Dealership.Contracts.Engine;
     using Dealership.Services.Contracts;
 
     public interface ICommandHandler
