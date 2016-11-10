@@ -59,6 +59,7 @@
     <Compile Include="Engine\Command.cs" />
     <Compile Include="Engine\DealershipEngine.cs" />
     <Compile Include="Factories\DealershipFactory.cs" />
+    <Compile Include="Handlers\AddVehicleCommandHandler.cs" />
     <Compile Include="Handlers\LoginCommandHandler.cs" />
     <Compile Include="Handlers\LogoutCommandHandler.cs" />
     <Compile Include="Handlers\RegisterUserCommandHandler.cs" />

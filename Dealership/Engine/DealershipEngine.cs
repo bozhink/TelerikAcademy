@@ -94,28 +94,6 @@
             return string.Format(Messages.CommentAddedSuccessfully, this.signInManager.LoggedUser.Username);
         }
 
-        private string AddVehicle(IUser loggedUser, VehicleType type, string make, string model, decimal price, string additionalParam)
-        {
-            IVehicle vehicle = null;
-
-            if (type == VehicleType.Car)
-            {
-                vehicle = this.factory.CreateCar(make, model, price, int.Parse(additionalParam));
-            }
-            else if (type == VehicleType.Motorcycle)
-            {
-                vehicle = this.factory.CreateMotorcycle(make, model, price, additionalParam);
-            }
-            else if (type == VehicleType.Truck)
-            {
-                vehicle = this.factory.CreateTruck(make, model, price, int.Parse(additionalParam));
-            }
-
-            loggedUser.AddVehicle(vehicle);
-
-            return string.Format(Messages.VehicleAddedSuccessfully, loggedUser.Username);
-        }
-
         private void PrintReports(IList<string> reports)
         {
             var output = new StringBuilder();
@@ -170,8 +148,8 @@
                 ////case CommandNames.LogoutCommandName:
                 ////    return LogoutCommandHandler();
 
-                case CommandNames.AddVehicleCommandName:
-                    return AddVehicleCommandHandler(command);
+                ////case CommandNames.AddVehicleCommandName:
+                ////    return AddVehicleCommandHandler(command);
 
                 case CommandNames.RemoveVehicleCommandName:
                     return RemoveVehicleCommandHandler(command);
@@ -215,19 +193,6 @@
         {
             var vehicleIndex = int.Parse(command.Parameters[0]) - 1;
             return this.RemoveVehicle(vehicleIndex);
-        }
-
-        private string AddVehicleCommandHandler(ICommand command)
-        {
-            var type = command.Parameters[0];
-            var make = command.Parameters[1];
-            var model = command.Parameters[2];
-            var price = decimal.Parse(command.Parameters[3]);
-            var additionalParam = command.Parameters[4];
-
-            var typeEnum = (VehicleType)Enum.Parse(typeof(VehicleType), type, true);
-
-            return this.AddVehicle(this.signInManager.LoggedUser, typeEnum, make, model, price, additionalParam);
         }
 
         private IList<ICommand> ReadCommands()
