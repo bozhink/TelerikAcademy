@@ -51,6 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\Engine\ICommand.cs" />
+    <Compile Include="Contracts\Engine\IEngine.cs" />
+    <Compile Include="Contracts\Factories\IDealershipFactory.cs" />
+    <Compile Include="Contracts\Handlers\ICommandHandler.cs" />
     <Compile Include="Engine\Command.cs" />
     <Compile Include="Engine\DealershipEngine.cs" />
     <Compile Include="Factories\DealershipFactory.cs" />
@@ -79,6 +83,9 @@
       <Project>{d7e08de5-a3fd-4367-ab3f-a2b5560682ac}</Project>
       <Name>Dealership.Contracts</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Handlers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -184,71 +184,114 @@
             switch (command.Name)
             {
                 case "RegisterUser":
-                    var username = command.Parameters[0];
-                    var firstName = command.Parameters[1];
-                    var lastName = command.Parameters[2];
-                    var password = command.Parameters[3];
-
-                    var role = Role.Normal;
-
-                    if (command.Parameters.Count > 4)
-                    {
-                        role = (Role)Enum.Parse(typeof(Role), command.Parameters[4]);
-                    }
-
-                    return this.RegisterUser(username, firstName, lastName, password, role);
+                    return RegisterUserCommandHandler(command);
 
                 case "Login":
-                    username = command.Parameters[0];
-                    password = command.Parameters[1];
-
-                    return this.Login(username, password);
+                    return LoginCommandHandler(command);
 
                 case "Logout":
-                    return this.Logout();
+                    return LogoutCommandHandler();
 
                 case "AddVehicle":
-                    var type = command.Parameters[0];
-                    var make = command.Parameters[1];
-                    var model = command.Parameters[2];
-                    var price = decimal.Parse(command.Parameters[3]);
-                    var additionalParam = command.Parameters[4];
-
-                    var typeEnum = (VehicleType)Enum.Parse(typeof(VehicleType), type, true);
-
-                    return this.AddVehicle(typeEnum, make, model, price, additionalParam);
+                    return AddVehicleCommandHandler(command);
 
                 case "RemoveVehicle":
-                    var vehicleIndex = int.Parse(command.Parameters[0]) - 1;
-
-                    return this.RemoveVehicle(vehicleIndex);
+                    return RemoveVehicleCommandHandler(command);
 
                 case "AddComment":
-                    var content = command.Parameters[0];
-                    var author = command.Parameters[1];
-                    vehicleIndex = int.Parse(command.Parameters[2]) - 1;
-
-                    return this.AddComment(content, vehicleIndex, author);
+                    return AddCommentCommandHandler(command);
 
                 case "RemoveComment":
-                    vehicleIndex = int.Parse(command.Parameters[0]) - 1;
-                    var commentIndex = int.Parse(command.Parameters[1]) - 1;
-                    username = command.Parameters[2];
-
-                    return this.RemoveComment(vehicleIndex, commentIndex, username);
+                    return RemoveCommentCommandHanler(command);
 
                 case "ShowUsers":
 
-                    return this.ShowAllUsers();
+                    return ShowUsersCommandHandler();
 
                 case "ShowVehicles":
-                    username = command.Parameters[0];
-
-                    return this.ShowUserVehicles(username);
+                    return ShowVehiclesCommandHandler(command);
 
                 default:
                     return string.Format(InvalidCommand, command.Name);
             }
+        }
+
+        private string ShowVehiclesCommandHandler(ICommand command)
+        {
+            var username = command.Parameters[0];
+
+            return this.ShowUserVehicles(username);
+        }
+
+        private string ShowUsersCommandHandler()
+        {
+            return this.ShowAllUsers();
+        }
+
+        private string RemoveCommentCommandHanler(ICommand command)
+        {
+            var vehicleIndex = int.Parse(command.Parameters[0]) - 1;
+            var commentIndex = int.Parse(command.Parameters[1]) - 1;
+            var username = command.Parameters[2];
+
+            return this.RemoveComment(vehicleIndex, commentIndex, username);
+        }
+
+        private string AddCommentCommandHandler(ICommand command)
+        {
+            var content = command.Parameters[0];
+            var author = command.Parameters[1];
+            var vehicleIndex = int.Parse(command.Parameters[2]) - 1;
+
+            return this.AddComment(content, vehicleIndex, author);
+        }
+
+        private string RemoveVehicleCommandHandler(ICommand command)
+        {
+            var vehicleIndex = int.Parse(command.Parameters[0]) - 1;
+            return this.RemoveVehicle(vehicleIndex);
+        }
+
+        private string AddVehicleCommandHandler(ICommand command)
+        {
+            var type = command.Parameters[0];
+            var make = command.Parameters[1];
+            var model = command.Parameters[2];
+            var price = decimal.Parse(command.Parameters[3]);
+            var additionalParam = command.Parameters[4];
+
+            var typeEnum = (VehicleType)Enum.Parse(typeof(VehicleType), type, true);
+
+            return this.AddVehicle(typeEnum, make, model, price, additionalParam);
+        }
+
+        private string LogoutCommandHandler()
+        {
+            return this.Logout();
+        }
+
+        private string LoginCommandHandler(ICommand command)
+        {
+            var username = command.Parameters[0];
+            var password = command.Parameters[1];
+
+            return this.Login(username, password);
+        }
+
+        private string RegisterUserCommandHandler(ICommand command)
+        {
+            var username = command.Parameters[0];
+            var firstName = command.Parameters[1];
+            var lastName = command.Parameters[2];
+            var password = command.Parameters[3];
+            var role = Role.Normal;
+
+            if (command.Parameters.Count > 4)
+            {
+                role = (Role)Enum.Parse(typeof(Role), command.Parameters[4]);
+            }
+
+            return this.RegisterUser(username, firstName, lastName, password, role);
         }
 
         private IList<ICommand> ReadCommands()

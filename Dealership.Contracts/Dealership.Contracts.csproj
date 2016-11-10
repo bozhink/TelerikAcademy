@@ -33,18 +33,15 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\Data\IDbContext.cs" />
-    <Compile Include="Contracts\Engine\ICommand.cs" />
-    <Compile Include="Contracts\Engine\IEngine.cs" />
-    <Compile Include="Contracts\Factories\IDealershipFactory.cs" />
-    <Compile Include="Contracts\Models\ICar.cs" />
-    <Compile Include="Contracts\Models\IComment.cs" />
-    <Compile Include="Contracts\Models\ICommentable.cs" />
-    <Compile Include="Contracts\Models\IMotorcycle.cs" />
-    <Compile Include="Contracts\Models\IPriceable.cs" />
-    <Compile Include="Contracts\Models\ITruck.cs" />
-    <Compile Include="Contracts\Models\IUser.cs" />
-    <Compile Include="Contracts\Models\IVehicle.cs" />
+    <Compile Include="Data\IDbContext.cs" />
+    <Compile Include="Models\ICar.cs" />
+    <Compile Include="Models\IComment.cs" />
+    <Compile Include="Models\ICommentable.cs" />
+    <Compile Include="Models\IMotorcycle.cs" />
+    <Compile Include="Models\IPriceable.cs" />
+    <Compile Include="Models\ITruck.cs" />
+    <Compile Include="Models\IUser.cs" />
+    <Compile Include="Models\IVehicle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
