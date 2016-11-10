@@ -51,6 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\CommandNames.cs" />
+    <Compile Include="Constants\Messages.cs" />
     <Compile Include="Contracts\Engine\ICommand.cs" />
     <Compile Include="Contracts\Engine\IEngine.cs" />
     <Compile Include="Contracts\Factories\IDealershipFactory.cs" />
@@ -58,6 +60,7 @@
     <Compile Include="Engine\Command.cs" />
     <Compile Include="Engine\DealershipEngine.cs" />
     <Compile Include="Factories\DealershipFactory.cs" />
+    <Compile Include="Handlers\ShowVehiclesCommandHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings\NinjectBindings.cs" />
     <Compile Include="Settings\NinjectConfig.cs" />
@@ -84,9 +87,7 @@
       <Name>Dealership.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Handlers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

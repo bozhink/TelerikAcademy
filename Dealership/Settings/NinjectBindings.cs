@@ -6,6 +6,10 @@
     using Engine;
     using Ninject.Extensions.Conventions;
     using Ninject.Modules;
+    using Ninject;
+    using System.Collections.Generic;
+    using Contracts.Handlers;
+    using System.Linq;
 
     public class NinjectBindings : NinjectModule
     {
@@ -20,6 +24,12 @@
 
             this.Bind<IEngine>()
                 .To<DealershipEngine>();
+
+            this.Bind<IEnumerable<ICommandHandler>>()
+                .ToConstant(Assembly.GetExecutingAssembly()
+                    .GetTypes()
+                    .Where(t => t.IsClass && !t.IsAbstract && t.IsInstanceOfType(typeof(ICommandHandler)))
+                    .Select(t => (ICommandHandler)this.Kernel.Get(t)));
         }
     }
 }
