@@ -3,36 +3,19 @@
     using System;
     using System.Collections.Generic;
     using System.Text;
+    using Constants;
     using Contracts.Handlers;
     using Dealership.Common;
-    using Dealership.Common.Enums;
     using Dealership.Contracts.Engine;
-    using Dealership.Contracts.Factories;
-    using Dealership.Contracts.Models;
-    using Dealership.Data.Contracts.Repositories;
-    using System.Linq;
-    using Constants;
     using Dealership.Services.Contracts;
 
     public sealed class DealershipEngine : IEngine
     {
-        private readonly IDealershipFactory factory;
-        private readonly IUsersRepository usersRepository;
         private readonly IEnumerable<ICommandHandler> commandHanlers;
         private readonly ISignInManagerService signInManager;
 
-        public DealershipEngine(IDealershipFactory factory, IUsersRepository usersRepository, ISignInManagerService signInManager, IEnumerable<ICommandHandler> commandHanlers)
+        public DealershipEngine(ISignInManagerService signInManager, IEnumerable<ICommandHandler> commandHanlers)
         {
-            if (factory == null)
-            {
-                throw new ArgumentNullException(nameof(factory));
-            }
-
-            if (usersRepository == null)
-            {
-                throw new ArgumentNullException(nameof(usersRepository));
-            }
-
             if (signInManager == null)
             {
                 throw new ArgumentNullException(nameof(signInManager));
@@ -43,38 +26,16 @@
                 throw new ArgumentNullException(nameof(commandHanlers));
             }
 
-            this.factory = factory;
-            this.usersRepository = usersRepository;
             this.signInManager = signInManager;
             this.commandHanlers = commandHanlers;
         }
 
-        public void Reset()
-        {
-            this.usersRepository.Reset();
-            this.signInManager.Logout();
-
-            var commands = new List<ICommand>();
-            var commandResult = new List<string>();
-            this.PrintReports(commandResult);
-        }
-
         public void Start()
         {
-            Console.WriteLine(commandHanlers.Count());
-
-            foreach (var h in commandHanlers)
-            {
-                Console.WriteLine(h);
-            }
-
-
             var commands = this.ReadCommands();
             var commandResult = this.ProcessCommands(commands);
             this.PrintReports(commandResult);
         }
-
-
 
         private void PrintReports(IList<string> reports)
         {
@@ -119,38 +80,15 @@
                 }
             }
 
-            switch (command.Name)
+            foreach (var handler in this.commandHanlers)
             {
-                ////case CommandNames.RegisterUserCommandName:
-                ////    return RegisterUserCommandHandler(command);
-
-                ////case CommandNames.LoginCommandName:
-                ////    return LoginCommandHandler(command);
-
-                ////case CommandNames.LogoutCommandName:
-                ////    return LogoutCommandHandler();
-
-                ////case CommandNames.AddVehicleCommandName:
-                ////    return AddVehicleCommandHandler(command);
-
-                ////case CommandNames.RemoveVehicleCommandName:
-                ////    return RemoveVehicleCommandHandler(command);
-
-                ////case CommandNames.AddCommentCommandName:
-                ////    return AddCommentCommandHandler(command);
-
-                ////case CommandNames.RemoveCommentCommandName:
-                ////    return RemoveCommentCommandHanler(command);
-
-                ////case CommandNames.ShowUsersCommandName:
-                ////    return ShowUsersCommandHandler();
-
-                ////case CommandNames.ShowVehiclesCommandName:
-                ////    return ShowVehiclesCommandHandler(command);
-
-                default:
-                    return string.Format(Messages.InvalidCommand, command.Name);
+                if (handler.CanHandle(command))
+                {
+                    return handler.Execute(command, this.signInManager).ToString();
+                }
             }
+
+            return string.Format(Messages.InvalidCommand, command.Name);
         }
 
         private IList<ICommand> ReadCommands()
@@ -169,10 +107,5 @@
 
             return commands;
         }
-
-
-
-
-
     }
 }

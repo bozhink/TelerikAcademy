@@ -28,7 +28,7 @@
             this.Bind<IEnumerable<ICommandHandler>>()
                 .ToMethod(context => Assembly.GetExecutingAssembly()
                     .GetTypes()
-                    .Where(t => t.IsClass && !t.IsAbstract && t.GetInterface(typeof(ICommandHandler).FullName) != null)
+                    .Where(t => t.IsClass && !t.IsAbstract && typeof(ICommandHandler).IsAssignableFrom(t))
                     .Select(t => (ICommandHandler)context.Kernel.Get(t)));
         }
     }
