@@ -1,5 +1,6 @@
 ﻿namespace Dealership.Settings
 {
+    using System;
     using System.IO;
     using System.Reflection;
     using Contracts.Engine;
@@ -25,11 +26,8 @@
             this.Bind<IEngine>()
                 .To<DealershipEngine>();
 
-            this.Bind<IEnumerable<ICommandHandler>>()
-                .ToMethod(context => Assembly.GetExecutingAssembly()
-                    .GetTypes()
-                    .Where(t => t.IsClass && !t.IsAbstract && typeof(ICommandHandler).IsAssignableFrom(t))
-                    .Select(t => (ICommandHandler)context.Kernel.Get(t)));
+            this.Bind<Func<Type, ICommandHandler>>()
+                .ToMethod(context => t => (ICommandHandler)context.Kernel.Get(t));
         }
     }
 }

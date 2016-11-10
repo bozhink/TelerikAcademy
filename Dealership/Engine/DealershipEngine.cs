@@ -1,33 +1,34 @@
 ﻿namespace Dealership.Engine
 {
+    using Constants;
     using System;
     using System.Collections.Generic;
     using System.Text;
-    using Constants;
     using Contracts.Handlers;
     using Dealership.Common;
     using Dealership.Contracts.Engine;
     using Dealership.Services.Contracts;
+    using Contracts.Providers;
 
     public sealed class DealershipEngine : IEngine
     {
         private readonly IEnumerable<ICommandHandler> commandHanlers;
         private readonly ISignInManagerService signInManager;
 
-        public DealershipEngine(ISignInManagerService signInManager, IEnumerable<ICommandHandler> commandHanlers)
+        public DealershipEngine(ISignInManagerService signInManager, IHandlersProvider handlersProvider)
         {
             if (signInManager == null)
             {
                 throw new ArgumentNullException(nameof(signInManager));
             }
 
-            if (commandHanlers == null)
+            if (handlersProvider == null)
             {
-                throw new ArgumentNullException(nameof(commandHanlers));
+                throw new ArgumentNullException(nameof(handlersProvider));
             }
 
             this.signInManager = signInManager;
-            this.commandHanlers = commandHanlers;
+            this.commandHanlers = handlersProvider.GetCommandHandler();
         }
 
         public void Start()
