@@ -1,44 +1,57 @@
-﻿////namespace Dealership.Handlers
-////{
-////    using System;
-////    using Contracts.Handlers;
-////    using Contracts.Engine;
-////    using Constants;
+﻿namespace Dealership.Handlers
+{
+    using System;
+    using Constants;
+    using Contracts.Engine;
+    using Contracts.Handlers;
+    using Dealership.Common;
+    using Dealership.Data.Contracts.Repositories;
+    using Dealership.Services.Contracts;
 
-////    internal class ShowVehiclesCommandHandler : ICommandHandler
-////    {
-////        public bool CanHandle(ICommand command)
-////        {
-////            if (command == null)
-////            {
-////                throw new ArgumentNullException(nameof(command));
-////            }
+    internal class ShowVehiclesCommandHandler : ICommandHandler
+    {
+        private readonly IUsersRepository usersRepository;
 
-////            return command.Name == CommandNames.ShowVehiclesCommandName;
-////        }
+        public ShowVehiclesCommandHandler(IUsersRepository usersRepository)
+        {
+            if (usersRepository == null)
+            {
+                throw new ArgumentNullException(nameof(usersRepository));
+            }
 
-////        public object Execute(ICommand command)
-////        {
-////            if (command == null)
-////            {
-////                throw new ArgumentNullException(nameof(command));
-////            }
+            this.usersRepository = usersRepository;
+        }
 
-////            var username = command.Parameters[0];
+        public bool CanHandle(ICommand command)
+        {
+            if (command == null)
+            {
+                throw new ArgumentNullException(nameof(command));
+            }
 
-////            return this.ShowUserVehicles(username);
-////        }
+            return command.Name == CommandNames.ShowVehiclesCommandName;
+        }
 
-////        private string ShowUserVehicles(string username)
-////        {
-////            var user = this.usersRepository.GetByUserName(username, true);
+        public object Execute(ICommand command, ISignInManagerService signInManager)
+        {
+            if (command == null)
+            {
+                throw new ArgumentNullException(nameof(command));
+            }
 
-////            if (user == null)
-////            {
-////                return string.Format(NoSuchUser, username);
-////            }
+            var username = command.Parameters[0];
+            return this.ShowUserVehicles(username);
+        }
 
-////            return user.PrintVehicles();
-////        }
-////    }
-////}
+        private string ShowUserVehicles(string username)
+        {
+            var user = this.usersRepository.GetByUserName(username, true);
+            if (user == null)
+            {
+                return string.Format(Messages.NoSuchUser, username);
+            }
+
+            return user.PrintVehicles();
+        }
+    }
+}

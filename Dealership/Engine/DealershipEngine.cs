@@ -186,18 +186,12 @@
 
                     return ShowUsersCommandHandler();
 
-                case CommandNames.ShowVehiclesCommandName:
-                    return ShowVehiclesCommandHandler(command);
+                ////case CommandNames.ShowVehiclesCommandName:
+                ////    return ShowVehiclesCommandHandler(command);
 
                 default:
                     return string.Format(Messages.InvalidCommand, command.Name);
             }
-        }
-
-        private string ShowVehiclesCommandHandler(ICommand command)
-        {
-            var username = command.Parameters[0];
-            return this.ShowUserVehicles(username);
         }
 
         private string ShowUsersCommandHandler()
@@ -323,15 +317,6 @@
             return builder.ToString().Trim();
         }
 
-        private string ShowUserVehicles(string username)
-        {
-            var user = this.usersRepository.GetByUserName(username, true);
-            if (user == null)
-            {
-                return string.Format(Messages.NoSuchUser, username);
-            }
-
-            return user.PrintVehicles();
-        }
+      
     }
 }

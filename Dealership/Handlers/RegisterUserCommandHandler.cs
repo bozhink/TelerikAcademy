@@ -8,7 +8,7 @@
     using Dealership.Common;
     using Dealership.Common.Enums;
     using Dealership.Data.Contracts.Repositories;
-    using Services.Contracts;
+    using Dealership.Services.Contracts;
 
     internal class RegisterUserCommandHandler : ICommandHandler
     {
