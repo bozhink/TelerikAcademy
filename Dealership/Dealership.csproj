@@ -63,6 +63,7 @@
     <Compile Include="Handlers\LoginCommandHandler.cs" />
     <Compile Include="Handlers\LogoutCommandHandler.cs" />
     <Compile Include="Handlers\RegisterUserCommandHandler.cs" />
+    <Compile Include="Handlers\RemoveVehicleCommandHandler.cs" />
     <Compile Include="Handlers\ShowUsersCommandHandler.cs" />
     <Compile Include="Handlers\ShowVehiclesCommandHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

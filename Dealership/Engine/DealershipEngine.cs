@@ -151,8 +151,8 @@
                 ////case CommandNames.AddVehicleCommandName:
                 ////    return AddVehicleCommandHandler(command);
 
-                case CommandNames.RemoveVehicleCommandName:
-                    return RemoveVehicleCommandHandler(command);
+                ////case CommandNames.RemoveVehicleCommandName:
+                ////    return RemoveVehicleCommandHandler(command);
 
                 case CommandNames.AddCommentCommandName:
                     return AddCommentCommandHandler(command);
@@ -187,12 +187,6 @@
             var vehicleIndex = int.Parse(command.Parameters[2]) - 1;
 
             return this.AddComment(this.signInManager.LoggedUser, content, vehicleIndex, author);
-        }
-
-        private string RemoveVehicleCommandHandler(ICommand command)
-        {
-            var vehicleIndex = int.Parse(command.Parameters[0]) - 1;
-            return this.RemoveVehicle(vehicleIndex);
         }
 
         private IList<ICommand> ReadCommands()
@@ -233,15 +227,6 @@
             return string.Format(Messages.CommentRemovedSuccessfully, this.signInManager.LoggedUser.Username);
         }
 
-        private string RemoveVehicle(int vehicleIndex)
-        {
-            Validator.ValidateIntRange(vehicleIndex, 0, this.signInManager.LoggedUser.Vehicles.Count, Messages.RemovedVehicleDoesNotExist);
 
-            var vehicle = this.signInManager.LoggedUser.Vehicles[vehicleIndex];
-
-            this.signInManager.LoggedUser.RemoveVehicle(vehicle);
-
-            return string.Format(Messages.VehicleRemovedSuccessfully, this.signInManager.LoggedUser.Username);
-        }
     }
 }
