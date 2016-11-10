@@ -182,9 +182,8 @@
                 case CommandNames.RemoveCommentCommandName:
                     return RemoveCommentCommandHanler(command);
 
-                case CommandNames.ShowUsersCommandName:
-
-                    return ShowUsersCommandHandler();
+                ////case CommandNames.ShowUsersCommandName:
+                ////    return ShowUsersCommandHandler();
 
                 ////case CommandNames.ShowVehiclesCommandName:
                 ////    return ShowVehiclesCommandHandler(command);
@@ -192,11 +191,6 @@
                 default:
                     return string.Format(Messages.InvalidCommand, command.Name);
             }
-        }
-
-        private string ShowUsersCommandHandler()
-        {
-            return this.ShowAllUsers();
         }
 
         private string RemoveCommentCommandHanler(ICommand command)
@@ -297,26 +291,5 @@
 
             return string.Format(Messages.VehicleRemovedSuccessfully, this.signInManager.LoggedUser.Username);
         }
-
-        private string ShowAllUsers()
-        {
-            if (this.signInManager.LoggedUser.Role != Role.Admin)
-            {
-                return Messages.YouAreNotAnAdmin;
-            }
-
-            var builder = new StringBuilder();
-            builder.AppendLine("--USERS--");
-            var counter = 1;
-            foreach (var user in this.usersRepository.All())
-            {
-                builder.AppendLine(string.Format("{0}. {1}", counter, user.ToString()));
-                counter++;
-            }
-
-            return builder.ToString().Trim();
-        }
-
-      
     }
 }
