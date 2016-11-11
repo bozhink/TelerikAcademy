@@ -6,13 +6,17 @@ using System.Collections.Generic;
 
 namespace SchoolSystem.Framework.Data.Repositories
 {
-    public class TeacherRepository : AbstractSchoolRepository<ITeacher>, ITeacherRepository
+    public class Teachers : AbstractSchoolRepository<ITeacher>, ITeacherRepository
     {
-        public TeacherRepository(ISchoolDbContext db)
+        private int currentId = 0;
+
+        public Teachers(ISchoolDbContext db)
             : base(db)
         {
         }
 
         protected override IDictionary<int, ITeacher> Collection => this.DbContext.Teachers;
+
+        protected override int NextId() => this.currentId++;
     }
 }

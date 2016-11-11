@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-
-using SchoolSystem.Framework.Core.Contracts;
-using SchoolSystem.Framework.Models.Contracts;
+﻿using SchoolSystem.Framework.Core.Contracts;
+using System;
 
 namespace SchoolSystem.Framework.Core
 {
@@ -14,9 +11,6 @@ namespace SchoolSystem.Framework.Core
         private readonly IReader reader;
         private readonly IWriter writer;
         private readonly IParser parser;
-
-        /* Could also extract Database provider for Teachers and Students collections
-           But it will become too complex for the purposes of this exam */
 
         public Engine(IReader readerProvider, IWriter writerProvider, IParser parserProvider)
         {
@@ -38,14 +32,7 @@ namespace SchoolSystem.Framework.Core
             this.reader = readerProvider;
             this.writer = writerProvider;
             this.parser = parserProvider;
-
-            Teachers = new Dictionary<int, ITeacher>();
-            Students = new Dictionary<int, IStudent>();
         }
-
-        public static IDictionary<int, ITeacher> Teachers { get; set; }
-
-        public static IDictionary<int, IStudent> Students { get; set; }
 
         public void Start()
         {

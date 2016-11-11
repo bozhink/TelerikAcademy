@@ -1,5 +1,6 @@
 ﻿using SchoolSystem.Framework.Core.Commands.Contracts;
 using SchoolSystem.Framework.Core.Contracts;
+using SchoolSystem.Framework.Data.Contracts.Repositories;
 using SchoolSystem.Framework.Models.Enums;
 using System;
 using System.Collections.Generic;
@@ -8,18 +9,23 @@ namespace SchoolSystem.Framework.Core.Commands
 {
     public class CreateStudentCommand : ICommand
     {
-        private static int currentStudentId = 0;
-
         private readonly IStudentFactory studentFactory;
+        private readonly IStudentRepository repository;
 
-        public CreateStudentCommand(IStudentFactory studentFactory)
+        public CreateStudentCommand(IStudentFactory studentFactory, IStudentRepository repository)
         {
             if (studentFactory == null)
             {
                 throw new ArgumentNullException(nameof(studentFactory));
             }
 
+            if (repository == null)
+            {
+                throw new ArgumentNullException(nameof(repository));
+            }
+
             this.studentFactory = studentFactory;
+            this.repository = repository;
         }
 
         public string Execute(IList<string> parameters)
@@ -29,9 +35,9 @@ namespace SchoolSystem.Framework.Core.Commands
             var grade = (Grade)int.Parse(parameters[2]);
 
             var student = this.studentFactory.CreateStudent(firstName, lastName, grade);
-            Engine.Students.Add(currentStudentId, student);
+            var id = this.repository.Add(student);
 
-            return $"A new student with name {firstName} {lastName}, grade {grade} and ID {currentStudentId++} was created.";
+            return $"A new student with name {firstName} {lastName}, grade {grade} and ID {id} was created.";
         }
     }
 }

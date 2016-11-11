@@ -9,6 +9,8 @@ using SchoolSystem.Framework.Core.Contracts;
 using SchoolSystem.Framework.Core.Providers;
 using SchoolSystem.Framework.Data;
 using SchoolSystem.Framework.Data.Contracts;
+using SchoolSystem.Framework.Data.Contracts.Repositories;
+using SchoolSystem.Framework.Data.Repositories;
 using System;
 using System.IO;
 using System.Reflection;
@@ -51,6 +53,14 @@ namespace SchoolSystem.Cli
 
             this.Bind<ISchoolDbContext>()
                 .To<SchoolDatabase>()
+                .InSingletonScope();
+
+            this.Bind<ITeacherRepository>()
+                .To<Teachers>()
+                .InSingletonScope();
+
+            this.Bind<IStudentRepository>()
+                .To<Students>()
                 .InSingletonScope();
 
             this.Bind<IStudentFactory>()

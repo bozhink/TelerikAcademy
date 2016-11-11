@@ -2,7 +2,7 @@
 {
     public interface ISchoolRepository<T>
     {
-        void Add(T entity);
+        int Add(T entity);
 
         T GetById(int id);
 

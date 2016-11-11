@@ -24,16 +24,19 @@ namespace SchoolSystem.Framework.Data.Repositories.Abstracts
 
         protected abstract IDictionary<int, T> Collection { get; }
 
-        public virtual void Add(T entity)
+        protected abstract int NextId();
+
+        public virtual int Add(T entity)
         {
             if (entity == null)
             {
                 throw new ArgumentNullException(nameof(entity));
             }
 
-            // TODO: Generate unique id
-            int id = this.Collection.Keys.Max() + 1;
+            int id = this.NextId();
             this.Collection.Add(id, entity);
+
+            return id;
         }
 
         public virtual T GetById(int id)

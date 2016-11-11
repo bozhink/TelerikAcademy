@@ -62,8 +62,8 @@
     <Compile Include="Data\Contracts\Repositories\IStudentRepository.cs" />
     <Compile Include="Data\Contracts\Repositories\ITeacherRepository.cs" />
     <Compile Include="Data\Repositories\Abstracts\AbstractSchoolRepository.cs" />
-    <Compile Include="Data\Repositories\StudentRepository.cs" />
-    <Compile Include="Data\Repositories\TeacherRepository.cs" />
+    <Compile Include="Data\Repositories\Students.cs" />
+    <Compile Include="Data\Repositories\Teachers.cs" />
     <Compile Include="Data\SchoolDatabase.cs" />
     <Compile Include="Models\Abstractions\Person.cs" />
     <Compile Include="Models\Contracts\IMark.cs" />
