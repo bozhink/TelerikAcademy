@@ -10,9 +10,9 @@ namespace SchoolSystem.Framework.Core.Providers
 {
     public class CommandParserProvider : IParser
     {
-        private readonly Func<Type, ICommand> commandFactory;
+        private readonly ICommandFactory commandFactory;
 
-        public CommandParserProvider(Func<Type, ICommand> commandFactory)
+        public CommandParserProvider(ICommandFactory commandFactory)
         {
             if (commandFactory == null)
             {
@@ -26,7 +26,7 @@ namespace SchoolSystem.Framework.Core.Providers
         {
             var commandName = fullCommand.Split(' ')[0];
             var commandTypeInfo = this.FindCommand(commandName);
-            var command = this.commandFactory(commandTypeInfo);
+            var command = this.commandFactory.GetCommand(commandTypeInfo);
 
             return command;
         }
