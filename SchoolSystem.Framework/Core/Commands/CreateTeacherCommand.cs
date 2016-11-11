@@ -1,12 +1,12 @@
-﻿using SchoolSystem.Framework.Core.Commands.Contracts;
-using SchoolSystem.Framework.Core.Contracts;
-using SchoolSystem.Framework.Data.Contracts.Repositories;
-using SchoolSystem.Framework.Models.Enums;
-using System;
-using System.Collections.Generic;
-
-namespace SchoolSystem.Framework.Core.Commands
+﻿namespace SchoolSystem.Framework.Core.Commands
 {
+    using System;
+    using System.Collections.Generic;
+    using SchoolSystem.Framework.Core.Commands.Contracts;
+    using SchoolSystem.Framework.Core.Contracts;
+    using SchoolSystem.Framework.Data.Contracts.Repositories;
+    using SchoolSystem.Framework.Models.Enums;
+
     public class CreateTeacherCommand : ICommand
     {
         private readonly ITeacherFactory teacherFactory;
@@ -30,6 +30,16 @@ namespace SchoolSystem.Framework.Core.Commands
 
         public string Execute(IList<string> parameters)
         {
+            if (parameters == null)
+            {
+                throw new ArgumentNullException(nameof(parameters));
+            }
+
+            if (parameters.Count < 3)
+            {
+                throw new ArgumentException("Three parameters are needed in order: <firstName> <lastName> <subject>", nameof(parameters));
+            }
+
             var firstName = parameters[0];
             var lastName = parameters[1];
             var subject = (Subject)int.Parse(parameters[2]);

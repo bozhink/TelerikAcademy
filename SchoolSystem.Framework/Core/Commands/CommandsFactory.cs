@@ -1,8 +1,8 @@
-﻿using SchoolSystem.Framework.Core.Commands.Contracts;
-using System;
-
-namespace SchoolSystem.Framework.Core.Commands
+﻿namespace SchoolSystem.Framework.Core.Commands
 {
+    using System;
+    using SchoolSystem.Framework.Core.Commands.Contracts;
+
     public class CommandsFactory : ICommandFactory
     {
         private readonly Func<Type, ICommand> commandFactory;

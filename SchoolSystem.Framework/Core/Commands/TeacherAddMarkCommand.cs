@@ -1,10 +1,10 @@
-﻿using SchoolSystem.Framework.Core.Commands.Contracts;
-using SchoolSystem.Framework.Data.Contracts.Repositories;
-using System;
-using System.Collections.Generic;
-
-namespace SchoolSystem.Framework.Core.Commands
+﻿namespace SchoolSystem.Framework.Core.Commands
 {
+    using System;
+    using System.Collections.Generic;
+    using SchoolSystem.Framework.Core.Commands.Contracts;
+    using SchoolSystem.Framework.Data.Contracts.Repositories;
+
     public class TeacherAddMarkCommand : ICommand
     {
         private readonly ITeacherRepository teacherRepository;
@@ -28,6 +28,16 @@ namespace SchoolSystem.Framework.Core.Commands
 
         public string Execute(IList<string> parameters)
         {
+            if (parameters == null)
+            {
+                throw new ArgumentNullException(nameof(parameters));
+            }
+
+            if (parameters.Count < 3)
+            {
+                throw new ArgumentException("Three parameters are needed in order: <teacherId> <studentId> <mark>", nameof(parameters));
+            }
+
             var teacherId = int.Parse(parameters[0]);
             var studentId = int.Parse(parameters[1]);
             var mark = float.Parse(parameters[2]);
