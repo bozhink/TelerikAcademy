@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-
-using SchoolSystem.Framework.Core.Commands.Contracts;
+﻿using SchoolSystem.Framework.Core.Commands.Contracts;
 using SchoolSystem.Framework.Models;
 using SchoolSystem.Framework.Models.Enums;
+using System.Collections.Generic;
 
 namespace SchoolSystem.Framework.Core.Commands
 {
