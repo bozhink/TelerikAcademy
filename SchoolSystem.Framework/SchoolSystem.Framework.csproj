@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Commands\CommandFactory.cs" />
+    <Compile Include="Core\Commands\CommandsFactory.cs" />
     <Compile Include="Core\Commands\Contracts\ICommand.cs" />
     <Compile Include="Core\Commands\Contracts\ICommandFactory.cs" />
     <Compile Include="Core\Commands\CreateStudentCommand.cs" />

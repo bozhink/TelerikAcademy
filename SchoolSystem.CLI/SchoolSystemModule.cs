@@ -1,8 +1,10 @@
 ﻿using Ninject;
 using Ninject.Extensions.Conventions;
 using Ninject.Extensions.Factory;
+using Ninject.Extensions.Interception.Infrastructure.Language;
 using Ninject.Modules;
 using SchoolSystem.Cli.Configuration;
+using SchoolSystem.Cli.Interceptors;
 using SchoolSystem.Framework.Core.Commands;
 using SchoolSystem.Framework.Core.Commands.Contracts;
 using SchoolSystem.Framework.Core.Contracts;
@@ -65,7 +67,9 @@ namespace SchoolSystem.Cli
 
             this.Bind<IStudentFactory>()
                 .ToFactory()
-                .InSingletonScope();
+                .InSingletonScope()
+                .Intercept()
+                .With<TimerInterceptor>();
 
             this.Bind<ITeacherFactory>()
                 .ToFactory()
@@ -73,7 +77,14 @@ namespace SchoolSystem.Cli
 
             this.Bind<IMarkFactory>()
                 .ToFactory()
-                .InSingletonScope();
+                .InSingletonScope()
+                .Intercept()
+                .With<TimerInterceptor>();
+
+            this.Bind<ICommandFactory>()
+                .To<CommandsFactory>()
+                .Intercept()
+                .With<TimerInterceptor>();
 
             this.Bind<Func<Type, ICommand>>()
                 .ToMethod(context => t => (ICommand)context.Kernel.Get(t));
