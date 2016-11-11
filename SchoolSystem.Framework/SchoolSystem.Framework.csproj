@@ -57,6 +57,8 @@
     <Compile Include="Core\Providers\CommandParserProvider.cs" />
     <Compile Include="Core\Providers\ConsoleReaderProvider.cs" />
     <Compile Include="Core\Providers\ConsoleWriterProvider.cs" />
+    <Compile Include="Data\Contracts\ISchoolDbContext.cs" />
+    <Compile Include="Data\SchoolDatabase.cs" />
     <Compile Include="Models\Abstractions\Person.cs" />
     <Compile Include="Models\Contracts\IMark.cs" />
     <Compile Include="Models\Contracts\IPerson.cs" />

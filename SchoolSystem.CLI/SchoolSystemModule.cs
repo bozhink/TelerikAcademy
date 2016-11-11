@@ -1,5 +1,4 @@
-﻿using System;
-using Ninject;
+﻿using Ninject;
 using Ninject.Extensions.Conventions;
 using Ninject.Extensions.Factory;
 using Ninject.Modules;
@@ -8,6 +7,9 @@ using SchoolSystem.Framework.Core.Commands;
 using SchoolSystem.Framework.Core.Commands.Contracts;
 using SchoolSystem.Framework.Core.Contracts;
 using SchoolSystem.Framework.Core.Providers;
+using SchoolSystem.Framework.Data;
+using SchoolSystem.Framework.Data.Contracts;
+using System;
 using System.IO;
 using System.Reflection;
 
@@ -47,6 +49,10 @@ namespace SchoolSystem.Cli
             this.Bind<IParser>()
                 .To<CommandParserProvider>();
 
+            this.Bind<ISchoolDbContext>()
+                .To<SchoolDatabase>()
+                .InSingletonScope();
+
             this.Bind<IStudentFactory>()
                 .ToFactory()
                 .InSingletonScope();
@@ -58,7 +64,7 @@ namespace SchoolSystem.Cli
             this.Bind<Func<Type, ICommand>>()
                 .ToMethod(context => t => (ICommand)context.Kernel.Get(t));
 
-               IConfigurationProvider configurationProvider = Kernel.Get<IConfigurationProvider>();
+            IConfigurationProvider configurationProvider = Kernel.Get<IConfigurationProvider>();
             if (configurationProvider.IsTestEnvironment)
             {
             }
