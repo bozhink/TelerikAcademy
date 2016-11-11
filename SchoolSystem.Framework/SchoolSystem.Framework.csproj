@@ -50,6 +50,7 @@
     <Compile Include="Core\Contracts\IParser.cs" />
     <Compile Include="Core\Contracts\IReader.cs" />
     <Compile Include="Core\Contracts\IStudentFactory.cs" />
+    <Compile Include="Core\Contracts\ITeacherFactory.cs" />
     <Compile Include="Core\Contracts\IWriter.cs" />
     <Compile Include="Core\Engine.cs" />
     <Compile Include="Core\Contracts\IEngine.cs" />

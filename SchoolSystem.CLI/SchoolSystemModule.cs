@@ -51,6 +51,10 @@ namespace SchoolSystem.Cli
                 .ToFactory()
                 .InSingletonScope();
 
+            this.Bind<ITeacherFactory>()
+                .ToFactory()
+                .InSingletonScope();
+
             this.Bind<Func<Type, ICommand>>()
                 .ToMethod(context => t => (ICommand)context.Kernel.Get(t));
 
