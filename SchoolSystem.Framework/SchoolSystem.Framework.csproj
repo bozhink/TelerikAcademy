@@ -51,6 +51,7 @@
     <Compile Include="Core\Contracts\IReader.cs" />
     <Compile Include="Core\Contracts\IWriter.cs" />
     <Compile Include="Core\Engine.cs" />
+    <Compile Include="Core\Contracts\IEngine.cs" />
     <Compile Include="Core\Providers\CommandParserProvider.cs" />
     <Compile Include="Core\Providers\ConsoleReaderProvider.cs" />
     <Compile Include="Core\Providers\ConsoleWriterProvider.cs" />

@@ -6,7 +6,7 @@ using SchoolSystem.Framework.Models.Contracts;
 
 namespace SchoolSystem.Framework.Core
 {
-    public class Engine
+    public class Engine : IEngine
     {
         private const string TerminationCommand = "End";
         private const string NullProvidersExceptionMessage = "cannot be null.";
