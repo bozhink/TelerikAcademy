@@ -1,7 +1,7 @@
-﻿using System.Configuration;
-
-namespace SchoolSystem.Cli.Configuration
+﻿namespace SchoolSystem.Cli.Configuration
 {
+    using System.Configuration;
+
     public class ConfigurationProvider : IConfigurationProvider
     {
         public bool IsTestEnvironment
