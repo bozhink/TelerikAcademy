@@ -1,11 +1,10 @@
-﻿using SchoolSystem.Framework.Core.Contracts;
-using SchoolSystem.Framework.Models.Abstractions;
-using SchoolSystem.Framework.Models.Contracts;
-using SchoolSystem.Framework.Models.Enums;
-using System;
-
-namespace SchoolSystem.Framework.Models
+﻿namespace SchoolSystem.Framework.Models
 {
+    using System;
+    using SchoolSystem.Framework.Models.Abstractions;
+    using SchoolSystem.Framework.Models.Contracts;
+    using SchoolSystem.Framework.Models.Enums;
+
     public class Teacher : Person, ITeacher
     {
         public const int MaxStudentMarksCount = 20;
@@ -33,7 +32,7 @@ namespace SchoolSystem.Framework.Models
                 throw new ArgumentException($"The student's marks count exceed the maximum count of {MaxStudentMarksCount} marks");
             }
 
-            //var newMark = this.markFactory.CreateMark(this.Subject, mark);
+            ////var newMark = this.markFactory.CreateMark(this.Subject, mark);
             var newMark = new Mark(this.Subject, mark);
             student.Marks.Add(newMark);
         }

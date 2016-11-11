@@ -1,24 +1,24 @@
-﻿using Ninject;
-using Ninject.Extensions.Conventions;
-using Ninject.Extensions.Factory;
-using Ninject.Extensions.Interception.Infrastructure.Language;
-using Ninject.Modules;
-using SchoolSystem.Cli.Configuration;
-using SchoolSystem.Cli.Interceptors;
-using SchoolSystem.Framework.Core.Commands;
-using SchoolSystem.Framework.Core.Commands.Contracts;
-using SchoolSystem.Framework.Core.Contracts;
-using SchoolSystem.Framework.Core.Providers;
-using SchoolSystem.Framework.Data;
-using SchoolSystem.Framework.Data.Contracts;
-using SchoolSystem.Framework.Data.Contracts.Repositories;
-using SchoolSystem.Framework.Data.Repositories;
-using System;
-using System.IO;
-using System.Reflection;
-
-namespace SchoolSystem.Cli
+﻿namespace SchoolSystem.Cli
 {
+    using System;
+    using System.IO;
+    using System.Reflection;
+    using Ninject;
+    using Ninject.Extensions.Conventions;
+    using Ninject.Extensions.Factory;
+    using Ninject.Extensions.Interception.Infrastructure.Language;
+    using Ninject.Modules;
+    using SchoolSystem.Cli.Configuration;
+    using SchoolSystem.Cli.Interceptors;
+    using SchoolSystem.Framework.Core.Commands;
+    using SchoolSystem.Framework.Core.Commands.Contracts;
+    using SchoolSystem.Framework.Core.Contracts;
+    using SchoolSystem.Framework.Core.Providers;
+    using SchoolSystem.Framework.Data;
+    using SchoolSystem.Framework.Data.Contracts;
+    using SchoolSystem.Framework.Data.Contracts.Repositories;
+    using SchoolSystem.Framework.Data.Repositories;
+
     public class SchoolSystemModule : NinjectModule
     {
         private const string CreateStudentCommandName = nameof(CreateStudentCommand);

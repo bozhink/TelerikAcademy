@@ -1,13 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using SchoolSystem.Framework.Models.Abstractions;
-using SchoolSystem.Framework.Models.Contracts;
-using SchoolSystem.Framework.Models.Enums;
-
-namespace SchoolSystem.Framework.Models
+﻿namespace SchoolSystem.Framework.Models
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using SchoolSystem.Framework.Models.Abstractions;
+    using SchoolSystem.Framework.Models.Contracts;
+    using SchoolSystem.Framework.Models.Enums;
+
     public class Student : Person, IStudent
     {
         public Student(string firstName, string lastName, Grade grade)

@@ -1,9 +1,9 @@
-﻿using SchoolSystem.Framework.Data.Contracts;
-using SchoolSystem.Framework.Models.Contracts;
-using System.Collections.Generic;
-
-namespace SchoolSystem.Framework.Data
+﻿namespace SchoolSystem.Framework.Data
 {
+    using System.Collections.Generic;
+    using SchoolSystem.Framework.Data.Contracts;
+    using SchoolSystem.Framework.Models.Contracts;
+
     public class SchoolDatabase : ISchoolDbContext
     {
         public SchoolDatabase()

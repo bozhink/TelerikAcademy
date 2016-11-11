@@ -1,12 +1,12 @@
-﻿using Ninject.Extensions.Interception;
-using SchoolSystem.Cli.Configuration;
-using SchoolSystem.Framework.Core.Contracts;
-using System;
-using System.Diagnostics;
-using System.Linq;
-
-namespace SchoolSystem.Cli.Interceptors
+﻿namespace SchoolSystem.Cli.Interceptors
 {
+    using System;
+    using System.Diagnostics;
+    using System.Linq;
+    using Ninject.Extensions.Interception;
+    using SchoolSystem.Cli.Configuration;
+    using SchoolSystem.Framework.Core.Contracts;
+
     public class TimerInterceptor : IInterceptor
     {
         private readonly IConfigurationProvider configurationProvider;

@@ -1,10 +1,9 @@
-﻿using System;
-
-using SchoolSystem.Framework.Models.Contracts;
-using SchoolSystem.Framework.Models.Enums;
-
-namespace SchoolSystem.Framework.Models
+﻿namespace SchoolSystem.Framework.Models
 {
+    using System;
+    using SchoolSystem.Framework.Models.Contracts;
+    using SchoolSystem.Framework.Models.Enums;
+
     public class Mark : IMark
     {
         private const float MinValue = 2.00f;

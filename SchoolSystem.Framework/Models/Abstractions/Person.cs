@@ -1,10 +1,9 @@
-﻿using System;
-using System.Text.RegularExpressions;
-
-using SchoolSystem.Framework.Models.Contracts;
-
-namespace SchoolSystem.Framework.Models.Abstractions
+﻿namespace SchoolSystem.Framework.Models.Abstractions
 {
+    using System;
+    using System.Text.RegularExpressions;
+    using SchoolSystem.Framework.Models.Contracts;
+
     public abstract class Person : IPerson
     {
         private const int MinFirstNameLenght = 2;

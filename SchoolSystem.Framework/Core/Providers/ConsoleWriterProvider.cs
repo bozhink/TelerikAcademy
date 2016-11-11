@@ -1,8 +1,8 @@
-﻿using System;
-using SchoolSystem.Framework.Core.Contracts;
-
-namespace SchoolSystem.Framework.Core.Providers
+﻿namespace SchoolSystem.Framework.Core.Providers
 {
+    using System;
+    using SchoolSystem.Framework.Core.Contracts;
+
     public class ConsoleWriterProvider : IWriter
     {
         public void Write(string message)

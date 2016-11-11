@@ -1,8 +1,8 @@
-﻿using SchoolSystem.Framework.Core.Contracts;
-using System;
-
-namespace SchoolSystem.Framework.Core
+﻿namespace SchoolSystem.Framework.Core
 {
+    using System;
+    using SchoolSystem.Framework.Core.Contracts;
+
     public class Engine : IEngine
     {
         private const string TerminationCommand = "End";

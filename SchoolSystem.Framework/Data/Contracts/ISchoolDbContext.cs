@@ -1,8 +1,8 @@
-﻿using SchoolSystem.Framework.Models.Contracts;
-using System.Collections.Generic;
-
-namespace SchoolSystem.Framework.Data.Contracts
+﻿namespace SchoolSystem.Framework.Data.Contracts
 {
+    using System.Collections.Generic;
+    using SchoolSystem.Framework.Models.Contracts;
+
     public interface ISchoolDbContext
     {
         IDictionary<int, ITeacher> Teachers { get; }

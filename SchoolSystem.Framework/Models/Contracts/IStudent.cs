@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using SchoolSystem.Framework.Models.Enums;
-
-namespace SchoolSystem.Framework.Models.Contracts
+﻿namespace SchoolSystem.Framework.Models.Contracts
 {
+    using System.Collections.Generic;
+    using SchoolSystem.Framework.Models.Enums;
+
     /// <summary>
     /// Represens a Student and extends a Person, has a Grade, a collection of Marks and a way of displaying those marks.
     /// </summary>

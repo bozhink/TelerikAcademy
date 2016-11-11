@@ -1,8 +1,8 @@
-﻿using Ninject;
-using SchoolSystem.Framework.Core.Contracts;
-
-namespace SchoolSystem.Cli
+﻿namespace SchoolSystem.Cli
 {
+    using Ninject;
+    using SchoolSystem.Framework.Core.Contracts;
+
     public class Startup
     {
         public static void Main()

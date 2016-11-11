@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-
-using SchoolSystem.Framework.Core.Commands.Contracts;
-using SchoolSystem.Framework.Core.Contracts;
-
-namespace SchoolSystem.Framework.Core.Providers
+﻿namespace SchoolSystem.Framework.Core.Providers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Reflection;
+    using SchoolSystem.Framework.Core.Commands.Contracts;
+    using SchoolSystem.Framework.Core.Contracts;
+
     public class CommandParserProvider : IParser
     {
         private readonly ICommandFactory commandFactory;

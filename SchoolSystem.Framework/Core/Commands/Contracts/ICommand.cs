@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace SchoolSystem.Framework.Core.Commands.Contracts
+﻿namespace SchoolSystem.Framework.Core.Commands.Contracts
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// Represents a command that can be loaded by the parser.
     /// </summary>

@@ -1,7 +1,7 @@
-﻿using SchoolSystem.Framework.Models.Enums;
-
-namespace SchoolSystem.Framework.Models.Contracts
+﻿namespace SchoolSystem.Framework.Models.Contracts
 {
+    using SchoolSystem.Framework.Models.Enums;
+
     /// <summary>
     /// Represents a Teacher and exdents Person, has a Subject and a way of assinging Marks to Students.
     /// </summary>

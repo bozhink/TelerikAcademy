@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
-
-using SchoolSystem.Framework.Core.Commands.Contracts;
-
-namespace SchoolSystem.Framework.Core.Contracts
+﻿namespace SchoolSystem.Framework.Core.Contracts
 {
+    using System.Collections.Generic;
+    using SchoolSystem.Framework.Core.Commands.Contracts;
+
     /// <summary>
     /// Interface for a Parser provider
     /// </summary>

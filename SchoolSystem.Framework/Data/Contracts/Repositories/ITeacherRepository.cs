@@ -1,7 +1,7 @@
-﻿using SchoolSystem.Framework.Models.Contracts;
-
-namespace SchoolSystem.Framework.Data.Contracts.Repositories
+﻿namespace SchoolSystem.Framework.Data.Contracts.Repositories
 {
+    using SchoolSystem.Framework.Models.Contracts;
+
     public interface ITeacherRepository : ISchoolRepository<ITeacher>
     {
     }

@@ -1,11 +1,10 @@
-﻿using SchoolSystem.Framework.Data.Contracts;
-using SchoolSystem.Framework.Data.Contracts.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace SchoolSystem.Framework.Data.Repositories.Abstracts
+﻿namespace SchoolSystem.Framework.Data.Repositories.Abstracts
 {
+    using System;
+    using System.Collections.Generic;
+    using SchoolSystem.Framework.Data.Contracts;
+    using SchoolSystem.Framework.Data.Contracts.Repositories;
+
     public abstract class AbstractSchoolRepository<T> : ISchoolRepository<T>
     {
         private readonly ISchoolDbContext db;
@@ -20,11 +19,9 @@ namespace SchoolSystem.Framework.Data.Repositories.Abstracts
             this.db = db;
         }
 
-        protected ISchoolDbContext DbContext => db;
-
         protected abstract IDictionary<int, T> Collection { get; }
 
-        protected abstract int NextId();
+        protected ISchoolDbContext DbContext => this.db;
 
         public virtual int Add(T entity)
         {
@@ -48,5 +45,7 @@ namespace SchoolSystem.Framework.Data.Repositories.Abstracts
         {
             return this.Collection.Remove(id);
         }
+
+        protected abstract int NextId();
     }
 }
