@@ -76,7 +76,7 @@
             var repositoryMock = new Mock<IStudentRepository>();
             var command = new CreateStudentCommand(studentFactoryMock.Object, repositoryMock.Object);
 
-            // Act
+            // Act + Assert
             var exception = Assert.Throws<ArgumentNullException>(() =>
             {
                 command.Execute(null);
@@ -99,7 +99,7 @@
 
             var parameters = new string[] { "Stamat" }.ToList();
 
-            // Act
+            // Act + Assert
             var exception = Assert.Throws<ArgumentException>(() =>
             {
                 command.Execute(parameters);
@@ -122,7 +122,7 @@
 
             var parameters = "Izpit bez Pesho ne moze da mine.".Split(' ').ToList();
 
-            // Act
+            // Act + Assert
             var exception = Assert.Throws<FormatException>(() =>
             {
                 command.Execute(parameters);
@@ -151,6 +151,7 @@
             // Act
             var message = command.Execute(parameters);
 
+            // Assert
             studentFactoryMock.Verify(f => f.CreateStudent(parameters[0], parameters[1], (Grade)int.Parse(parameters[2])), Times.Once);
 
             // Senseless. Needs integration test.

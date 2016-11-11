@@ -51,7 +51,7 @@
             var repositoryMock = new Mock<IStudentRepository>();
             var command = new RemoveStudentCommand(repositoryMock.Object);
 
-            // Act
+            // Act + Assert
             var exception = Assert.Throws<ArgumentNullException>(() =>
             {
                 command.Execute(null);
@@ -72,7 +72,7 @@
 
             var parameters = new List<string>();
 
-            // Act
+            // Act + Assert
             var exception = Assert.Throws<ArgumentException>(() =>
             {
                 command.Execute(parameters);
@@ -93,7 +93,7 @@
 
             var parameters = "Pesho again".Split(' ').ToList();
 
-            // Act
+            // Act + Assert
             var exception = Assert.Throws<FormatException>(() =>
             {
                 command.Execute(parameters);
@@ -134,7 +134,7 @@
 
             var command = new RemoveStudentCommand(repositoryMock.Object);
 
-            // Act
+            // Act + Assert
             var exception = Assert.Throws<ArgumentException>(() =>
             {
                 var message = command.Execute(parameters);
