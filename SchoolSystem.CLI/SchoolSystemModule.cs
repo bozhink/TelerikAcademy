@@ -71,6 +71,10 @@ namespace SchoolSystem.Cli
                 .ToFactory()
                 .InSingletonScope();
 
+            this.Bind<IMarkFactory>()
+                .ToFactory()
+                .InSingletonScope();
+
             this.Bind<Func<Type, ICommand>>()
                 .ToMethod(context => t => (ICommand)context.Kernel.Get(t));
 
