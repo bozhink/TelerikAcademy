@@ -1,19 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NumberOfOccurences
+﻿namespace NumberOfOccurences
 {
+    using System;
+    using System.Collections.Generic;
+
     public class Startup
     {
         public static void Main(string[] args)
         {
             var sequence = new int[] { 3, 4, 4, 2, 3, 3, 4, 3, 2 };
-            var ocurrences = CountOcurrences(sequence);
+            var occurrences = CountOcurrences(sequence);
 
-            // TODO: print
+            for (int i = 0; i < occurrences.GetLength(0); i++)
+            {
+                Console.WriteLine("{0} → {1} times", occurrences[i, 0], occurrences[i, 1]);
+            }
         }
 
         public static int[,] CountOcurrences(int[] sequence)
