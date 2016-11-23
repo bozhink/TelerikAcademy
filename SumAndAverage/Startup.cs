@@ -7,7 +7,7 @@
     {
         public static void Main(string[] args)
         {
-            var inputList = new List<int>();
+            var sequence = new List<int>();
 
             while (true)
             {
@@ -24,17 +24,17 @@
                     continue;
                 }
 
-                inputList.Add(item);
+                sequence.Add(item);
             }
 
             long sum = 0L;
             double average = 0.0;
-            foreach (var item in inputList)
+            foreach (var item in sequence)
             {
                 sum += item;
             }
 
-            average = (1.0 * sum) / inputList.Count;
+            average = (1.0 * sum) / sequence.Count;
 
             Console.WriteLine("Sum = {0}, Average = {1}", sum, average);
         }
