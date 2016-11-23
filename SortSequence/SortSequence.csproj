@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0176AF04-9329-4870-925A-8961773D3CD9}</ProjectGuid>
+    <ProjectGuid>{68F61F90-405D-49B5-9CB4-B82AA4F7E9B6}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ReverseSequenceWithStack</RootNamespace>
-    <AssemblyName>ReverseSequenceWithStack</AssemblyName>
+    <RootNamespace>SortSequence</RootNamespace>
+    <AssemblyName>SortSequence</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
