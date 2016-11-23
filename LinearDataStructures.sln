@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NegativeNumbersRemover", "N
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OddRemover", "OddRemover\OddRemover.csproj", "{16990EF7-95F3-44D8-9425-E988D02A19DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumberOfOccurences", "NumberOfOccurences\NumberOfOccurences.csproj", "{F0B7972B-312D-48FF-B5AF-D7CAE26BF8CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,10 @@ Global
 		{16990EF7-95F3-44D8-9425-E988D02A19DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16990EF7-95F3-44D8-9425-E988D02A19DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16990EF7-95F3-44D8-9425-E988D02A19DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0B7972B-312D-48FF-B5AF-D7CAE26BF8CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0B7972B-312D-48FF-B5AF-D7CAE26BF8CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0B7972B-312D-48FF-B5AF-D7CAE26BF8CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0B7972B-312D-48FF-B5AF-D7CAE26BF8CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
